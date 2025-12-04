@@ -10,7 +10,7 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>) -> Vec<Collection> {
+pub async fn fetch_collections(pool: Pool<MySql>) -> std::collections::HashMap<i64, Collection> {
     sqlx::query_as::<_, Collection>(
         "
         SELECT `id`,
@@ -25,4 +25,7 @@ pub async fn fetch_collections(pool: Pool<MySql>) -> Vec<Collection> {
     .fetch_all(&pool)
     .await
     .expect("Failed to fetch collections")
+    .into_iter()
+    .map(|c| (c.id, c))
+    .collect()
 }
