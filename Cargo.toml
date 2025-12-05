@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+regex = "1.12.2"
 sqlx = { version = "0.8.6", features = [ "mysql", "runtime-tokio-native-tls", "macros" ] }
 tokio = { version = "1", features = [ "full" ] }

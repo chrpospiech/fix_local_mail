@@ -1,3 +1,5 @@
+use crate::connect::{connect_to_database, get_fallback_url};
+
 pub(crate) mod connect;
 pub(crate) mod maildirs;
 pub(crate) mod todoitems;
@@ -5,12 +7,15 @@ pub(crate) mod todoitems;
 #[tokio::main]
 async fn main() {
     // Connect to the database
-    let default_url = "mysql://lmxtest:lmxtest@localhost/akonadi";
-    let pool = connect::connect_to_database(default_url).await;
+    let current_url: String = std::env::var("DATABASE_URL").unwrap_or_else(|_| get_fallback_url());
+    let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&current_url).await;
 
-    let collections = maildirs::fetch_collections(pool.clone()).await;
-    let todo_items = todoitems::fetch_todo_items(pool.clone()).await;
+    // Fetch and print mail collections and todo items
+    let collections: std::collections::HashMap<i64, maildirs::Collection> =
+        maildirs::fetch_collections(pool.clone()).await;
+    let todo_items: Vec<todoitems::TodoItem> = todoitems::fetch_todo_items(pool.clone()).await;
 
+    // Print fetched data
     for item in todo_items {
         println!("{:?}", item);
         println!("{:?}", collections.get(&item.collection_id));
