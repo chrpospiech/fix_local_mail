@@ -13,7 +13,9 @@ async fn main() {
     // Fetch and print mail collections and todo items
     let collections: std::collections::HashMap<i64, maildirs::Collection> =
         maildirs::fetch_collections(pool.clone()).await;
-    let todo_items: Vec<todoitems::TodoItem> = todoitems::fetch_todo_items(pool.clone()).await;
+    let mail_list: Vec<String> = vec!["1759397542456.R839.helios:2,S".to_string()];
+    let todo_items: Vec<todoitems::TodoItem> =
+        todoitems::fetch_todo_items(pool.clone(), mail_list).await;
 
     // Print fetched data
     for item in todo_items {
