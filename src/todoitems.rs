@@ -13,12 +13,12 @@ pub struct TodoItem {
 
 pub async fn fetch_todo_items(pool: Pool<MySql>, mail_list: Vec<String>) -> Vec<TodoItem> {
     let mut query_builder = QueryBuilder::new(
-        "SELECT `id`, 
-            CONVERT(`remoteId`, CHAR) AS `remote_id`, 
+        "SELECT `id`,
+            CONVERT(`remoteId`, CHAR) AS `remote_id`,
             `collectionId` AS `collection_id`,
-            `dirty`, 
+            `dirty`,
             `mimeTypeId` AS `mime_type_id`
-        FROM `pimitemtable` 
+        FROM `pimitemtable`
         WHERE `mimeTypeId` = 2
         AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'",
     );
