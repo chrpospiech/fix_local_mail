@@ -10,8 +10,11 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>) -> std::collections::HashMap<i64, Collection> {
-    sqlx::query_as::<_, Collection>(
+pub async fn fetch_collections(
+    pool: Pool<MySql>,
+    get_root_only: bool,
+) -> std::collections::HashMap<i64, Collection> {
+    let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,
                CONVERT(`remoteId`, CHAR)    AS `remote_id`,
@@ -21,11 +24,18 @@ pub async fn fetch_collections(pool: Pool<MySql>) -> std::collections::HashMap<i
         FROM `collectiontable`
         WHERE `resourceId` = 3
         ",
-    )
-    .fetch_all(&pool)
-    .await
-    .expect("Failed to fetch collections")
-    .into_iter()
-    .map(|c| (c.id, c))
-    .collect()
+    );
+
+    if get_root_only {
+        query.push(" AND `parentId` IS NULL");
+    }
+
+    query
+        .build_query_as::<Collection>()
+        .fetch_all(&pool)
+        .await
+        .expect("Failed to fetch collections")
+        .into_iter()
+        .map(|c| (c.id, c))
+        .collect()
 }
