@@ -1,5 +1,4 @@
 use crate::connect::{connect_to_database, get_fallback_url};
-use crate::maildirs::fetch_collections;
 use crate::new_mails::find_new_mail_files;
 use crate::todoitems::fetch_todo_items;
 
@@ -18,17 +17,17 @@ async fn main() {
     let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone()).await;
     // Find new mail files
     let new_mail_list: Vec<String> = find_new_mail_files(root_paths).await;
-    let collections: std::collections::HashMap<i64, maildirs::Collection> =
-        fetch_collections(pool.clone(), false).await;
+    // Fetch full paths of all mail directories
+    let full_paths: std::collections::HashMap<i64, String> =
+        maildirs::fetch_full_paths(pool.clone()).await;
+    // Fetch todo items corresponding to new mail files
     let todo_items: Vec<todoitems::TodoItem> = fetch_todo_items(pool.clone(), new_mail_list).await;
 
     // Print fetched data
     for item in todo_items {
+        println!("{:?}", full_paths.get(&item.collection_id));
         println!("{:?}", item);
-        println!("{:?}", collections.get(&item.collection_id));
     }
-
-    println!("Hello, world!");
 
     // Explicit disconnect
     pool.close().await;
