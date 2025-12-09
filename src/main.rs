@@ -14,14 +14,9 @@ async fn main() {
     let current_url: String = std::env::var("DATABASE_URL").unwrap_or_else(|_| get_fallback_url());
     let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&current_url).await;
 
-    // Fetch and print mail collections and todo items
-    // Start with fetching root directories only
-    let root_dirs: std::collections::HashMap<i64, maildirs::Collection> =
-        fetch_collections(pool.clone(), true).await;
-    let root_paths: Vec<Option<String>> = root_dirs
-        .values()
-        .map(|collection| collection.remote_id.clone())
-        .collect();
+    // Fetch mail root directories
+    let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone()).await;
+    // Find new mail files
     let new_mail_list: Vec<String> = find_new_mail_files(root_paths).await;
     let collections: std::collections::HashMap<i64, maildirs::Collection> =
         fetch_collections(pool.clone(), false).await;

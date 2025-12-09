@@ -39,3 +39,12 @@ pub async fn fetch_collections(
         .map(|c| (c.id, c))
         .collect()
 }
+
+pub async fn get_root_paths(pool: Pool<MySql>) -> Vec<Option<String>> {
+    let root_dirs: std::collections::HashMap<i64, Collection> =
+        fetch_collections(pool.clone(), true).await;
+    root_dirs
+        .values()
+        .map(|collection| collection.remote_id.clone())
+        .collect::<Vec<Option<String>>>()
+}
