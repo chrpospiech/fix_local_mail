@@ -5,6 +5,7 @@ use crate::todoitems::fetch_todo_items;
 pub(crate) mod connect;
 pub(crate) mod maildirs;
 pub(crate) mod new_mails;
+pub(crate) mod target;
 pub(crate) mod todoitems;
 
 #[tokio::main]
@@ -28,6 +29,13 @@ async fn main() {
         println!("{:?}", full_paths.get(&item.collection_id));
         println!("{:?}", item);
     }
+
+    let test_mail_file = "/home/cp/Mail/AltHendesse/cur/1540826869.R19.helios:2,S";
+    println!(
+        "Mail {} has timestamp: {}",
+        test_mail_file,
+        target::get_mail_time_stamp(test_mail_file)
+    );
 
     // Explicit disconnect
     pool.close().await;
