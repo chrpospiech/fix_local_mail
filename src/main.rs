@@ -14,6 +14,12 @@ async fn main() {
     // Print fetched data
     for item in todo_items {
         println!("{:?}", item);
+        // Remove temporary files created for cached emails
+        if item.source_path.starts_with("/tmp/") {
+            if let Err(e) = std::fs::remove_file(&item.source_path) {
+                eprintln!("Failed to remove temp file {}: {}", item.source_path, e);
+            }
+        }
     }
 
     // Explicit disconnect

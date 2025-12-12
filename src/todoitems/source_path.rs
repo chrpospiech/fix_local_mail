@@ -1,4 +1,7 @@
 use sqlx::{MySql, Pool};
+use std::io::Write;
+use std::path::PathBuf;
+use uuid::Uuid;
 
 pub async fn get_source_file_name(
     path: String,
@@ -57,7 +60,13 @@ pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>) -> String {
             home_dir, data_string
         );
         return get_single_matching_file(&pattern).await;
-    } // Cached email is stored in database
-
-    format!("stored {}", result.storage)
+    } else {
+        // Cached email is stored in database
+        let unique_name = format!("/tmp/{}", Uuid::new_v4());
+        let path = PathBuf::from(&unique_name);
+        let mut file = std::fs::File::create(&path).expect("Failed to create temp file");
+        file.write_all(&result.data)
+            .expect("Failed to write to temp file");
+        unique_name
+    }
 }
