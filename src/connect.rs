@@ -17,14 +17,13 @@ pub fn get_mysql_socket() -> Option<String> {
         .map(|m| m.as_str().to_string())
 }
 
-pub fn get_fallback_url() -> String {
-    let fallback_url: &str = "mysql://lmxtest:lmxtest@localhost/akonadi";
+pub fn get_database_url() -> String {
     let socket: Option<String> = get_mysql_socket();
-    if let Some(sock) = socket {
-        format!("mysql://lmxtest:lmxtest@localhost/akonadi?socket={}", sock)
-    } else {
-        fallback_url.to_string()
+    if socket.is_none() {
+        panic!("Failed to get MySQL socket path. Is the Akonadi database running?");
     }
+    let sock = socket.unwrap();
+    format!("mysql://localhost/akonadi?socket={}", sock)
 }
 
 pub async fn connect_to_database(database_url: &str) -> sqlx::Pool<sqlx::MySql> {
