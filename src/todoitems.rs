@@ -71,13 +71,6 @@ pub async fn fetch_todo_items(pool: Pool<MySql>) -> Vec<TodoItem> {
         maildirs::fetch_full_paths(pool.clone()).await;
     // Fetch todo items corresponding to new mail files
     let todo_pim_items: Vec<TodoPimItem> = fetch_todo_pim_items(pool.clone(), new_mail_list).await;
-    // Test mail timestamp retrieval
-    let test_mail_file = "/home/cp/Mail/AltHendesse/cur/1540826869.R19.helios:2,S";
-    println!(
-        "Test mail {} has timestamp: {}",
-        test_mail_file,
-        target_path::get_mail_time_stamp(test_mail_file)
-    );
 
     let async_todo_items = todo_pim_items
         .into_iter()
@@ -87,7 +80,6 @@ pub async fn fetch_todo_items(pool: Pool<MySql>) -> Vec<TodoItem> {
                 .get(&item.collection_id)
                 .cloned()
                 .unwrap_or("tbd/".to_string());
-            //            let full_path_copy = full_path.clone(); // Create a copy for the async block
             async move {
                 let item_source = source_path::get_source_file_name(
                     full_path.clone(),
@@ -96,11 +88,19 @@ pub async fn fetch_todo_items(pool: Pool<MySql>) -> Vec<TodoItem> {
                     pool.clone(),
                 )
                 .await;
+                let item_target = target_path::get_target_file_name(
+                    full_path,
+                    item.remote_id.as_ref(),
+                    item_source.clone(),
+                    item.id,
+                    pool.clone(),
+                )
+                .await;
                 TodoItem {
                     id: item.id,
                     dirty: item.dirty,
                     source_path: item_source,
-                    target_path: "tbd: ".to_string(),
+                    target_path: item_target,
                 }
             }
         })
