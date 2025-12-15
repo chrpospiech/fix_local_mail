@@ -51,13 +51,19 @@ pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, target_path: &str,
         .file_name()
         .and_then(|n| n.to_str())
         .unwrap_or("");
-    let query = format!(
-        "UPDATE `pimitemtable` SET `remoteId`='{}', `dirty`=0 WHERE id={}; \
-         UPDATE `parttable` SET `data`= NULL, `storage`= 0 \
-             WHERE `pimItemId`={} AND `partTypeId`=2;",
-        base_name, id, id
-    );
-    if let Err(e) = sqlx::query(&query).execute(&pool).await {
-        eprintln!("Failed to execute query {}: {}", query, e);
-    }
+    let mut tx = pool.begin().await.unwrap();
+    sqlx::query("UPDATE `pimitemtable` SET `remoteId`=?, `dirty`=0 WHERE id=?")
+        .bind(base_name)
+        .bind(id)
+        .execute(&mut *tx)
+        .await
+        .unwrap();
+    sqlx::query(
+        "UPDATE `parttable` SET `data`=NULL, `storage`=0 WHERE `pimItemId`=? AND `partTypeId`=2",
+    )
+    .bind(id)
+    .execute(&mut *tx)
+    .await
+    .unwrap();
+    tx.commit().await.unwrap();
 }

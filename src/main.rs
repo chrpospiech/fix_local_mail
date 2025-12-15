@@ -6,7 +6,7 @@ pub(crate) mod todoitems;
 
 #[tokio::main]
 async fn main() {
-    let dry_run = true; // Set to false to perform actual operations
+    let dry_run = false; // Set to false to perform actual operations
     if dry_run {
         println!("Dry run mode enabled. No changes will be made.");
     }
