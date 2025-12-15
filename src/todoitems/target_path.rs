@@ -74,7 +74,7 @@ pub fn get_mail_time_stamp(mail_file: &str) -> u64 {
         .as_secs()
 }
 
-pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> i32 {
+pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> u64 {
     // Find the maximum R value for mails with similar timestamp prefix
     let query = format!(
         "SELECT MAX(CONVERT(SUBSTR(REGEXP_SUBSTR(`remoteId`,'R[0-9]+'),2),UNSIGNED)) AS `r_value` \
@@ -86,7 +86,7 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> i32 {
     );
 
     // Execute the query
-    let result: Option<(Option<i32>,)> = sqlx::query_as(&query)
+    let result: Option<(Option<u64>,)> = sqlx::query_as(&query)
         .fetch_optional(&pool)
         .await
         .expect("Failed to execute query");
