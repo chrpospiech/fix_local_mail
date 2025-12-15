@@ -62,7 +62,11 @@ pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>) -> String {
         return get_single_matching_file(&pattern).await;
     } else {
         // Cached email is stored in database
-        let unique_name = format!("/tmp/{}", Uuid::new_v4());
+        let unique_name = format!(
+            "{}/.local/share/akonadi/file_db_data/tmp{}",
+            home_dir,
+            Uuid::new_v4()
+        );
         let path = PathBuf::from(&unique_name);
         let mut file = std::fs::File::create(&path).expect("Failed to create temp file");
         file.write_all(&result.data)
