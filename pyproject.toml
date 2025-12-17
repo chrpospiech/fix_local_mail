@@ -1,10 +1,10 @@
 [project]
-name = "fix-akonadi"
+name = "fix-local-mail"
 version = "0.1.0"
-description = "Akonadi database fix tool"
-requires-python = ">=3.8"
+description = "Akonadi database fix tool for local mails"
+requires-python = ">=3.10"
 dependencies = [
-    "pre-commit>=4.5.0",
+    "pre-commit>=4.5.1",
 ]
 
 [tool.uv]
