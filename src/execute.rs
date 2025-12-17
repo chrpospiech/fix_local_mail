@@ -35,7 +35,10 @@ pub fn remove_temp_file(file_path: &str) {
 }
 
 pub fn move_file(source: &str, target: &str) {
-    // Ensure target directory is writable
+    // Ensure both, source and target directory are writable
+    if let Some(parent) = std::path::Path::new(&source).parent() {
+        ensure_writable_directory(parent.to_string_lossy().to_string());
+    }
     if let Some(parent) = std::path::Path::new(&target).parent() {
         ensure_writable_directory(parent.to_string_lossy().to_string());
     }
