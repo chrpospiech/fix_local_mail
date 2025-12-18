@@ -1,12 +1,15 @@
 use crate::connect::{connect_to_database, get_database_url};
 
+pub(crate) mod cmdline;
 pub(crate) mod connect;
 pub(crate) mod execute;
 pub(crate) mod todoitems;
 
 #[tokio::main]
 async fn main() {
-    let dry_run = false; // Set to false to perform actual operations
+    let args = cmdline::parse_args();
+
+    let dry_run = args.dry_run;
     if dry_run {
         println!("Dry run mode enabled. No changes will be made.");
     }
