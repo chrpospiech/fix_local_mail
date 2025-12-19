@@ -55,14 +55,23 @@ endif (KF5Akonadi_FOUND AND KPim5Mime_FOUND)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(akonadi_helper
-    main.cpp
+add_executable(modify_pimitem
+    modify_item.cpp
 )
 
-target_link_libraries(akonadi_helper
+target_link_libraries(modify_pimitem
     Qt5::Core
     KF5::AkonadiCore
     KPim5::Mime
 )
 
-install(TARGETS akonadi_helper DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+add_executable(delete_pimitem
+    delete_item.cpp
+)
+
+target_link_libraries(delete_pimitem
+    Qt5::Core
+    KF5::AkonadiCore
+)
+
+install(TARGETS modify_pimitem delete_pimitem DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)

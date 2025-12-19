@@ -54,7 +54,7 @@ pub async fn update_akonadi_via_helper(item_id: i64, target_path: &str) -> Resul
         .file_name()
         .and_then(|n| n.to_str())
         .ok_or("Failed to extract remote ID from target path")?;
-    let output = Command::new("./helper/bin/akonadi_helper")
+    let output = Command::new("./helper/bin/modify_pimitem")
         .arg(item_id.to_string())
         .arg(remote_id)
         .output()

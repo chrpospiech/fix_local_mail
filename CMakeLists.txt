@@ -10,7 +10,7 @@
 
 cmake_minimum_required(VERSION 3.20.0)
 
-project(akonadi_helper)
+project(akonadi_helpers VERSION 0.1.0 LANGUAGES CXX)
 
 # Cmake modules/macros are in a subdirectory to keep this file cleaner
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
