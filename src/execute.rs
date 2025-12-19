@@ -1,6 +1,7 @@
 use std::fs;
 use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
+use std::process::Command;
 
 pub fn ensure_writable_directory(dir: String) {
     let path = Path::new(&dir);
@@ -48,25 +49,19 @@ pub fn move_file(source: &str, target: &str) {
     }
 }
 
-pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, target_path: &str, id: i64) {
-    // Extract base name from target path
-    let base_name = std::path::Path::new(target_path)
+pub async fn update_akonadi_via_helper(item_id: i64, target_path: &str) -> Result<(), String> {
+    let remote_id = std::path::Path::new(target_path)
         .file_name()
         .and_then(|n| n.to_str())
-        .unwrap_or("");
-    let mut tx = pool.begin().await.unwrap();
-    sqlx::query("UPDATE `pimitemtable` SET `remoteId`=?, `dirty`=0 WHERE id=?")
-        .bind(base_name)
-        .bind(id)
-        .execute(&mut *tx)
-        .await
-        .unwrap();
-    sqlx::query(
-        "UPDATE `parttable` SET `data`=NULL, `storage`=0 WHERE `pimItemId`=? AND `partTypeId`=2",
-    )
-    .bind(id)
-    .execute(&mut *tx)
-    .await
-    .unwrap();
-    tx.commit().await.unwrap();
+        .ok_or("Failed to extract remote ID from target path")?;
+    let output = Command::new("./helper/bin/akonadi_helper")
+        .arg(item_id.to_string())
+        .arg(remote_id)
+        .output()
+        .map_err(|e| format!("Failed to run helper: {}", e))?;
+
+    if !output.status.success() {
+        return Err(String::from_utf8_lossy(&output.stderr).to_string());
+    }
+    Ok(())
 }

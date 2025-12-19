@@ -33,7 +33,9 @@ async fn main() {
             // Move files to their target locations
             // We don't need to remove temp files separately here since they are moved
             execute::move_file(&item.source_path, &item.target_path);
-            execute::update_akonadi_db(pool.clone(), &item.target_path, item.id).await;
+            execute::update_akonadi_via_helper(item.id, &item.target_path)
+                .await
+                .unwrap();
         }
     }
 
