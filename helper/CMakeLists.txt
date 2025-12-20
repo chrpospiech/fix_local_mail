@@ -55,23 +55,25 @@ endif (KF5Akonadi_FOUND AND KPim5Mime_FOUND)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(modify_pimitem
-    modify_item.cpp
+# Build as shared library
+add_library(akonadi_helper SHARED
+    src/akonadi_lib.cpp
 )
 
-target_link_libraries(modify_pimitem
+# Set visibility to export symbols
+set_target_properties(akonadi_helper PROPERTIES
+    CXX_VISIBILITY_PRESET default
+    VISIBILITY_INLINES_HIDDEN OFF
+)
+
+target_include_directories(akonadi_helper PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(akonadi_helper
     Qt5::Core
     KF5::AkonadiCore
     KPim5::Mime
 )
 
-add_executable(delete_pimitem
-    delete_item.cpp
-)
-
-target_link_libraries(delete_pimitem
-    Qt5::Core
-    KF5::AkonadiCore
-)
-
-install(TARGETS modify_pimitem delete_pimitem DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+install(TARGETS akonadi_helper DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../lib)

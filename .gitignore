@@ -1,9 +1,9 @@
 /target
 /build
-/helper/bin
+/lib
 .vscode
 .venv
 __pycache__/
 .env
 *.log
-fix_akonadi.code-workspace
+fix_local_mail.code-workspace

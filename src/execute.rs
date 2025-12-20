@@ -1,7 +1,8 @@
 use std::fs;
 use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
-use std::process::Command;
+
+use crate::akonadi_ffi;
 
 pub fn ensure_writable_directory(dir: String) {
     let path = Path::new(&dir);
@@ -49,19 +50,20 @@ pub fn move_file(source: &str, target: &str) {
     }
 }
 
-pub async fn update_akonadi_via_helper(item_id: i64, target_path: &str) -> Result<(), String> {
+pub fn update_akonadi_via_lib(item_id: i64, target_path: &str) -> Result<(), String> {
+    // Extract remote ID from target path
     let remote_id = std::path::Path::new(target_path)
         .file_name()
         .and_then(|n| n.to_str())
         .ok_or("Failed to extract remote ID from target path")?;
-    let output = Command::new("./helper/bin/modify_pimitem")
-        .arg(item_id.to_string())
-        .arg(remote_id)
-        .output()
-        .map_err(|e| format!("Failed to run helper: {}", e))?;
 
-    if !output.status.success() {
-        return Err(String::from_utf8_lossy(&output.stderr).to_string());
+    akonadi_ffi::modify_item(item_id, remote_id)?;
+
+    let some = false;
+
+    // Example condition to delete an item
+    if some {
+        akonadi_ffi::delete_item(item_id)?;
     }
     Ok(())
 }
