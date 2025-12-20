@@ -21,7 +21,6 @@ async fn main() {
 
     // Print fetched data
     for item in todo_items {
-        println!("{:?}", item);
         if dry_run {
             println!(
                 "Dry run: would move {} to {}",
@@ -30,6 +29,12 @@ async fn main() {
             // Remove temporary files created for cached emails
             execute::remove_temp_file(&item.source_path);
         } else {
+            if args.verbose {
+                println!(
+                    "Processing item ID {}: moving {} to {}",
+                    item.id, item.source_path, item.target_path
+                );
+            }
             // Move files to their target locations
             // We don't need to remove temp files separately here since they are moved
             execute::move_file(&item.source_path, &item.target_path);
