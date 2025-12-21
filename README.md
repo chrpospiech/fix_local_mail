@@ -57,3 +57,19 @@ we have the following.
    - Flag "F" (flagged): user-defined flag; toggled at user discretion.
 
 - Flags must be stored in ASCII order: e.g., "2,FRS".
+
+## Lessons Learned
+
+### Correct Way of Integrating CMakeLists.txt
+
+- A `CMakeLists.txt` on the top level directory helps `VS code` to recognize that
+  there is a C++ build process and enables the correct tools.
+- When triggered by an entry `build = "build.rs"` in `cargo.toml`, `cargo build`
+  is calling `build.rs` which executes `cmake` to configure, build and install.
+- The `build.rs` in commit `bd478043` executes the same `cmake` commands as `VS code`
+  does. This is different from what is typically suggested by AI.
+
+### Correct Way of Integrating a C++ Library
+
+- Called functions need to be exported in the dynamic symbol table.
+- `cargo` needs to set the `rpath` in order to find the dynamic library at run time.
