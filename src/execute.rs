@@ -48,25 +48,25 @@ pub fn move_file(source: &str, target: &str) {
     }
 }
 
-pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, target_path: &str, id: i64) {
-    // Extract base name from target path
-    let base_name = std::path::Path::new(target_path)
-        .file_name()
-        .and_then(|n| n.to_str())
-        .unwrap_or("");
-    let mut tx = pool.begin().await.unwrap();
-    sqlx::query("UPDATE `pimitemtable` SET `remoteId`=?, `dirty`=0 WHERE id=?")
-        .bind(base_name)
+pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, id: i64) {
+    sqlx::query("DELETE FROM pimitemtable WHERE id = ?")
         .bind(id)
-        .execute(&mut *tx)
+        .execute(&pool)
         .await
         .unwrap();
-    sqlx::query(
-        "UPDATE `parttable` SET `data`=NULL, `storage`=0 WHERE `pimItemId`=? AND `partTypeId`=2",
+}
+
+pub async fn trigger_akonadi_sync() -> Result<(), Box<dyn std::error::Error>> {
+    let conn = zbus::Connection::session().await?;
+
+    conn.call_method(
+        Some("org.freedesktop.Akonadi.Resource.akonadi_maildir_resource_0"),
+        "/",
+        Some("org.freedesktop.Akonadi.Resource"),
+        "synchronize",
+        &(),
     )
-    .bind(id)
-    .execute(&mut *tx)
-    .await
-    .unwrap();
-    tx.commit().await.unwrap();
+    .await?;
+
+    Ok(())
 }
