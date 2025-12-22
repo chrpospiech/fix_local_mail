@@ -18,6 +18,7 @@ pub struct TodoPimItem {
 }
 
 pub async fn fetch_todo_pim_items(pool: Pool<MySql>, mail_list: Vec<String>) -> Vec<TodoPimItem> {
+    // Build the query starting with mails that are marked as dirty or new
     let mut query_builder = QueryBuilder::new(
         "SELECT `id`,
             CONVERT(`remoteId`, CHAR) AS `remote_id`,
@@ -29,6 +30,18 @@ pub async fn fetch_todo_pim_items(pool: Pool<MySql>, mail_list: Vec<String>) -> 
         AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'",
     );
 
+    // Include items flagged as answered but not marked as replied
+    // These items also need to be processed and the flag
+    // changed to replied after moving.
+    query_builder.push(
+        " OR (
+        `id` IN (SELECT pimItem_Id
+                 FROM `pimitemflagrelation`
+                 WHERE `flag_Id` = 9)
+        AND `remoteId` NOT LIKE '%:2%RS')",
+    );
+
+    // Add remote IDs from mail_list to the query
     if !mail_list.is_empty() {
         query_builder.push(" OR `remoteId` IN (");
         let mut separated = query_builder.separated(", ");
@@ -38,6 +51,7 @@ pub async fn fetch_todo_pim_items(pool: Pool<MySql>, mail_list: Vec<String>) -> 
         query_builder.push(")");
     }
 
+    // Close the main WHERE clause selecting only mails in local folders
     query_builder.push(
         ")
         AND `collectionId` IN (
