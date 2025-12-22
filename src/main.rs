@@ -19,7 +19,7 @@ async fn main() {
 
     let todo_items: Vec<todoitems::TodoItem> = todoitems::fetch_todo_items(pool.clone()).await;
 
-    // Print fetched data
+    // Handle fetched data
     for item in todo_items {
         if dry_run {
             println!(
@@ -42,13 +42,16 @@ async fn main() {
         }
     }
 
-    // Trigger Akonadi synchronization
-    if !dry_run {
-        if let Err(e) = execute::trigger_akonadi_sync().await {
-            eprintln!("Failed to trigger Akonadi sync: {}", e);
-        }
-    }
-
-    // Explicit disconnect
+    // Explicit disconnect from the database
     pool.close().await;
+
+    // Clean up operations
+    if dry_run {
+        println!("Dry run: would clean up Akonadi and KMail.");
+    } else {
+        if args.verbose {
+            println!("Cleaning up Akonadi and KMail...");
+        }
+        execute::clean_up(args.stop_akonadi, args.stop_kmail).await;
+    }
 }

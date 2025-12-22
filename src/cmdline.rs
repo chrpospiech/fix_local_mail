@@ -7,9 +7,13 @@ pub struct CliArgs {
     #[arg(short = 'D', long, default_value_t = false)]
     pub dry_run: bool,
 
-    /// Stop Kmail before and Akonadi after processing
-    #[arg(short = 'A', long, default_value_t = false)]
+    /// Stop Kmail and Akonadi after processing
+    #[arg(short = 'a', long, default_value_t = false)]
     pub stop_akonadi: bool,
+
+    /// Stop Kmail after processing
+    #[arg(short = 'k', long, default_value_t = false)]
+    pub stop_kmail: bool,
 
     /// Verbose output
     #[arg(short = 'v', long, default_value_t = false)]

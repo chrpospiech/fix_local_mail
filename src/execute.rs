@@ -70,3 +70,80 @@ pub async fn trigger_akonadi_sync() -> Result<(), Box<dyn std::error::Error>> {
 
     Ok(())
 }
+
+pub async fn trigger_kmail_quit() -> Result<(), Box<dyn std::error::Error>> {
+    let conn = zbus::Connection::session().await?;
+
+    // Quit KMail to force it to reload everything from Akonadi
+    // This is the only reliable way to clear KMail's view cache
+    match conn
+        .call_method(
+            Some("org.kde.kmail"),
+            "/kmail2/kmail_mainwindow_1",
+            Some("org.qtproject.Qt.QWidget"),
+            "close",
+            &(),
+        )
+        .await
+    {
+        Ok(_) => {
+            println!("KMail closed successfully. Please restart it manually.");
+        }
+        Err(e) => {
+            eprintln!(
+                "Failed to close KMail: {}. You may need to restart KMail manually.",
+                e
+            );
+        }
+    }
+
+    Ok(())
+}
+
+pub async fn trigger_akonadi_stop() -> Result<(), Box<dyn std::error::Error>> {
+    let conn = zbus::Connection::session().await?;
+
+    match conn
+        .call_method(
+            Some("org.freedesktop.Akonadi.Control"),
+            "/ControlManager",
+            Some("org.freedesktop.Akonadi.ControlManager"),
+            "shutdown",
+            &(),
+        )
+        .await
+    {
+        Ok(_) => {
+            println!("Akonadi server stopped successfully.");
+        }
+        Err(e) => {
+            eprintln!("Failed to stop Akonadi via D-Bus: {}", e);
+            eprintln!("You may need to run 'akonadictl stop' manually.");
+        }
+    }
+
+    Ok(())
+}
+
+pub async fn clean_up(stop_akonadi: bool, stop_kmail: bool) {
+    // Clean up Akonadi and KMail
+
+    // Trigger Akonadi to synchronize changes
+    if let Err(e) = trigger_akonadi_sync().await {
+        eprintln!("Failed to trigger Akonadi sync: {}", e);
+    }
+
+    if stop_akonadi || stop_kmail {
+        // Trigger KMail to refresh all views
+        if let Err(e) = trigger_kmail_quit().await {
+            eprintln!("Failed to trigger KMail refresh: {}", e);
+        }
+    }
+
+    if stop_akonadi {
+        // Stop Akonadi server
+        if let Err(e) = trigger_akonadi_stop().await {
+            eprintln!("Failed to stop Akonadi: {}", e);
+        }
+    }
+}
