@@ -1,4 +1,4 @@
-# fix_akonadi
+# fix_local_mail
 
 ## Introduction
 
@@ -57,6 +57,90 @@ we have the following.
    - Flag "F" (flagged): user-defined flag; toggled at user discretion.
 
 - Flags must be stored in ASCII order: e.g., "2,FRS".
+
+## Usage of the tool
+
+```bash
+Usage: fix_local_mail [OPTIONS]
+
+Options:
+  -D, --dry-run       Perform a dry run without making actual changes
+  -a, --stop-akonadi  Stop Kmail and Akonadi after processing
+  -k, --stop-kmail    Stop Kmail after processing
+  -v, --verbose       Verbose output
+  -h, --help          Print help
+  -V, --version       Print version
+```
+
+## Implementation
+
+- Find the emails that - potentially - need a change.
+
+   - Walk through all `new` directories and record the basenames found. The
+     assumption is that new mails are only in the inbox, not in local mails.
+     Feed these names into an SQL query for the Akonadi database to
+     additionally filter emails to meet the following two conditions.
+   - All email with the dirty flag set to indicate that they are kept in
+     the email cache.
+   - All emails with basenames not meeting `%2%S`. This is based on the
+     assumption that all emails are read (and marked "seen") before being
+     moved to the local mail folder.
+   - All emails marked `answered`, but not matching `%2%RS`. `RS` stands
+     for "replied and seen".
+   - The complete `SQL` query looks like the following for a non-empty list
+     of emails in `new` directories.
+
+     ```SQL
+     SELECT `id`,
+            CONVERT(`remoteId`, CHAR) AS `remote_id`,
+            `collectionId` AS `collection_id`,
+            `dirty`,
+            `mimeTypeId` AS `mime_type_id`
+        FROM `pimitemtable`
+        WHERE `mimeTypeId` = 2
+        AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'
+             OR (`id` IN (SELECT `pimItem_Id`
+                          FROM `pimitemflagrelation`
+                          WHERE `flag_Id` = 9)
+                  AND `remoteId` NOT LIKE '%:2%RS'
+                )
+             OR `remoteId` IN (<list of emails in new dirs>)
+             )
+        AND `collectionId` IN (
+            SELECT id FROM `collectiontable` WHERE `resourceId` = 3
+        )
+        ```
+
+- Find the original location of the email in absolute path names
+
+   - If `dirty` is not set, glob in the original directory to find whether
+     the email is in the `new`, `cur` or `tmp` directory.
+   - If the dirty flag is set, the email is kept in cache. Inspect the
+     `parttable` table in the Akonadi database whether the email is kept
+     on disk or in the database. In case of the letter, copy the email
+     into a temporary file on disk in the cache directory.
+
+- Compose the absolute path name with the correct email naming by inspecting
+  the table `pimitemflagrelation` in the Akonadi database.
+- Create the destination path if it does not exist and check for correct
+  file and directory permissions.
+- Move the email from the original location (or temporary file) to the
+  absolute path name with the correct email naming by a `UNIX` rename
+  (`inode` operation only).
+- Delete the original `id` from the `pimitemtable`, which clears all
+  related entries in tables `parttable` and `pimitemflagrelation` through
+  a delete cascade.
+- Trigger Akonadi synchronization from disk by sending a `synchronization`
+  request through DBus.
+- If requested through command line option, stop Kmail and Akonadi through
+  appropriate DBus requests.
+
+Except for the last three items, the Akonadi database is accessed only
+with read operations which should not interfere with Akonadi. Akonadi
+is contacted only through DBus requests, except for SQL delete operation.
+The latter avoids confusion as the corrected emails are seen as newly
+imported emails that create new appropriate entries in the Akonadi
+database --- based in their name on path location.
 
 ## Lessons Learned
 
