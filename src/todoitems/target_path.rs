@@ -142,7 +142,12 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
         flags.sort();
         flags.dedup();
         let flag_string = flags.join("");
-        // Return the mail info string in the format ":2,FLAGS"
-        ":2,".to_string() + &flag_string
+        if !flag_string.is_empty() {
+            // Prepend :2, if there are flags
+            ":2,".to_string() + &flag_string
+        } else {
+            // No flags found - return empty string
+            String::new()
+        }
     }
 }
