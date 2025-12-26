@@ -41,15 +41,9 @@ pub async fn get_target_file_name(
 pub async fn create_new_mail_name(source_path: String, pool: Pool<MySql>) -> String {
     // Generate mail name based on timestamp, R value, and hostname
     let mail_time_stamp = get_mail_time_stamp(&source_path);
-    let hostname = if mail_time_stamp < 1431532000 {
-        // Before May 13, 2015, use "sirius" as hostname
-        "sirius".to_string()
-    } else {
-        // After that, use actual hostname
-        gethostname::gethostname()
-            .into_string()
-            .unwrap_or("unknownhost".to_string())
-    };
+    let hostname = gethostname::gethostname()
+        .into_string()
+        .unwrap_or("unknownhost".to_string());
     // Get R value from database
     let r_value = get_r_value(pool.clone(), mail_time_stamp).await;
     // Construct mail name
