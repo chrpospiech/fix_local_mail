@@ -18,36 +18,42 @@ pub async fn get_target_file_name(
     pool: Pool<MySql>,
 ) -> String {
     let mail_name: String;
+    let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
     if let Some(rid) = remote_id {
-        // Extract mail name without flag info from remote_id using regex
-        let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
         if let Some(caps) = re.captures(rid) {
+            // Use existing mail name from remote ID
             mail_name = caps.get(1).unwrap().as_str().to_string();
         } else {
-            panic!("Failed to extract mail name from remote_id: {}", rid);
+            // Generate mail name based on timestamp, R value, and hostname
+            mail_name = create_new_mail_name(source_path, pool.clone()).await;
         }
     } else {
         // Generate mail name based on timestamp, R value, and hostname
-        let mail_time_stamp = get_mail_time_stamp(&source_path);
-        let hostname = if mail_time_stamp < 1431532000 {
-            // Before May 13, 2015, use "sirius" as hostname
-            "sirius".to_string()
-        } else {
-            // After that, use actual hostname
-            gethostname::gethostname()
-                .into_string()
-                .unwrap_or("unknownhost".to_string())
-        };
-        // Get R value from database
-        let r_value = get_r_value(pool.clone(), mail_time_stamp).await;
-        // Construct mail name
-        mail_name = format!("{}.R{}.{}", mail_time_stamp, r_value, hostname);
+        mail_name = create_new_mail_name(source_path, pool.clone()).await;
     }
     // Get mail info (flags) from database
     let mail_info = get_mail_info(item_id, pool).await;
     // Construct final target file name with path, cur/new prefix, mail name, and mail info
     let cur_new_name = if mail_info.is_empty() { "new" } else { "cur" };
     format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info)
+}
+
+pub async fn create_new_mail_name(source_path: String, pool: Pool<MySql>) -> String {
+    // Generate mail name based on timestamp, R value, and hostname
+    let mail_time_stamp = get_mail_time_stamp(&source_path);
+    let hostname = if mail_time_stamp < 1431532000 {
+        // Before May 13, 2015, use "sirius" as hostname
+        "sirius".to_string()
+    } else {
+        // After that, use actual hostname
+        gethostname::gethostname()
+            .into_string()
+            .unwrap_or("unknownhost".to_string())
+    };
+    // Get R value from database
+    let r_value = get_r_value(pool.clone(), mail_time_stamp).await;
+    // Construct mail name
+    format!("{}.R{}.{}", mail_time_stamp, r_value, hostname)
 }
 
 pub fn get_mail_time_stamp(mail_file: &str) -> u64 {
