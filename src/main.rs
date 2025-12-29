@@ -29,16 +29,24 @@ async fn main() {
             // Remove temporary files created for cached emails
             execute::remove_temp_file(&item.source_path);
         } else {
-            if args.verbose {
-                println!(
-                    "Processing item ID {}: moving {} to {}",
-                    item.id, item.source_path, item.target_path
-                );
-            }
             // Move files to their target locations
             // We don't need to remove temp files separately here since they are moved
-            execute::move_file(&item.source_path, &item.target_path);
-            execute::update_akonadi_db(pool.clone(), item.id).await;
+            // We don't need to move files if source and target are the same
+            if item.source_path != item.target_path {
+                if args.verbose {
+                    println!(
+                        "Processing item ID {}: moving {} to {}",
+                        item.id, item.source_path, item.target_path
+                    );
+                }
+                execute::move_file(&item.source_path, &item.target_path);
+                execute::update_akonadi_db(pool.clone(), item.id).await;
+            } else if args.verbose {
+                println!(
+                    "Item ID {}: source and target path {} are the same. No action taken.",
+                    item.id, item.source_path
+                );
+            }
         }
     }
 
