@@ -1,3 +1,4 @@
+use crate::cmdline::CliArgs;
 use futures::future::join_all;
 use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
@@ -17,7 +18,11 @@ pub struct TodoPimItem {
     pub mime_type_id: i64,
 }
 
-pub async fn fetch_todo_pim_items(pool: Pool<MySql>, mail_list: Vec<String>) -> Vec<TodoPimItem> {
+pub async fn fetch_todo_pim_items(
+    pool: Pool<MySql>,
+    mail_list: Vec<String>,
+    args: &CliArgs,
+) -> Vec<TodoPimItem> {
     // Build the query starting with mails that are marked as dirty or new
     let mut query_builder = QueryBuilder::new(
         "SELECT `id`,
@@ -59,6 +64,11 @@ pub async fn fetch_todo_pim_items(pool: Pool<MySql>, mail_list: Vec<String>) -> 
         )",
     );
 
+    // Add limit if specified in args
+    if args.limit > 0 {
+        query_builder.push(format!(" LIMIT {}", args.limit));
+    }
+
     query_builder
         .build_query_as::<_>()
         .fetch_all(&pool)
@@ -75,16 +85,27 @@ pub struct TodoItem {
     pub target_path: String,
 }
 
-pub async fn fetch_todo_items(pool: Pool<MySql>) -> Vec<TodoItem> {
-    // Fetch mail root directories
-    let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone()).await;
-    // Find new mail files
-    let new_mail_list: Vec<String> = new_mails::find_new_mail_files(root_paths).await;
+pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem> {
+    let new_mail_list: Vec<String> = if args.ignore_new_dirs {
+        if args.verbose {
+            println!("Ignoring new directories as per command line argument.");
+        }
+        vec![]
+    } else {
+        if args.verbose {
+            println!("Finding new mail files...");
+        }
+        // Fetch mail root directories
+        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone()).await;
+        // Find new mail files
+        new_mails::find_new_mail_files(root_paths).await
+    };
     // Fetch full paths of all mail directories
     let full_paths: std::collections::HashMap<i64, String> =
         maildirs::fetch_full_paths(pool.clone()).await;
     // Fetch todo items corresponding to new mail files
-    let todo_pim_items: Vec<TodoPimItem> = fetch_todo_pim_items(pool.clone(), new_mail_list).await;
+    let todo_pim_items: Vec<TodoPimItem> =
+        fetch_todo_pim_items(pool.clone(), new_mail_list, args).await;
 
     let async_todo_items = todo_pim_items
         .into_iter()

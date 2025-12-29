@@ -7,6 +7,18 @@ pub struct CliArgs {
     #[arg(short = 'D', long, default_value_t = false)]
     pub dry_run: bool,
 
+    /// Limit the number of processed messages
+    #[arg(short = 'n', long, default_value_t = 0)]
+    pub limit: usize,
+
+    /// Database URL
+    #[arg(short = 'u', long, default_value = "socket")]
+    pub db_url: String,
+
+    /// Ignore list of mails in new directories
+    #[arg(short = 'i', long, default_value_t = false)]
+    pub ignore_new_dirs: bool,
+
     /// Stop Kmail and Akonadi after processing
     #[arg(short = 'a', long, default_value_t = false)]
     pub stop_akonadi: bool,

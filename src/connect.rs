@@ -1,3 +1,4 @@
+use crate::cmdline::CliArgs;
 use regex::Regex;
 use sqlx::mysql::MySqlPool;
 use std::process::Command;
@@ -26,8 +27,13 @@ pub fn get_database_url() -> String {
     format!("mysql://localhost/akonadi?socket={}", sock)
 }
 
-pub async fn connect_to_database(database_url: &str) -> sqlx::Pool<sqlx::MySql> {
-    let pool = MySqlPool::connect(database_url)
+pub async fn connect_to_database(args: &CliArgs) -> sqlx::Pool<sqlx::MySql> {
+    let database_url: String = if args.db_url == "socket" {
+        get_database_url()
+    } else {
+        args.db_url.clone()
+    };
+    let pool = MySqlPool::connect(&database_url)
         .await
         .expect("Failed to connect to database");
     pool

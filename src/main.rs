@@ -1,4 +1,4 @@
-use crate::connect::{connect_to_database, get_database_url};
+use crate::connect::connect_to_database;
 
 pub(crate) mod cmdline;
 pub(crate) mod connect;
@@ -14,10 +14,10 @@ async fn main() {
         println!("Dry run mode enabled. No changes will be made.");
     }
     // Connect to the database
-    let database_url: String = get_database_url();
-    let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&database_url).await;
+    let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&args).await;
 
-    let todo_items: Vec<todoitems::TodoItem> = todoitems::fetch_todo_items(pool.clone()).await;
+    let todo_items: Vec<todoitems::TodoItem> =
+        todoitems::fetch_todo_items(pool.clone(), &args).await;
 
     // Handle fetched data
     for item in todo_items {
