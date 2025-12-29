@@ -9,7 +9,7 @@ pub(crate) mod todoitems;
 async fn main() {
     let args = cmdline::parse_args();
 
-    let dry_run = args.dry_run;
+    let dry_run = args.dry_run || &args.db_url != "socket";
     if dry_run {
         println!("Dry run mode enabled. No changes will be made.");
     }

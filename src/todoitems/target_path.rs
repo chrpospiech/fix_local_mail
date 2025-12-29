@@ -1,3 +1,4 @@
+use crate::todoitems::CliArgs;
 use chrono::DateTime;
 use std::collections::HashMap;
 use std::fs::File;
@@ -16,6 +17,7 @@ pub async fn get_target_file_name(
     source_path: String,
     item_id: i64,
     pool: Pool<MySql>,
+    args: &CliArgs,
 ) -> String {
     let mail_name: String;
     let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
@@ -25,11 +27,11 @@ pub async fn get_target_file_name(
             mail_name = caps.get(1).unwrap().as_str().to_string();
         } else {
             // Generate mail name based on timestamp, R value, and hostname
-            mail_name = create_new_mail_name(source_path, pool.clone()).await;
+            mail_name = create_new_mail_name(source_path, pool.clone(), args).await;
         }
     } else {
         // Generate mail name based on timestamp, R value, and hostname
-        mail_name = create_new_mail_name(source_path, pool.clone()).await;
+        mail_name = create_new_mail_name(source_path, pool.clone(), args).await;
     }
     // Get mail info (flags) from database
     let mail_info = get_mail_info(item_id, pool).await;
@@ -38,9 +40,13 @@ pub async fn get_target_file_name(
     format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info)
 }
 
-pub async fn create_new_mail_name(source_path: String, pool: Pool<MySql>) -> String {
+pub async fn create_new_mail_name(
+    source_path: String,
+    pool: Pool<MySql>,
+    args: &CliArgs,
+) -> String {
     // Generate mail name based on timestamp, R value, and hostname
-    let mail_time_stamp = get_mail_time_stamp(&source_path);
+    let mail_time_stamp = get_mail_time_stamp(&source_path, args);
     let hostname = gethostname::gethostname()
         .into_string()
         .unwrap_or("unknownhost".to_string());
@@ -50,7 +56,16 @@ pub async fn create_new_mail_name(source_path: String, pool: Pool<MySql>) -> Str
     format!("{}.R{}.{}", mail_time_stamp, r_value, hostname)
 }
 
-pub fn get_mail_time_stamp(mail_file: &str) -> u64 {
+pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
+    if args.db_url != "socket" {
+        if args.verbose || args.dry_run {
+            println!(
+                "Custom DB URL: Not looking for mail timestamp from file {}.",
+                mail_file
+            );
+        }
+        return get_time_now_secs();
+    }
     // Open the mail file and read line by line to find the Date header
     let error_msg = format!("Cannot read mail file: {}", mail_file);
     let file = File::open(mail_file).expect(&error_msg);
@@ -68,6 +83,11 @@ pub fn get_mail_time_stamp(mail_file: &str) -> u64 {
     }
 
     // If no date found or parsing failed, return current time in seconds since UNIX_EPOCH
+    get_time_now_secs()
+}
+
+pub fn get_time_now_secs() -> u64 {
+    // Get the current system time in seconds since UNIX_EPOCH
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .expect("Time went backwards")

@@ -1,3 +1,4 @@
+use crate::todoitems::CliArgs;
 use sqlx::{MySql, Pool};
 use std::io::Write;
 use std::path::PathBuf;
@@ -8,7 +9,15 @@ pub async fn get_source_file_name(
     remote_id: Option<&String>,
     file_id: i64,
     pool: Pool<MySql>,
+    args: &CliArgs,
 ) -> String {
+    if args.db_url != "socket" {
+        if let Some(rid) = remote_id {
+            return format!("tbd/{}", rid);
+        } else {
+            return "tbd/NULL".to_string();
+        }
+    }
     if let Some(rid) = remote_id {
         let pattern = format!("{}*/{}", path, rid);
         get_single_matching_file(&pattern).await

@@ -87,12 +87,12 @@ pub struct TodoItem {
 
 pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem> {
     let new_mail_list: Vec<String> = if args.ignore_new_dirs {
-        if args.verbose {
+        if args.verbose || args.dry_run {
             println!("Ignoring new directories as per command line argument.");
         }
         vec![]
     } else {
-        if args.verbose {
+        if args.verbose || args.dry_run {
             println!("Finding new mail files...");
         }
         // Fetch mail root directories
@@ -121,6 +121,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
                     item.remote_id.as_ref(),
                     item.id,
                     pool.clone(),
+                    args,
                 )
                 .await;
                 let item_target = target_path::get_target_file_name(
@@ -129,6 +130,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
                     item_source.clone(),
                     item.id,
                     pool.clone(),
+                    args,
                 )
                 .await;
                 TodoItem {
