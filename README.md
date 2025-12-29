@@ -64,20 +64,24 @@ we have the following.
 Usage: fix_local_mail [OPTIONS]
 
 Options:
-  -D, --dry-run       Perform a dry run without making actual changes
-  -a, --stop-akonadi  Stop Kmail and Akonadi after processing
-  -k, --stop-kmail    Stop Kmail after processing
-  -v, --verbose       Verbose output
-  -h, --help          Print help
-  -V, --version       Print version
+  -D, --dry-run          Perform a dry run without making actual changes
+  -n, --limit <LIMIT>    Limit the number of processed messages [default: 0]
+  -u, --db-url <DB_URL>  Database URL [default: socket]
+  -i, --ignore-new-dirs  Ignore list of mails in new directories
+  -a, --stop-akonadi     Stop Kmail and Akonadi after processing
+  -k, --stop-kmail       Stop Kmail after processing
+  -v, --verbose          Verbose output
+  -h, --help             Print help
+  -V, --version          Print version
 ```
 
 ## Implementation
 
 - Find the emails that - potentially - need a change.
 
-   - Walk through all `new` directories and record the basenames found. The
-     assumption is that new mails are only in the inbox, not in local mails.
+   - Unless args.ignor_new_dirs is set, walk through all `new` directories
+     and record the basenames found. The assumption is that new mails are
+     only in the inbox, not in local mails.
      Feed these names into an SQL query for the Akonadi database to
      additionally filter emails to meet the following two conditions.
    - All email with the dirty flag set to indicate that they are kept in
@@ -87,8 +91,10 @@ Options:
      moved to the local mail folder.
    - All emails marked `answered`, but not matching `%2%RS`. `RS` stands
      for "replied and seen".
+   - If args.limit is set to a non-zero value, limit the number of results
+     to this value.
    - The complete `SQL` query looks like the following for a non-empty list
-     of emails in `new` directories.
+     of emails in `new` directories and a positive value of args.limit.
 
      ```SQL
      SELECT `id`,
@@ -109,6 +115,7 @@ Options:
         AND `collectionId` IN (
             SELECT id FROM `collectiontable` WHERE `resourceId` = 3
         )
+        LIMIT <args.limit>
         ```
 
 - Find the original location of the email in absolute path names
@@ -124,15 +131,16 @@ Options:
   the table `pimitemflagrelation` in the Akonadi database.
 - Create the destination path if it does not exist and check for correct
   file and directory permissions.
-- Move the email from the original location (or temporary file) to the
-  absolute path name with the correct email naming by a `UNIX` rename
-  (`inode` operation only).
-- Delete the original `id` from the `pimitemtable`, which clears all
-  related entries in tables `parttable` and `pimitemflagrelation` through
-  a delete cascade.
-- Trigger Akonadi synchronization from disk by sending a `synchronization`
-  request through DBus.
-- If requested through command line option, stop Kmail and Akonadi through
+- Unless the dry-run flag is set, execute the following operations.
+   - Move the email from the original location (or temporary file) to the
+     absolute path name with the correct email naming by a `UNIX` rename
+     (`inode` operation only).
+   - Delete the original `id` from the `pimitemtable`, which clears all
+     related entries in tables `parttable` and `pimitemflagrelation` through
+     a delete cascade.
+   - Trigger Akonadi synchronization from disk by sending a `synchronization`
+     request through DBus.
+   - If requested through command line option, stop Kmail and Akonadi through
   appropriate DBus requests.
 
 Except for the last three items, the Akonadi database is accessed only
@@ -141,6 +149,12 @@ is contacted only through DBus requests, except for SQL delete operation.
 The latter avoids confusion as the corrected emails are seen as newly
 imported emails that create new appropriate entries in the Akonadi
 database --- based in their name on path location.
+
+## Debugging
+
+To help with debugging and unit testing (not yet implemented), the list of
+mails in "/new/" directories can be ignored and an alternative path to
+a database can be provided via command line options.
 
 ## Lessons Learned
 
