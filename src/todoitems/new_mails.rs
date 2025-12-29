@@ -1,7 +1,7 @@
 use regex::Regex;
 
 pub async fn find_new_mail_files(directories: Vec<Option<String>>) -> Vec<String> {
-    let re = Regex::new(r"/new/(\d+\.R\d+.*)$").unwrap();
+    let re = Regex::new(r"/new/(\d+.*\:2\,.*)$").unwrap();
     let mut matches = Vec::new();
 
     for dir in directories.into_iter().flatten() {
