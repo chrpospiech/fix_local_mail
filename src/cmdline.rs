@@ -11,7 +11,19 @@ pub struct CliArgs {
     #[arg(short = 'n', long, default_value_t = 0)]
     pub limit: usize,
 
-    /// Database URL
+    /// Minimum message ID to process
+    #[arg(short = 'm', long, default_value_t = 0)]
+    pub min_id: i64,
+
+    /// maildir root path if not determined automatically
+    #[arg(short = 'p', long, default_value = "auto")]
+    pub maildir_path: String,
+
+    /// mail cache path if not determined automatically
+    #[arg(short = 'c', long, default_value = "auto")]
+    pub mail_cache_path: String,
+
+    /// Database URL if not determined automatically
     #[arg(short = 'u', long, default_value = "socket")]
     pub db_url: String,
 

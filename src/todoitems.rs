@@ -23,7 +23,8 @@ pub async fn fetch_todo_pim_items(
     mail_list: Vec<String>,
     args: &CliArgs,
 ) -> Vec<TodoPimItem> {
-    // Build the query starting with mails that are marked as dirty or new
+    // Build the query starting with mails that have `Id >= args.min_id`
+    // and are marked as dirty or new
     let mut query_builder = QueryBuilder::new(
         "SELECT `id`,
             CONVERT(`remoteId`, CHAR) AS `remote_id`,
@@ -32,8 +33,11 @@ pub async fn fetch_todo_pim_items(
             `mimeTypeId` AS `mime_type_id`
         FROM `pimitemtable`
         WHERE `mimeTypeId` = 2
-        AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'",
+        AND `id` >= ",
     );
+
+    query_builder.push_bind(args.min_id);
+    query_builder.push(" AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2,%S'");
 
     // Include items flagged as answered but not marked as replied
     // These items also need to be processed and the flag

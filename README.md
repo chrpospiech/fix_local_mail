@@ -64,31 +64,46 @@ we have the following.
 Usage: fix_local_mail [OPTIONS]
 
 Options:
-  -D, --dry-run          Perform a dry run without making actual changes
-  -n, --limit <LIMIT>    Limit the number of processed messages [default: 0]
-  -u, --db-url <DB_URL>  Database URL [default: socket]
-  -i, --ignore-new-dirs  Ignore list of mails in new directories
-  -a, --stop-akonadi     Stop Kmail and Akonadi after processing
-  -k, --stop-kmail       Stop Kmail after processing
-  -v, --verbose          Verbose output
-  -h, --help             Print help
-  -V, --version          Print version
+  -D, --dry-run
+          Perform a dry run without making actual changes
+  -n, --limit <LIMIT>
+          Limit the number of processed messages [default: 0]
+  -m, --min-id <MIN_ID>
+          Minimum message ID to process [default: 0]
+  -p, --maildir-path <MAILDIR_PATH>
+          maildir root path if not determined automatically [default: auto]
+  -c, --mail-cache-path <MAIL_CACHE_PATH>
+          mail cache path if not determined automatically [default: auto]
+  -u, --db-url <DB_URL>
+          Database URL if not determined automatically [default: socket]
+  -i, --ignore-new-dirs
+          Ignore list of mails in new directories
+  -a, --stop-akonadi
+          Stop Kmail and Akonadi after processing
+  -k, --stop-kmail
+          Stop Kmail after processing
+  -v, --verbose
+          Verbose output
+  -h, --help
+          Print help
+  -V, --version
+          Print version
 ```
 
 ## Implementation
 
 - Find the emails that - potentially - need a change.
 
-   - Unless args.ignor_new_dirs is set, walk through all `new` directories
-     and record the basenames found. The assumption is that new mails are
-     only in the inbox, not in local mails.
+   - Unless args.ignore_new_dirs is set, walk through all `new` directories
+     and record the basenames found that match r"/new/(\d+.*\:2\,.*)$".
+     New mails are by definition neither read, forwarded or answered.
      Feed these names into an SQL query for the Akonadi database to
      additionally filter emails to meet the following two conditions.
    - All email with the dirty flag set to indicate that they are kept in
      the email cache.
-   - All emails with basenames not meeting `%2%S`. This is based on the
-     assumption that all emails are read (and marked "seen") before being
-     moved to the local mail folder.
+   - All emails with basenames not meeting `%:2,%S` as SQL wild card.
+     This is based on the assumption that all emails are read (and marked
+     "seen") before being moved to the local mail folder.
    - All emails marked `answered`, but not matching `%2%RS`. `RS` stands
      for "replied and seen".
    - If args.limit is set to a non-zero value, limit the number of results
@@ -104,6 +119,7 @@ Options:
             `mimeTypeId` AS `mime_type_id`
         FROM `pimitemtable`
         WHERE `mimeTypeId` = 2
+        AND `id` >= <value of args.min_id>
         AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'
              OR (`id` IN (SELECT `pimItem_Id`
                           FROM `pimitemflagrelation`
@@ -115,6 +131,7 @@ Options:
         AND `collectionId` IN (
             SELECT id FROM `collectiontable` WHERE `resourceId` = 3
         )
+        ORDER BY `id`
         LIMIT <args.limit>
         ```
 
@@ -126,12 +143,15 @@ Options:
      `parttable` table in the Akonadi database whether the email is kept
      on disk or in the database. In case of the letter, copy the email
      into a temporary file on disk in the cache directory.
+   - The root of the local mail directory and the location of the mail cache
+     can be changed by command line options for debugging and unit testing.
 
 - Compose the absolute path name with the correct email naming by inspecting
   the table `pimitemflagrelation` in the Akonadi database.
 - Create the destination path if it does not exist and check for correct
   file and directory permissions.
 - Unless the dry-run flag is set, execute the following operations.
+
    - Move the email from the original location (or temporary file) to the
      absolute path name with the correct email naming by a `UNIX` rename
      (`inode` operation only).
@@ -141,7 +161,7 @@ Options:
    - Trigger Akonadi synchronization from disk by sending a `synchronization`
      request through DBus.
    - If requested through command line option, stop Kmail and Akonadi through
-  appropriate DBus requests.
+     appropriate DBus requests.
 
 Except for the last three items, the Akonadi database is accessed only
 with read operations which should not interfere with Akonadi. Akonadi
@@ -150,11 +170,20 @@ The latter avoids confusion as the corrected emails are seen as newly
 imported emails that create new appropriate entries in the Akonadi
 database --- based in their name on path location.
 
-## Debugging
+## Debugging and Unit Testing
 
-To help with debugging and unit testing (not yet implemented), the list of
-mails in "/new/" directories can be ignored and an alternative path to
-a database can be provided via command line options.
+- To help with debugging and unit testing (not yet implemented), the list of
+  mails in "/new/" directories can be ignored and an alternative URL to
+  a database can be provided via command line options. In case of an
+  alternative URL, no mail directories or mail caches are accessed
+  to avoid clashes of current mail directories or mail caches and different
+  data in the database.
+- For unit testing, command line options
+
+   - `-p, --maildir-path <MAILDIR_PATH>`
+   - `-c, --mail-cache-path`
+
+  allow for a mock up of a full mail environment.
 
 ## Lessons Learned
 
