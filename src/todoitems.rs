@@ -66,7 +66,12 @@ pub async fn fetch_todo_pim_items(
 
     // Add limit if specified in args
     if args.limit > 0 {
-        query_builder.push(format!(" LIMIT {}", args.limit));
+        query_builder.push(format!(
+            "
+        ORDER BY `id`
+        LIMIT {}",
+            args.limit
+        ));
     }
 
     query_builder

@@ -23,8 +23,8 @@ async fn main() {
     for item in todo_items {
         if dry_run {
             println!(
-                "Dry run: would move {} to {}",
-                item.source_path, item.target_path
+                "Dry run item ID {}: would move {} to {}",
+                item.id, item.source_path, item.target_path
             );
             // Remove temporary files created for cached emails
             execute::remove_temp_file(&item.source_path);
