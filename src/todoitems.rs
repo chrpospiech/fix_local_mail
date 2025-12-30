@@ -105,7 +105,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
             println!("Finding new mail files...");
         }
         // Fetch mail root directories
-        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone()).await;
+        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone(), args).await;
         // Find new mail files
         new_mails::find_new_mail_files(root_paths).await
     };

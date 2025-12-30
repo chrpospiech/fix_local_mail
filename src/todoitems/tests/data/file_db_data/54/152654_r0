@@ -1,0 +1,1500 @@
+Return-Path: <bounce+aa75e8.680c81-pospiech-hd=t-online.de@software-dealz.de>
+Received: from mailin24.aul.t-online.de ([10.223.144.64])
+	by ehead26a17.aul.t-online.de with LMTP
+	id DlHsJC+yU2kBpgAAzmg42g
+	(envelope-from <bounce+aa75e8.680c81-pospiech-hd=t-online.de@software-dealz.de>); Tue, 30 Dec 2025 12:06:23 +0100
+Authentication-Results: mailin24.mgt.mul.t-online.de;
+	dkim=pass (1024-bit key; unprotected) header.d=software-dealz.de header.i=@software-dealz.de header.a=rsa-sha256 header.s=k1 header.b=W63h+1K3;
+	dkim-atps=neutral
+Received: from g116.gb126d70.use4.send.mailgun.net ([204.220.169.116]) by mailin24.mgt.mul.t-online.de
+	with (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384 encrypted)
+	esmtp id 1vaXYT-34njzp0; Tue, 30 Dec 2025 12:06:21 +0100
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=software-dealz.de; q=dns/txt; s=k1; t=1767092780; x=1767099980;
+ h=Message-Id: List-Unsubscribe: List-Unsubscribe-Post: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender;
+ bh=i/JGv/NdDbHP5oP00mR5gWw4RzOhVEKglaIVAAetIrc=;
+ b=W63h+1K3zO3pGP01kpmaFKYvDIwghMlKnaQVBMhXpJAzRwuByqTxEfRz6Kt43ZVXwlvsbQGiYQkf19H6H0LXA+aP80jk0YTSPskzokTMn23mezZuhgP9ujb7d9mCnePQ46S/qJTAm0ScxvtY28K32/FdVtEwkbrhggm2jXsemvg=
+X-Mailgun-Sid: WyI4OGZkNyIsInBvc3BpZWNoLWhkQHQtb25saW5lLmRlIiwiNjgwYzgxIl0=
+Received: by 2718711a182051a598eeccd19db36d28781d915108bd6ae1f6149243be0314d8 with HTTP
+ id 6953b17b5134cc5f218a25ff; Tue, 30 Dec 2025 11:03:22 GMT
+X-Mailgun-Sending-Ip-Pool-Name: GS4
+X-Mailgun-Sending-Ip-Pool: 6655a294343e6a40aeea8d63
+X-Mailgun-Sending-Ip: 204.220.169.116
+X-Mailgun-Batch-Id: 6953b17abad0d7fe95d4d887
+Sender: support@software-dealz.de
+Date: Tue, 30 Dec 2025 11:03:22 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="8154ceac6c9463c25df5781e190f3ace30d029a70a9340da3ddf904b7a9a"
+Subject: =?UTF-8?q?=F0=9F=9A=80_LAST_SALE_-_Spare_bis_zu_80%_auf_Top-Software!?=
+From: Software-Dealz <support@software-dealz.de>
+To: pospiech-hd@t-online.de
+X-Mailgun-Tag: 6953b14573811e426fc424d4_6953b16166b26373bcf15f9c
+X-Mailgun-Track: false
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-Id: 6953b0d773811e426fc424d0:6556c55f4f8febe42c821e75:campaign:omnisend
+List-Unsubscribe: <https://wme.soundestlink.com/contactsPreferences/v2/unsubscribe/?b=6556c55f4f8febe42c821e75&c=681ee517cbd2f9ecb5b1c8e2&payload=f2IA8we8mEZeupj3kv3t5HRMHgK16DNCSavw6eDu36DpUFV6wd-fGcvFrSv7D6mIRD6V0sWbUGKRJ84gyFjyzK7d2nfzgFd7hMf29fjkflaHZyXJUkHNSwXWBETO9eqc_pih&headerUnsub=true>
+X-Mailgun-Variables: {"brandID": "6556c55f4f8febe42c821e75", "contactID":
+ "681ee517cbd2f9ecb5b1c8e2", "progressID": "6953b14573811e426fc424d4"}
+Message-Id: <20251230110322.4521c221870b1300@software-dealz.de>
+X-TOI-VIRUSSCAN: unchecked
+X-TOI-EXPURGATEID: 149288::1767092781-B0FF69B8-BFC8C5B4/35/100204 BULK NORMAL
+X-TOI-MSGID: 8b164b57-eda0-4d9f-8cab-63aa1e25d54b
+X-ENVELOPE-TO: <pospiech-hd@t-online.de>
+Authentication-Results: mailin24.aul.t-online.de;
+	dkim=pass (1024-bit key; unprotected) header.d=software-dealz.de header.i=@software-dealz.de header.a=rsa-sha256 header.s=k1 header.b=W63h+1K3;
+	dkim-atps=neutral
+
+
+--8154ceac6c9463c25df5781e190f3ace30d029a70a9340da3ddf904b7a9a
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Top-Lizenzen sofort per Mail erhalten =E2=80=93 nur solange der Vorrat reic=
+ht.
+
+This email was sent to you as HTML-only. To view it, please visit:=20
+https://wme.soundestlink.com/ce/v/681ee517cbd2f9ecb5b1c8e2/6953b14573811e42=
+6fc424d4
+
+**************************
+
+Make sure you keep getting our latest offers and add support@software-dealz=
+=2Ede to your address book.
+
+Unsubscribe=20
+https://wme.soundestlink.com/contactsPreferences/v2/unsubscribe/?b=3D6556c5=
+5f4f8febe42c821e75&c=3D681ee517cbd2f9ecb5b1c8e2&payload=3Df2IA8we8mEZeupj3k=
+v3t5HRMHgK16DNCSavw6eDu36DpUFV6wd-fGcvFrSv7D6mIRD6V0sWbUGKRJ84gyFjyzK7d2nfz=
+gFd7hMf29fjkflaHZyXJUkHNSwXWBETO9eqc_pih
+
+Visit site
+http://software-dealz.de
+
+=C2=96
+
+--8154ceac6c9463c25df5781e190f3ace30d029a70a9340da3ddf904b7a9a
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head><!-- Used for outlook versions from 9 and greater -->
+<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPer=
+Inch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+<![endif]-->
+<title>=F0=9F=9A=80 LAST SALE - Spare bis zu 80% auf Top-Software!</title>
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type"/>
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+/>
+<meta content=3D"telephone=3Dno" name=3D"format-detection"/>
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"https://fonts.soundestli=
+nk.com/fonts/css/Open+Sans"/>
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"https://fonts.soundestli=
+nk.com/fonts/css/Roboto"/>
+<style type=3D"text/css">
+html,body{width:100%!important;height:100%!important;margin:0 auto!importan=
+t;padding:0!important;-webkit-font-smoothing:antialiased;-webkit-text-size-=
+adjust:none;-ms-text-size-adjust:none;}body,table,td,a{-webkit-text-size-ad=
+just:100%;-ms-text-size-adjust:100%;}table{border-collapse:collapse;}table,=
+td{mso-table-lspace:0pt;mso-table-rspace:0pt;}th{font-weight:300;}img{-ms-i=
+nterpolation-mode:bicubic;}a[x-apple-data-detectors]{text-decoration:none!i=
+mportant;font-size:
+inherit!important;font-family:inherit!important;font-weight:inherit!importa=
+nt;line-height:inherit!important;color:inherit;}a:link,span.MsoHyperlink{te=
+xt-decoration:none;color:inherit;}u+#body a{text-decoration:none;font-size:=
+inherit;font-family:inherit;font-weight:inherit;line-height:inherit;color:i=
+nherit;}.appleFooterLinks a{text-decoration:none;color:inherit;}.desktop-wr=
+apper{display:table-cell;}.default-margin p{margin:0!important;}.centered-b=
+lock{display:block;margin:0 auto!important;}
+=2Emobile{display:none!important;}.side=
+-by-side{width:50%;max-width:50%;}.pro=
+duct-description-table th{mso-line-height-rule:exactly}.no-margin{margin:0;=
+}.margin-top{margin:4px 0 0 0;}p{word-spacing:normal;}
+@media screen and (max-width:600px){body{min-width:1px!important;}.desktop{=
+display:none!important;}.mobile{display:table!important;}.mobile-body-conta=
+iner{min-width:1px!important;}.mobile-container{width:100%!important;displa=
+y:table!important;}.mobile-container-half{width:50%!important;display:inlin=
+e-block!important;}.mobile-image{width:100%!important;height:auto!important=
+;}.mobile-bounded-image{max-width:100%!important;width:auto!important;heigh=
+t:auto!important;}.mobile-image-stacked{max-width:
+100%!important;max-height:552px!important;width:auto!important;}.mobile-ima=
+ge-stacked-height{height:auto!important;}.mobile-table{width:100%!important=
+;}.padding-left{padding-left:12px!important;}.padding-right{padding-right:1=
+2px!important;}.padding-top{padding-top:12px!important;}.padding-bottom{pad=
+ding-bottom:12px!important;}.mobile-hidden{display:none!important;}.placeho=
+lder-image-block-table-cell{height:150px!important;}/* STARTS Order confirm=
+ation */ .order-product-table-responsive-cell{
+display:block!important;width:100%;}.order-product-image-responsive-element=
+{width:80px!important;height:auto;}.placeholder-image-block-table-cell.orde=
+r-product-image-responsive-element{height:80px!important;}/* ENDS Order con=
+firmation */ /* STARTS Order billing & shipping */ .order-billing-and-shipp=
+ing-responsive-cell{display:table-row!important;}/* ENDS Order billing & sh=
+ipping */ .desktop-wrapper{display:inline-block!important;} }
+@media screen and (max-width:480px){.stack-column{display:block!important;w=
+idth:100%!important;min-width:100%!important;direction:ltr!important;paddin=
+g:12px 0px!important;box-sizing:border-box;} }
+@media screen and (max-width:600px){.n2-col-image-height{height:276px!impor=
+tant;}.n2-col-image-max-height{max-height:276px!important;}.n3-col-image-he=
+ight{height:176px!important;}.n3-col-image-max-height{max-height:176px!impo=
+rtant;} }
+@media screen and (max-width:480px){.n2-col-image-height{height:216px!impor=
+tant;}.n2-col-image-max-height{max-height:216px!important;}.n3-col-image-he=
+ight{height:136px!important;}.n3-col-image-max-height{max-height:136px!impo=
+rtant;} }
+@media screen and (max-width:425px){.n2-col-image-height{height:188.5px!imp=
+ortant;}.n2-col-image-max-height{max-height:188.5px!important;}.n3-col-imag=
+e-height{height:117.66666666666666px!important;}.n3-col-image-max-height{ma=
+x-height:117.66666666666666px!important;} }
+@media screen and (max-width:375px){.n2-col-image-height{height:163.5px!imp=
+ortant;}.n2-col-image-max-height{max-height:163.5px!important;}.n3-col-imag=
+e-height{height:101px!important;}.n3-col-image-max-height{max-height:101px!=
+important;} }
+@media screen and (max-width:320px){.n2-col-image-height{height:136px!impor=
+tant;}.n2-col-image-max-height{max-height:136px!important;}.n3-col-image-he=
+ight{height:82.66666666666667px!important;}.n3-col-image-max-height{max-hei=
+ght:82.66666666666667px!important;} }
+</style>
+</head>
+<body id=3D"body"
+style=3D"padding:0px;margin:0px"><p
+style=3D"max-height:0;font-size:0;line-height:0;margin:0;overflow:hidden;">=
+ Top-Lizenzen sofort per Mail erhalten =E2=80=93 nur solange der Vorrat rei=
+cht. </p><div
+style=3D"display:none;width:0px;height:0px;max-height:0px;overflow:hidden;"=
+> &#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&=
+#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#84=
+7;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&=
+nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbsp;&#847;&nbs=
+p;
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &sh=
+y; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; =
+&shy; &shy; &shy; &shy; &shy; </div><p
+style=3D"max-height:0;font-size:0;line-height:0;margin:0;overflow:hidden;">=
+ <img alt=3D"" border=3D"0" src=3D"https://wme.soundestlink.com/ce/o/681ee5=
+17cbd2f9ecb5b1c8e2/6953b14573811e426fc424d4?signature=3Defadacf41e68e89ea2d=
+a8547587582e2007a33e5239cc763c3a500b7c159b9ac" width=3D"1" height=3D"1"/></=
+p>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"
+      height=3D"100%"
+style=3D"background-color:#000000;" class=3D"mobile-body-container"><tr><td=
+>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"
+style=3D"min-width:290px"><tr><td>
+<table width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center"
+style=3D"width:600px;margin:0px auto;background-color:#FFFFFF;" class=3D"mo=
+bile-container"><tr><td>
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td>
+<table id=3D"60a2848e82afed275df5da7d" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td background=3D""
+style=3D"padding:24px;padding-left:10px;padding-right:10px;padding-top:10px=
+;padding-bottom:10px;vertical-align:middle;background-repeat:no-repeat;back=
+ground-size:cover;background-position:unset;background-color:#003D6E;">
+<table id=3D"60ad4e5f6aa9f247debb5e06" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"60ad4e5f6aa9f247debb5e07" class=3D"mobil=
+e-container"
+style=3D"width:580px;vertical-align:middle;">
+<table id=3D"6232f2e224da0813d0d5136b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"580" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:=
+0px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%"><tr><td
+style=3D"text-align:center"><a target=3D"_blank" href=3D"https://tnr.sounde=
+stlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b14573811e426fc424d4/6953b1654=
+268a61755527732?signature=3Defadacf41e68e89ea2da8547587582e2007a33e5239cc76=
+3c3a500b7c159b9ac"><img width=3D"238px" alt=3D"" height=3D"60" class=3D"mob=
+ile-image" border=3D"0" src=3D"https://wme.soundestlink.com/image/newslette=
+r/500/656939c73aab811dd521d329"
+style=3D"max-width:238px!important;height:auto;margin:0 0;vertical-align:mi=
+ddle;font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-s=
+ize:12px;color:#013d6f;line-height:150%;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"65693a706c1e5b700f60ef37" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%" class=3D"desktop"
+style=3D""><tr><td background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:=
+0px;background-repeat:no-repeat;background-size:cover;background-position:u=
+nset;background-color:#FFFFFF;">
+<table id=3D"65693a706c1e5b700f60ef38" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"65693a706c1e5b700f60ef39" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"65693b526c1e5b700f60f7b0" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends --><!--Menu block start=
+s -->
+<style>a.menu-block-link{color:#003D6E}
+</style>
+<table id=3D"65693a936c1e5b700f60f7ac" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%" align=3D"center" class=3D"mobile-table"
+style=3D"text-align:center;"><tbody><tr><td align=3D"center"
+style=3D"vertical-align:middle;padding-top:12px;padding-right:12px;padding-=
+bottom:12px;padding-left:12px;" class=3D"desktop-wrapper default-margin" va=
+lign=3D"middle">
+<table id=3D"65693a936c1e5b700f60f7ad" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#003D6E;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;" bgco=
+lor=3D"" class=3D"mobile-table"><p><a class=3D"menu-block-link" href=3D"htt=
+ps://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b14573811e426fc=
+424d4/6953b1654268a61755527733?signature=3Defadacf41e68e89ea2da8547587582e2=
+007a33e5239cc763c3a500b7c159b9ac"
+style=3D"color:#003D6E;font-weight:bold;text-decoration:underline;" target=
+=3D"_blank">WINDOWS</a></p>
+</td></tr></table>
+</td><td align=3D"center"
+style=3D"vertical-align:middle;padding-top:12px;padding-right:12px;padding-=
+bottom:12px;padding-left:12px;" class=3D"desktop-wrapper default-margin" va=
+lign=3D"middle">
+<table id=3D"65693a936c1e5b700f60f7ae" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#003D6E;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;" bgco=
+lor=3D"" class=3D"mobile-table"><p><a class=3D"menu-block-link" href=3D"htt=
+ps://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b14573811e426fc=
+424d4/6953b1654268a61755527734?signature=3Defadacf41e68e89ea2da8547587582e2=
+007a33e5239cc763c3a500b7c159b9ac"
+style=3D"color:#003D6E;font-weight:bold;text-decoration:underline;" target=
+=3D"_blank">OFFICE</a></p>
+</td></tr></table>
+</td><td align=3D"center"
+style=3D"vertical-align:middle;padding-top:12px;padding-right:12px;padding-=
+bottom:12px;padding-left:12px;" class=3D"desktop-wrapper default-margin" va=
+lign=3D"middle">
+<table id=3D"65693a936c1e5b700f60f7af" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#003D6E;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;" bgco=
+lor=3D"" class=3D"mobile-table"><p><a class=3D"menu-block-link" href=3D"htt=
+ps://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b14573811e426fc=
+424d4/6953b1654268a61755527735?signature=3Defadacf41e68e89ea2da8547587582e2=
+007a33e5239cc763c3a500b7c159b9ac"
+style=3D"color:#003D6E;font-weight:bold;text-decoration:underline;" target=
+=3D"_blank">SERVER &amp;&nbsp;CALs</a></p>
+</td></tr></table>
+</td></tr></tbody></table><!--Menu block ends --><!--Line/space content blo=
+ck starts -->
+<table id=3D"65693b576c1e5b700f60f7b1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"61028cb493050faf571d9b92" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-top" background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:24px;padding-bottom=
+:0px;background-repeat:no-repeat;background-size:cover;background-position:=
+unset;background-color:#003D6E;">
+<table id=3D"61028cb493050faf571d9b93" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"61028cb493050faf571d9b94" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;">
+<table id=3D"61028cb593050faf571d9b9a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#FFFFFF;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:36px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><span
+style=3D"color:rgb(255,255,255);font-size:36px;font-style:normal;font-weigh=
+t:700;text-align:center;" id=3D"isPasted">LAST - SALE</span><strong><span
+style=3D"font-size:32px;"></span></strong></p><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><strong><span
+style=3D"font-size:32px;">&nbsp;Bis zu 80 % g=C3=BCnstiger!</span></strong>=
+</p>
+</td></tr></table>
+<table id=3D"61028cb593050faf571d9b9b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#D7D7D7;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:16px;line-height:1.5;mso-line-height-alt:150%;padding=
+:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:center;margin:0px;">Nur f=C3=BCr kurze Zeit bekommen Si=
+e Windows, Office, Windows Server&amp; Co. bis zu 80% stark reduziert =E2=
+=80=93 sofort per E-Mail geliefert.</p>
+</td></tr></table>
+<table id=3D"681ee6795677b51eea404cb3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"681ee6795677b51eea404cb3" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a61755527736?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Jetzt Angebot sichern </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e88bdf5050d440596eebb" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-color:#40B000;">
+<table id=3D"656e88bdf5050d440596eebc" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e88bdf5050d440596eebd" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"656e88f8f5050d440596f731" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #003D6E;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e886bf5050d440596ddce" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#003D6E;">
+<table id=3D"656e886bf5050d440596ddcf" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e886bf5050d440596ddd0" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"656e886bf5050d440596ddd1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+<table id=3D"656e886bf5050d440596ddd2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:30px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><strong><span
+style=3D"color:rgb(255,255,255);">UNSERE TOP ANGEBOT</span></strong></p>
+</td></tr></table><!--Line/space content block starts -->
+<table id=3D"656e886bf5050d440596ddd3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if !mso]><!-->
+<table id=3D"68ff294da850f177ee4d7928" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%" class=3D"mobile"
+style=3D"display:none;"><tr><td background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:=
+0px;background-repeat:no-repeat;background-size:cover;background-position:u=
+nset;background-color:#40B000;">
+<table id=3D"68ff294da850f177ee4d7929" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"68ff294da850f177ee4d792a" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;">
+<table id=3D"68ff294da850f177ee4d792b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"600" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:=
+0px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"68ff294da=
+850f177ee4d792b" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a61755527737?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"O=
+ffice 2024"
+                                 class=3D"mobile-image centered-block"width=
+=3D"600"=20
+                                    height=3D"600"border=3D"0"src=3D"https:=
+//wme.soundestlink.com/image/newsletter/6900665a72120e0e96f8c424"
+style=3D"max-width:600px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:600px;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table><!--
+<![endif]-->
+<table id=3D"690066a19536f6ae63923c18" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;">
+<table id=3D"6915ba56310f700b19f17e5e" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"6915ba56310f700b19f17e5f" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba47310f700b19f17dc0" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba50310f700b19f17e0a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba503=
+10f700b19f17e0a" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a61755527738?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"M=
+icrosoft Office 2024 Professional Plus"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/files/Microsoft-Office-2024-Prof=
+essional-Plus-jetzt-kaufen.png?v=3D1732045781"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba50310f700b19f17e13" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Microsoft Office 20=
+24 Professional Plus</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba50310f700b19f17e1e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC39.99</p=
+>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba50310f700b19f17e1f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC119.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba50310f700b19f17e29" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba50310f700b19f17e29" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a61755527739?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td><td id=3D"6915ba56310f700b19f17e60" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba50310f700b19f17de3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba50310f700b19f17e2a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba503=
+10f700b19f17e2a" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a6175552773a?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"M=
+icrosoft Office 2024 Standard"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/files/Microsoft-Office-2024-Stan=
+dard-jetzt-kaufen_dac12bc3-9c07-4225-b949-575ff3547484.png?v=3D1756996420"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba50310f700b19f17e33" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Microsoft Office 20=
+24 Standard</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba50310f700b19f17e3e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC34.99</p=
+>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba50310f700b19f17e3f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC69.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba50310f700b19f17e49" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba50310f700b19f17e49" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a6175552773b?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if !mso]><!-->
+<table id=3D"6900667bfa07987793d9ed55" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%" class=3D"mobile"
+style=3D"display:none;"><tr><td background=3D""
+style=3D"padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:=
+0px;background-repeat:no-repeat;background-size:cover;background-position:u=
+nset;background-color:#40B000;">
+<table id=3D"6900667bfa07987793d9ed56" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"6900667bfa07987793d9ed57" class=3D"mobil=
+e-container"
+style=3D"width:600px;vertical-align:top;">
+<table id=3D"6900667bfa07987793d9ed58" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"600" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:=
+0px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6900667bf=
+a07987793d9ed58" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a6175552773c?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"O=
+ffice 2024"
+                                 class=3D"mobile-image centered-block"width=
+=3D"600"=20
+                                    height=3D"600"border=3D"0"src=3D"https:=
+//wme.soundestlink.com/image/newsletter/68ff296558ede47c38f2a086"
+style=3D"max-width:600px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:600px;"></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table><!--
+<![endif]-->
+<table id=3D"656e407c9decdf68b894a0ee" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;">
+<table id=3D"6915ba6b310f700b19f17ef7" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"6915ba6b310f700b19f17ef8" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba5d310f700b19f17e69" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba68310f700b19f17eb3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba683=
+10f700b19f17eb3" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a6175552773d?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"W=
+indows Server 2025 Standard"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/files/windows-server-2025-Standa=
+rd.jpg?v=3D1754328792"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba68310f700b19f17ebc" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Windows Server 2025=
+ Standard</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba68310f700b19f17ec7" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC450.99</=
+p>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba68310f700b19f17ec8" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC799.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba68310f700b19f17ed2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba68310f700b19f17ed2" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a6175552773e?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td><td id=3D"6915ba6b310f700b19f17ef9" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba68310f700b19f17e8c" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba68310f700b19f17ed3" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba683=
+10f700b19f17ed3" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a6175552773f?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"W=
+indows Server 2025 Datacenter"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/files/windows-server-2025-Datace=
+nter.jpg?v=3D1754329033"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba68310f700b19f17edc" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Windows Server 2025=
+ Datacenter</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba68310f700b19f17ee7" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC1,875.99=
+</p>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba68310f700b19f17ee8" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC2,899.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba68310f700b19f17ef2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba68310f700b19f17ef2" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a61755527740?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e8876f5050d440596ea7f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#003D6E;">
+<table id=3D"656e8876f5050d440596ea80" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e8876f5050d440596ea81" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"656e88c6f5050d440596f2f4" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e7f5cdb981855c0aabc53" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;">
+<table id=3D"6915ba92310f700b19f18029" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"6915ba92310f700b19f1802a" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba84310f700b19f17f9b" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba91310f700b19f17fe5" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba913=
+10f700b19f17fe5" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a61755527741?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"W=
+indows 11 Home Betriebssystem"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/products/Windows_11_Home_1.jpg?v=
+=3D1705495594"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba91310f700b19f17fee" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Windows 11 Home Bet=
+riebssystem</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba91310f700b19f17ff9" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC12.99</p=
+>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba91310f700b19f17ffa" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC20.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba91310f700b19f18004" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba91310f700b19f18004" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a61755527742?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td><td id=3D"6915ba92310f700b19f1802b" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"6915ba91310f700b19f17fbe" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;overflow-wrap:anywhere;word-wrap:anywhere;"><tr=
+><td>
+<table id=3D"6915ba91310f700b19f18005" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><a target=3D"_blank" data-link-id=3D"6915ba913=
+10f700b19f18005" href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ec=
+b5b1c8e2/6953b14573811e426fc424d4/6953b1654268a61755527743?signature=3Defad=
+acf41e68e89ea2da8547587582e2007a33e5239cc763c3a500b7c159b9ac"><img alt=3D"W=
+indows 11 Professional Betriebssystem"
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"NaN"border=3D"0"src=3D"https:=
+//cdn.shopify.com/s/files/1/0293/8421/2558/products/Windows_11_Pro_1.jpg?v=
+=3D1705495596"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;"></a>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba91310f700b19f1800e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D"center=
+"
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:1.5;mso-line-height-alt:150%;padding=
+-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;" bgcolo=
+r=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;font-weight:700;text-align:center;">Windows 11 Professi=
+onal Betriebssystem</p>
+</td></tr></table>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;">
+<table cellpadding=3D"0" border=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter">
+<table id=3D"6915ba91310f700b19f18019" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#40B000;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(64,176,0);font-weight:700;">=E2=82=AC15.99</p=
+>
+</td></tr></table>
+</td><td height=3D"1" width=3D"8">
+</td><td align=3D"center">
+<table id=3D"6915ba91310f700b19f1801a" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#C0423F;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" bgcolor=
+=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;color:rgb(192,66,63);text-decoration:line-through;">=E2=
+=82=AC24.99</p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6915ba91310f700b19f18024" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"table-layout:fixed;"><tbody><tr><td align=3D"center" class=3D"mobi=
+le-table"
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" valign=3D"top">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"
+style=3D"background-color:#5edc16;border:2px solid #003D6E;border-radius:8p=
+x;border-collapse:separate;"><tbody><tr>
+<!--[if !mso]><!--><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;">
+<!--<![endif]-->
+<!--[if mso]><td align=3D"center" valign=3D"middle"
+style=3D"font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;fo=
+nt-size:16px;font-weight:bold;color:#003D6E;padding-left:16px;padding-right=
+:16px;padding-top:16px;padding-bottom:16px;">
+<![endif]--> <a target=3D"_blank"data-link-id=3D"6915ba91310f700b19f18024" =
+href=3D"https://tnr.soundestlink.com/ce/c/681ee517cbd2f9ecb5b1c8e2/6953b145=
+73811e426fc424d4/6953b1654268a61755527744?signature=3Defadacf41e68e89ea2da8=
+547587582e2007a33e5239cc763c3a500b7c159b9ac"
+style=3D"text-decoration:none;padding-left:16px;padding-right:16px;padding-=
+top:16px;padding-bottom:16px;;display:inline-block;font-family:Open Sans,He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:16px;font-weight:bold;col=
+or:#003D6E;line-height:1.2;"> Shop now </a>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e40b59decdf68b894bd04" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#003D6E;">
+<table id=3D"656e40b59decdf68b894bd05" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e40b59decdf68b894bd06" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"656e41299decdf68b894c79e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+<table id=3D"656e40fa9decdf68b894bf29" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:30px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"text-align:center;margin-top:0px;margin-bottom:0px;"><strong><span
+style=3D"color:rgb(255,255,255);">KUNDENREFERENZEN</span></strong></p>
+</td></tr></table><!--Line/space content block starts -->
+<table id=3D"656e41309decdf68b894c79f" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e8704a041705b75058ca6" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#40B000;">
+<table id=3D"656e8704a041705b75058ca7" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e8704a041705b75058ca8" class=3D"mobil=
+e-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"656e871ba041705b75059519" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"448"border=3D"0"src=3D"https:=
+//wme.soundestlink.com/image/newsletter/656e8692d0775619cce01ba1"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;">
+</td></tr></table>
+</td></tr></table>
+</td><td id=3D"656e8704a041705b75058ca9" class=3D"mobile-container"
+style=3D"width:276px;vertical-align:top;">
+<table id=3D"656e8771d2b5fbed50602633" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"276" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding-top:12px;padding-right:12px;padding-bottom:12px;padding-le=
+ft:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+ centered-block"width=3D"252"=20
+                                    height=3D"448"border=3D"0"src=3D"https:=
+//wme.soundestlink.com/image/newsletter/656e877dd0775619cce01bc7"
+style=3D"max-width:252px;height:auto;margin:0 0;vertical-align:middle;font-=
+family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;c=
+olor:#013d6f;line-height:150%;width:252px;">
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e88f5f5050d440596f2f8" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-color:#003D6E;">
+<table id=3D"656e88f5f5050d440596f2f9" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e88f5f5050d440596f2fa" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;"><!--Line/space content block star=
+ts -->
+<table id=3D"656e8914f5050d440596fb6e" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"><tr><td align=3D"center"
+style=3D"padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left=
+:12px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tr>=
+<td
+style=3D"font-size:0;line-height:0;border-top:2px solid #40B000;">&nbsp;
+</td></tr></table>
+</td></tr></table><!--Line/space content block ends -->
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e802b3deb591e4d231456" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-repeat:no-repeat;background-size:cover;background-positi=
+on:unset;background-color:#40B000;">
+<table id=3D"656e802b3deb591e4d231457" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"656e802b3deb591e4d231458" class=3D"mobil=
+e-container"
+style=3D"width:184px;vertical-align:top;">
+<table id=3D"656e80693deb591e4d2315eb" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"160" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+"width=3D"64"=20
+                                    height=3D"64"border=3D"0"src=3D"https:/=
+/wme.soundestlink.com/image/newsletter/656e8467d0775619cce01b66"
+style=3D"max-width:64px;height:auto;margin:0 0;vertical-align:middle;font-f=
+amily:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;co=
+lor:#013d6f;line-height:150%;width:64px;">
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315ec" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#003D6E;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:18px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;"><strong>Schnelle digitale Lieferung=
+</strong></p>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315ed" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#FFFFFF;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:1.5;mso-line-height-alt:150%;padding=
+:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;">Jetzt Software kaufen und sofort He=
+runterladen!</p>
+</td></tr></table>
+</td><td id=3D"656e802b3deb591e4d23145d" class=3D"mobile-container"
+style=3D"width:184px;vertical-align:top;">
+<table id=3D"656e80693deb591e4d2315f0" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"160" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+"width=3D"64"=20
+                                    height=3D"64"border=3D"0"src=3D"https:/=
+/wme.soundestlink.com/image/newsletter/656e83693aab811dd52268c0"
+style=3D"max-width:64px;height:auto;margin:0 0;vertical-align:middle;font-f=
+amily:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;co=
+lor:#013d6f;line-height:150%;width:64px;">
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315f1" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:18px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;"><strong>Zufriedenheits-Garantie</st=
+rong></p>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315f2" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:150%;mso-line-height-alt:150%;paddin=
+g:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;"><span
+style=3D"color:#FFFFFF;">Kontaktieren Sie uns und wir finden eine L=C3=B6su=
+ng f=C3=BCr Sie!</span></p>
+</td></tr></table>
+</td><td id=3D"656e802b3deb591e4d231462" class=3D"mobile-container"
+style=3D"width:184px;vertical-align:top;">
+<table id=3D"656e80693deb591e4d2315f5" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"160" align=3D"center" class=3D"mobile-table"><tr><td
+style=3D"padding:12px;" align=3D"center">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"
+style=3D"width:100%;"><tr><td
+style=3D"text-align:center;"><img alt=3D""
+                                 class=3D"mobile-image mobile-image-stacked=
+"width=3D"64"=20
+                                    height=3D"64"border=3D"0"src=3D"https:/=
+/wme.soundestlink.com/image/newsletter/656e83f572b47f6056c6ad28"
+style=3D"max-width:64px;height:auto;margin:0 0;vertical-align:middle;font-f=
+amily:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;co=
+lor:#013d6f;line-height:150%;width:64px;">
+</td></tr></table>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315f6" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Roboto,Helvetica Neue,Helvetica,Arial,sa=
+ns-serif;font-size:18px;line-height:1.25;mso-line-height-alt:125%;padding:1=
+2px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;"><strong>Hilfe bei der Einrichtung</=
+strong></p>
+</td></tr></table>
+<table id=3D"656e80693deb591e4d2315f7" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#013d6f;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:14px;line-height:1.5;mso-line-height-alt:150%;padding=
+:12px;" bgcolor=3D"" class=3D"mobile-table"><p
+style=3D"margin:0px;text-align:center;"><span
+style=3D"color:#FFFFFF;">per Live-Chat, E-Mail und Telefon</span></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table id=3D"6232ef8024da0813d0d32c44" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D""><tr><td class=3D"padding-left padding-right padding-top padding-=
+bottom" background=3D""
+style=3D"padding-left:24px;padding-right:24px;padding-top:24px;padding-bott=
+om:24px;background-color:#013d6f;">
+<table id=3D"6232ef8024da0813d0d32c45" background=3D"" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D""><tr><td>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"
+style=3D"width:100%"><tr><td id=3D"6232ef8024da0813d0d32c46" class=3D"mobil=
+e-container"
+style=3D"width:552px;vertical-align:top;">
+<table id=3D"6232efdb24da0813d0d32c56" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%"
+style=3D"overflow-wrap:anywhere;word-wrap:anywhere"><tr><td align=3D""
+style=3D"color:#FFFFFF;font-family:Open Sans,Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:12px;line-height:1.5;mso-line-height-alt:150%;padding=
+:12px;" bgcolor=3D"" class=3D"mobile-table"><p id=3D"isPasted"
+style=3D"text-align:center;margin:0px;">=C2=A9 Software-Dealz.de</p><p
+style=3D"text-align:left;margin:0px;"><br/></p><p
+style=3D"text-align:center;margin:0px;">Boberger Anger 25, Hamburg, Germany=
+, 21031</p><p
+style=3D"text-align:left;margin:0px;"><br/></p><p
+style=3D"text-align:center;margin:0px;">This email was sent to pospiech-hd@=
+t-online.de because you&#39;ve subscribed on our site or made a purchase.</=
+p><p
+style=3D"text-align:left;margin:0px;"><br/></p><p
+style=3D"text-align:center;margin:0px;"><a
+style=3D"color:#5edc16" href=3D"https://wme.soundestlink.com/contactsPrefer=
+ences/v2/?b=3D6556c55f4f8febe42c821e75&c=3D681ee517cbd2f9ecb5b1c8e2&payload=
+=3DW1NpeayapshEg-9ouvUaN6aVNOe-SYAa36hsJuLIXm4NQ9caXwuHiyQ-kJWGJRQsSxhsa7tC=
+jozYBGnpvr5B2DFFVl5iBvoViWn_myK27KpmhvyRwAT9quO3v70GEIw-MAnp" target=3D"_bl=
+ank" data-translation-key=3D"preference">Einstellungen bearbeiten</a> | <a
+style=3D"color:#5edc16" href=3D"https://wme.soundestlink.com/contactsPrefer=
+ences/v2/unsubscribe/?b=3D6556c55f4f8febe42c821e75&c=3D681ee517cbd2f9ecb5b1=
+c8e2&payload=3Df2IA8we8mEZeupj3kv3t5HRMHgK16DNCSavw6eDu36DpUFV6wd-fGcvFrSv7=
+D6mIRD6V0sWbUGKRJ84gyFjyzK7d2nfzgFd7hMf29fjkflaHZyXJUkHNSwXWBETO9eqc_pih" t=
+arget=3D"_blank" data-translation-key=3D"unsubscribe">Abbestellen</a></p>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>
+
+--8154ceac6c9463c25df5781e190f3ace30d029a70a9340da3ddf904b7a9a--

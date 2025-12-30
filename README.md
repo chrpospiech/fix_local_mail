@@ -172,9 +172,9 @@ database --- based in their name on path location.
 
 ## Debugging and Unit Testing
 
-- To help with debugging and unit testing (not yet implemented), the list of
-  mails in "/new/" directories can be ignored and an alternative URL to
-  a database can be provided via command line options. In case of an
+- To help with debugging and unit testing, the list of mails in "/new/"
+  directories can be ignored and an alternative URL to a database can
+  be provided via command line options. In case of an
   alternative URL, no mail directories or mail caches are accessed
   to avoid clashes of current mail directories or mail caches and different
   data in the database.

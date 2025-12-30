@@ -1,0 +1,3759 @@
+Return-Path: <no-reply@stadt.wiesbaden.de>
+Received: from mailin27.aul.t-online.de ([10.223.144.67])
+	by ehead26a17.aul.t-online.de with LMTP
+	id Pt57OZaBU2kiPAAAzmg42g
+	(envelope-from <no-reply@stadt.wiesbaden.de>); Tue, 30 Dec 2025 08:39:02 +0100
+Received: from stadt.wiesbaden.de ([24.40.191.66]) by mailin27.mgt.mul.t-online.de
+	with (TLSv1.3:TLS_AES_256_GCM_SHA384 encrypted)
+	esmtp id 1vaUJg-0uW6E50; Tue, 30 Dec 2025 08:38:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=stadt.wiesbaden.de;
+	s=2025; t=1767080331;
+	bh=cO7R+kXTPPCTPc+tgpDRVuKp4yMeozojvYGlhCjiybI=;
+	h=Date:From:Reply-To:To:Subject:List-Unsubscribe:From;
+	b=B9toE/y+lv6sEm/m3Xnm1h8tsHpLtP8K3jQ2qaYxoaMFWElvZMwYH2ze9+IeXLIV/
+	 HBxQ9cok8hKAihcjtunO9sHB19QUqqWefYyNyrNBQaeFWuTcioDQzckQKX9vCxfUvE
+	 pmnSbAas3PxpTWV6n5X6OGg8V8xEK8LVedAdPS8r0o9bjZJmEiD7M9lXqwGcg6GKs8
+	 IYIPGJNBs1S/qJ01CxhqFRat6AQyzO4AGVx2lDcfjaODe6OanKtMcoSF0HuYKI9wq5
+	 vsczg+GOg7EvTbUJl6I+hRba2h/LJM9N6WIm1qD9dfPM8Gem9nNLMq3g8WeTFFDabH
+	 3BJp/2w+A0g9w==
+Received: from ies-wi.joomo.spml.de (preview-wi.joomo.spml.de [10.30.1.51])
+	by stadt.wiesbaden.de (Postfix) with ESMTPS id 1AE0F140109
+	for <pospiech-hd@t-online.de>; Tue, 30 Dec 2025 08:38:51 +0100 (CET)
+Received: from wiesbaden01-cms (localhost [127.0.0.1])
+	by ies-wi.joomo.spml.de (Postfix) with ESMTP id 9AF316A005D
+	for <pospiech-hd@t-online.de>; Tue, 30 Dec 2025 08:38:50 +0100 (CET)
+Date: Tue, 30 Dec 2025 08:38:50 +0100 (CET)
+From: Landeshauptstadt Wiesbaden <no-reply@stadt.wiesbaden.de>
+Reply-To: no-reply@stadt.wiesbaden.de
+To: Christoph Pospiech <pospiech-hd@t-online.de>
+Message-ID: <726721990.20028.1767080330633@wiesbaden01-cms>
+Subject: Das gibt es Neues - Newsletter der Stadt Wiesbaden
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_Part_20026_601733989.1767080330631"
+List-Unsubscribe: https://www.wiesbaden.de/newsletter.php?edit=66e61633d05442766be12de5a4c0580957cb61a7ccb73f09
+X-TOI-VIRUSSCAN: unchecked
+X-TOI-EXPURGATEID: 149288::1767080332-9F7F14FD-F2085298/3/8621109840 BULK NORMAL
+X-TOI-MSGID: cb2d2d23-e125-4ac3-9531-c4810707e005
+X-ENVELOPE-TO: <pospiech-hd@t-online.de>
+Authentication-Results: mailin27.aul.t-online.de;
+	dkim=pass (2048-bit key; unprotected) header.d=stadt.wiesbaden.de header.i=@stadt.wiesbaden.de header.a=rsa-sha256 header.s=2025 header.b=B9toE/y+;
+	dkim-atps=neutral
+
+
+------=_Part_20026_601733989.1767080330631
+Content-Type: multipart/alternative;
+	boundary="----=_Part_20027_1044151494.1767080330631"
+
+------=_Part_20027_1044151494.1767080330631
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: <text>
+
+.......................................................................
+Die Browserversion dieses Newsletters finden Sie unter folgendem Link:
+https://www.wiesbaden.de/newsletter/wiesbaden-de/newsletter-12-30.php
+.......................................................................
+
+
+
+Ausgabe 51 / 2025 .......................................... 30.12.2025
+
+Das gibt es Neues
+
+.......................................................................
+
+
+Lieber Christoph Pospiech,
+
+
+
+.......................................................................
+
+
+THEMEN=C3=9CBERSICHT:
+
++ Neujahrsgru=C3=9F Stadtverordnetenvorsteher
++ Silvester im Kurhaus
++ 27. Januar: Erinnern an die Opfer
++ Was ist 2026 in Wiesbaden los?
++ Meisterkonzerte: Neujahrskonzert
++ Neujahrskonzert Jagdschloss
++ Prost Johann Strau=C3=9F
++ Freier Samstag im Museum
++ Wiesbaden on Ice
++ Riesenrad und Hessische Winterstubb
++ Wiesbadener Liliencup 2026
++ Quellgefl=C3=BCster - der Wiesbaden Blog
+
+
+
+Das Jahr 2025 geht am Mittwoch zu Ende, das neue Jahr steht schon vor der T=
+=C3=BCr: So wartet am letzten Tag des Jahres die rauschende Silvester-Gala =
+im Kurhaus. Zudem stehen zu Beginn des neuen Jahres gleich einige Konzerte =
+auf dem Programm.
+
+Einen guten Rutsch in ein gesundes Jahr 2026=20
+w=C3=BCnscht Ihnen Ihre Redaktion von wiesbaden.de
+
+.......................................................................
+Top-Themen:
+.......................................................................
+
+
++ Neujahrsgru=C3=9F Stadtverordnetenvorsteher
+.......................................................................
+Der Wiesbadener Stadtverordnetenvorsteher Dr. Gerhard Obermayr schaut auf d=
+as Jahr 2025 zur=C3=BCck und wagt einen Ausblick ins neue Jahr.
+https://www.wiesbaden.de/rathaus/stadtpolitik/neujahrsgruss-stadtverordnete=
+nvorsteher.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%=
+29&pk_source=3D&pk_content=3DNeujahrsgru%C3%9F+Stadtverordnetenvorsteher+%2=
+8330528%29
+
+
++ Silvester im Kurhaus
+.......................................................................
+Noch immer keine Pl=C3=A4ne f=C3=BCr Silvester? In zehn Salons und S=C3=A4l=
+en des Kurhauses wartet eine gro=C3=9Fe Gala mit kulinarischen Highlights, =
+Live-Musik, Luftartistik und gro=C3=9Fer Mitternachtsshow =C3=BCber dem Bow=
+ling Green auf Sie.
+https://www.wiesbaden.de/leben-in-wiesbaden/freizeit/feste/silvester.php?pk=
+_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&p=
+k_content=3DSilvester+im+Kurhaus+%28130343%29
+
+
++ 27. Januar: Erinnern an die Opfer
+.......................................................................
+Von Ausstellungen =C3=BCber Lesungen bis zu Filmvorf=C3=BChrungen =E2=80=93=
+ die Veranstaltungen der Reihe "27. Januar: Erinnern an die Opfer" widmen s=
+ich dem Gedenken an die Opfer des Nationalsozialismus.
+https://www.wiesbaden.de/kultur/kultur-erleben/veranstaltungsreihen/erinner=
+n-27-januar.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155=
+%29&pk_source=3D&pk_content=3D27.+Januar%3A+Erinnern+an+die+Opfer+%28161688=
+%29
+
+.......................................................................
+Gut informiert:
+.......................................................................
+
+
++ Was ist 2026 in Wiesbaden los?
+.......................................................................
+Im Jahreskalender der Stadt Wiesbaden sind neben Daten von Festen, Kerben, =
+Messen und M=C3=A4rkten auch Konzerte, Musikveranstaltungen, Ausstellungen,=
+ Lesungen und Fasanerieangebote zu finden.
+https://www.wiesbaden.de/leben-in-wiesbaden/freizeit/veranstaltungskalender=
+/wiesbaden-jahresplan-2026.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2=
+F2025+%28334155%29&pk_source=3D&pk_content=3DWas+ist+2026+in+Wiesbaden+los%=
+3F+%28334008%29
+
+.......................................................................
+Kultur-Highlights:
+.......................................................................
+
+
++ Meisterkonzerte: Neujahrskonzert
+.......................................................................
+Am Donnerstag, 1. Januar, darf man sich im Rahmen der Meisterkonzerte um 15=
+.30 Uhr auf ein "Neujahrskonzert zwischen Eleganz und Ekstase" mit Anastasi=
+a Kobekina und dem hr-Sinfonieorchester freuen.
+https://www.wiesbaden.de/kultur/kultur-erleben/musik/meisterkonzert-aktuell=
+.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sour=
+ce=3D&pk_content=3DMeisterkonzerte%3A+Neujahrskonzert+%28161323%29
+
+
++ Neujahrskonzert Jagdschloss
+.......................................................................
+=C2=ADDas neue Jahr k=C3=B6nnen Sie mit dem traditionellen Neujahrskonzert =
+im Jagdschloss Platte am 1. Januar um 15 Uhr begr=C3=BC=C3=9Fen. Um 13 und =
+14 Uhr werden kostenlose F=C3=BChrungen durch das Schloss angeboten.
+https://www.wiesbaden.de/microsite/tourismus/erleben/events/kulturevents/ne=
+ujahrskonzert-platte.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+=
+%28334155%29&pk_source=3D&pk_content=3DNeujahrskonzert+Jagdschloss+%2814294=
+3%29
+
+
++ Prost Johann Strau=C3=9F
+.......................................................................
+Unter dem Motto "Prost Johann Strau=C3=9F" steht das Neujahrs-Konzert mit d=
+em Sinfonieorchester Rhein-Main am Samstag, 3. Januar, um 18 Uhr in der Wie=
+sbadener Casino-Gesellschaft.
+https://www.wiesbaden.de/kultur/kultur-erleben/musik/prost-johannes-strauss=
+.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sour=
+ce=3D&pk_content=3DProst+Johann+Strau%C3%9F+%28327054%29
+
+
++ Freier Samstag im Museum
+.......................................................................
+Das Museum Wiesbaden l=C3=A4dt am Samstag, 3. Januar, bei freiem Eintritt z=
+um Besuch der aktuellen Ausstellungen ein. Im Fokus steht die Studienausste=
+llung "Max und mini". Um 12 und 12.45 Uhr werden Familienf=C3=BChrungen ang=
+eboten.
+https://www.wiesbaden.de/kultur/kultur-erleben/museen-ausstellungen/freier-=
+samstag-im-museum.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28=
+334155%29&pk_source=3D&pk_content=3DFreier+Samstag+im+Museum+%28306745%29
+
+.......................................................................
+Mitmachen:
+.......................................................................
+
+
++ Wiesbaden on Ice
+.......................................................................
+In der aktuellen Wintersaison verwandelt sich das Bowling Green noch bis zu=
+m 11. Januar vor dem Kurhaus in die gr=C3=B6=C3=9Fte mobile Eisbahn Deutsch=
+lands. Tickets k=C3=B6nnen schon vorab gebucht werden.
+https://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/wiesbaden-on-ice=
+.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sour=
+ce=3D&pk_content=3DWiesbaden+on+Ice+%28324513%29
+
+
++ Riesenrad und Hessische Winterstubb
+.......................................................................
+Viel Freunde kommt bis zum 11. Januar 2026 auch auf dem Mauritiusplatz auf:=
+ In der Winterstubb warten hessische Spezialit=C3=A4ten und ein Riesenrad a=
+uf die Besucherinnen und Besucher.
+https://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/winterstubb-ster=
+nschnuppenmarkt.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%2833=
+4155%29&pk_source=3D&pk_content=3DRiesenrad+und+Hessische+Winterstubb+%2832=
+4493%29
+
+.......................................................................
+Wiesbaden sportlich:
+.......................................................................
+
+
++ Wiesbadener Liliencup 2026
+.......................................................................
+Schon jetzt vormerken: Nachwuchstalente, hochklassiger Fu=C3=9Fball, Spitze=
+natmosph=C3=A4re und Top-Organisation, daf=C3=BCr steht der Wiesbadener Lil=
+iencup, der am Samstag und Sonntag, 17. und 18. Januar 2026, zum 31. Mal in=
+ Wiesbaden ausgetragen wird.
+https://www.wiesbaden.de/leben-in-wiesbaden/sport/sportveranstaltungen/wies=
+badener-liliencup.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28=
+334155%29&pk_source=3D&pk_content=3DWiesbadener+Liliencup+2026+%28159127%29
+
+.......................................................................
+Freizeit-Tipps:
+.......................................................................
+
+
++ Quellgefl=C3=BCster - der Wiesbaden Blog
+.......................................................................
+Fun Facts =C3=BCber Wiesbaden, die sch=C3=B6nsten Anekdoten und was gerade =
+so richtig gute Laune macht - im Wiesbaden Blog "Quellgefl=C3=BCster" gibt'=
+s jede Menge Inspiration! Auch f=C3=BCr kommenden Tage "zwischen den Jahren=
+".
+https://www.wiesbaden.de/microsite/blog/index.php?pk_campaign=3Dwww.wiesbad=
+en.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DQuellgefl%C=
+3%BCster+-+der+Wiesbaden+Blog+%28317874%29
+
+
+
+.......................................................................
+
+Das waren die neuesten Informationen aus der Landeshauptstadt Wiesbaden.
+
+.......................................................................
+
+Impressum:
+Wiesbaden Congress &
+Marketing GmbH=E2=80=A8
+Friedrichstra=C3=9Fe 6
+65185 Wiesbaden
+
+
+.......................................................................
+
+Wenn Sie den Newsletter abbestellen oder =C3=A4ndern m=C3=B6chten, klicken =
+Sie einfach auf die Schaltfl=C3=A4che "Abonnement bearbeiten". Sollten Sie =
+den Link nicht aktivieren k=C3=B6nnen, dann schreiben Sie bitte eine Mail m=
+it dem Betreff =E2=80=9Eabbestellen=E2=80=9C an: newsletter@wicm.de
+https://www.wiesbaden.de/newsletter.php?edit=3D66e61633d05442766be12de5a4c0=
+580957cb61a7ccb73f09
+
+
+------=_Part_20027_1044151494.1767080330631
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: <html>
+
+<!doctype html>
+<html lang=3D"de" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office">
+  <head>
+    <title>Das gibt es Neues - Newsletter der Stadt Wiesbaden</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+  <style type=3D"text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+      .mj-column-per-50 {
+        width: 50% !important;
+        max-width: 50%;
+      }
+      .mj-column-per-40 {
+        width: 40% !important;
+        max-width: 40%;
+      }
+      .mj-column-per-60 {
+        width: 60% !important;
+        max-width: 60%;
+      }
+    }
+
+  </style>
+  <style media=3D"screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    .moz-text-html .mj-column-per-50 {
+        width: 50% !important;
+        max-width: 50%;
+      }
+    .moz-text-html .mj-column-per-40 {
+        width: 40% !important;
+        max-width: 40%;
+      }
+    .moz-text-html .mj-column-per-60 {
+        width: 60% !important;
+        max-width: 60%;
+      }
+
+  </style>
+   =20
+   =20
+    <style type=3D"text/css">
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }
+
+   =20
+   =20
+    </style>
+    <style type=3D"text/css">
+
+=09=09=09.SP-logo-image {
+=09=09=09=09margin: 0;
+=09=09=09=09display: block;
+=09=09=09=09width: 100%;
+=09=09=09=09max-width: 160px;
+=09=09=09=09height: auto;
+=09=09=09=09font-family: Verdana, Geneva, sans-serif;
+=09=09=09=09font-size: 16px;
+=09=09=09=09color: #FFFFFF;
+=09=09=09=09line-height: 180%;
+=09=09=09=09object-fit: cover;
+=09=09=09=09overflow: hidden;
+=09=09=09}
+=09=09=09.SP-Headline__text {
+=09=09=09=09font-family: Verdana, Geneva, sans-serif;
+=09=09=09=09font-weight: 600;
+=09=09=09=09line-height: 1.38;
+=09=09=09=09margin-top: 0;
+=09=09=09}
+=09=09=09.SP-Footer__text  .SP-Headline {
+=09=09=09=09margin-top: 10px;
+=09=09=09}
+=09=09=09.SP-Paragraph a,
+=09=09=09.SP-TeaserList a {
+=09=09=09=09text-decoration: none;
+=09=09=09}
+=09=09=09.SP-Teaser__button {
+=09=09=09=09margin-bottom: 0;
+=09=09=09}
+=09=09=09.SP-Teaser__headline {
+=09=09=09=09margin-top: 0;
+=09=09=09}
+=09=09=09:any-link { color: #0b287a }
+=09=09=09:any-link:active { color: #0b287a }
+=09=09=09:any-link { text-decoration: none; }
+=09=09=09.SP-Link,
+=09=09=09.SP-Link,
+=09=09=09.SP-Link:visited,
+=09=09=09.SP-Link.MsoHyperlink,
+=09=09=09.SP-Paragraph a,
+=09=09=09.SP-Paragraph a:link,
+=09=09=09.SP-Paragraph a:visited,
+=09=09=09.SP-Paragraph span.MsoHyperlink,
+=09=09=09.SP-Footer__text .SP-Paragraph a,
+=09=09=09.SP-Footer__text .SP-Paragraph a:link,
+=09=09=09.SP-Footer__text .SP-Paragraph a:visited,
+=09=09=09.SP-Footer__text .SP-Paragraph span.MsoHyperlink,=09=09
+=09=09=09.SP-Teaser__text a,
+=09=09=09.SP-Teaser__text a:link,
+=09=09=09.SP-Teaser__text a:visited,
+=09=09=09.SP-Teaser__text span.MsoHyperlink,
+=09=09=09.SP-Teaser__headline a,
+=09=09=09.SP-Teaser__headline a:link,
+=09=09=09.SP-Teaser__headline a:visited,
+=09=09=09.SP-Teaser__headline span.MsoHyperlink,
+=09=09=09.SP-Teaser__button a,
+=09=09=09.SP-Teaser__button a:link,
+=09=09=09.SP-Teaser__button a:visited,=20
+=09=09=09.SP-Teaser__button span.MsoHyperlink,
+=09=09=09.SP-Footer__text .SP-Paragraph a.SP-Link__footer,=20
+=09=09=09.SP-Footer__text .SP-Paragraph a.SP-Link__footer:link,=20
+=09=09=09.SP-Footer__text .SP-Paragraph a.SP-Link__footer:visited {
+=09=09=09=09color: #0b287a;
+=09=09=09=09text-decoration: none;
+=09=09=09}
+=09=09=09.SP-Link:focus .SP-Link__text,
+=09=09=09.SP-Link:active .SP-Link__text,
+=09=09=09.SP-Link:hover .SP-Link__text,
+=09=09=09.SP-Paragraph a:focus,
+=09=09=09.SP-Paragraph a:active,
+=09=09=09.SP-Paragraph a:hover,
+=09=09=09.SP-Footer__text .SP-Paragraph a:focus .SP-Link__text,
+=09=09=09.SP-Footer__text .SP-Paragraph a:active .SP-Link__text,
+=09=09=09.SP-Footer__text .SP-Paragraph a:hover .SP-Link__text,
+=09=09=09.SP-Teaser__text a:focus,
+=09=09=09.SP-Teaser__text a:active,
+=09=09=09.SP-Teaser__text a:hover,=09=09
+=09=09=09.SP-Teaser__headline a:focus,
+=09=09=09.SP-Teaser__headline a:active,
+=09=09=09.SP-Teaser__headline a:hover,
+=09=09=09.SP-Teaser__button a:focus .SP-Link__text,=20
+=09=09=09.SP-Teaser__button a:active .SP-Link__text,
+=09=09=09.SP-Teaser__button a:hover .SP-Link__text,
+=09=09=09.SP-Footer__text .SP-Paragraph a:focus,
+=09=09=09.SP-Footer__text .SP-Paragraph a:active,
+=09=09=09.SP-Footer__text .SP-Paragraph a:hover
+=09=09=09{
+=09=09=09=09text-decoration-color: #0b287a;
+=09=09=09=09text-decoration: underline;
+=09=09=09}
+
+=09=09=09.SP-Paragraph--intro {
+=09=09=09=09font-family:Verdana, Geneva, sans-serif;
+=09=09=09}
+=09=09=09.SP-Paragraph a {
+=09=09=09=09margin-inline-end: .1em;
+=09=09=09}
+=09=09=09.SP-LinkList__item {
+=09=09=09=09padding-bottom: 0.75rem;
+=09=09=09}
+=09=09=09.SP-Link {
+=09=09=09=09align-items: baseline;
+=09=09=09=09display: inline-flex;
+=09=09=09=09max-inline-size: 100%;
+=09=09=09}
+=09=09=09.SP-Link__icon {
+=09=09=09=09padding-right: 10px;
+=09=09=09}
+=09=09=09.SP-Link__icon {
+=09=09=09=09color: #0b287a;
+=09=09=09=09text-decoration: none;
+=09=09=09}
+=09=09=09.SP-Link__text {
+=09=09=09=09display: inline-flex;
+=09=09=09=09flex-wrap: wrap;
+=09=09=09=09max-inline-size: 100%;
+=09=09=09}
+=09=09=09.SP-FileInfo {
+=09=09=09=09display: inline-flex;
+=09=09=09=09flex-wrap: wrap;
+=09=09=09}=09=09=09
+=09=09=09.SP-Webview {
+=09=09=09=09text-align: right;
+=09=09=09}
+=09=09=09.SP-Webview .SP-Link {
+=09=09=09=09width: auto;
+=09=09=09=09float: right;
+=09=09=09}
+=09=09=09.SP-Webview .SP-Link__icon {
+=09=09=09=09text-align: right;
+=09=09=09=09padding-right: 4px;
+=09=09=09}
+=09=09=09.SP-Footer {
+=09=09=09=09margin: 0;
+=09=09=09=09padding: 20px 0 20px 0;
+=09=09=09}
+=09=09=09.SP-Section--divider > table > tbody > tr > td {
+=09=09=09=09padding: 0 !important;
+=09=09=09}
+=09=09=09.SP-Section__footer > table > td {
+=09=09=09=09padding-top: 20px !important;
+=09=09=09}
+    =09
+
+=09=09=09@media (width < 24.38rem) {
+=09=09=09=09.SP-Headline--page {
+=09=09=09=09=09font-size: 18px !important;
+=09=09=09=09=09line-height: 1.34 !important;
+=09=09=09=09}
+=09=09=09}
+=09=09=09@media (24.38rem <=3D width < 48rem) {
+=09=09=09=09.SP-Headline--page {
+=09=09=09=09=09font-size: 20px !important;
+=09=09=09=09=09line-height: 1.6 !important;
+=09=09=09=09}
+=09=09=09}
+=09=09=09@media (48rem <=3D width < 85.38rem) {
+=09=09=09=09.SP-Headline--page {
+=09=09=09=09=09font-size: 22px !important;
+=09=09=09=09=09line-height: 1.6 !important;
+=09=09=09=09}
+=09=09=09}
+=09=09=09@media (85.38rem <=3D width < 120rem) {
+=09=09=09=09.SP-Headline--page {
+=09=09=09=09=09font-size: 22px !important;
+=09=09=09=09=09line-height: 1.6 !important;
+=09=09=09=09}
+=09=09=09}
+=09=09=09@media (width >=3D 120rem) {
+=09=09=09=09.SP-Headline--page {
+=09=09=09=09=09font-size: 22px !important;
+=09=09=09=09=09line-height: 1.6 !important;
+=09=09=09=09}
+=09=09=09}
+=09=09
+
+=09=09=09@media (0rem <=3D width < 22.5rem) {
+=09=09=09=09.SP-Teaser__image {
+=09=09=09=09=09padding-bottom: 30px !important;
+=09=09=09=09}
+=09=09=09=09.SP-Divider,
+=09=09=09=09.SP-TeaserList > table > tbody > tr > td,
+=09=09=09=09.SP-Section__header .mj-column > table > tbody > tr > td,=09=09=
+=09=09
+=09=09=09=09.SP-Section__content > table > tbody > tr > td,
+=09=09=09=09.SP-Section__intro > table > tbody > tr > td,
+=09=09=09=09.SP-Section__section > table > tbody > tr > td,=09=09=09
+=09=09=09=09.SP-Section__text > table > tbody > tr > td,
+=09=09=09=09.SP-Section__linklist > table > tbody > tr > td,
+=09=09=09=09.SP-Section__footer > table > tbody > tr > td {
+=09=09=09=09=09padding-left: 10px !important;
+=09=09=09=09=09padding-right: 10px !important;
+=09=09=09=09}
+=09=09=09=09.SP-Divider__footer,
+=09=09=09=09.SP-Text,
+=09=09=09=09.SP-Teaser__button,
+=09=09=09=09.SP-Teaser__image,=09=09=09
+=09=09=09=09.SP-Teaser__text,
+=09=09=09=09.SP-Footer__social {
+=09=09=09=09=09padding-left: 0px !important;
+=09=09=09=09=09padding-right: 0px !important;
+=09=09=09=09}
+=09=09=09=09.SP-Webview {
+=09=09=09=09=09padding-right: 10px !important;
+=09=09=09=09}=09=09=09=09
+=09=09=09=09.SP-Logo__column,
+=09=09=09=09.SP-Issue__column {
+=09=09=09=09=09width: 50% !important
+=09=09=09=09}=09=09=09=09
+=09=09=09}
+=09=09=09@media (22.5rem <=3D width < 480px) {
+=09=09=09=09.SP-Teaser__image {
+=09=09=09=09=09padding-bottom: 30px !important;
+=09=09=09=09}=09=09=09
+
+=09=09=09=09.SP-Divider,
+=09=09=09=09.SP-TeaserList > table > tbody > tr > td,=09=09=09
+=09=09=09=09.SP-Section__header .mj-column > table > tbody > tr > td,
+=09=09=09=09.SP-Section__content > table > tbody > tr > td,
+=09=09=09=09.SP-Section__intro > table > tbody > tr > td,
+=09=09=09=09.SP-Section__section > table > tbody > tr > td,
+=09=09=09=09.SP-Section__text > table > tbody > tr > td,
+=09=09=09=09.SP-Section__linklist > table > tbody > tr > td,
+=09=09=09=09.SP-Section__footer > table > tbody > tr > td  {
+=09=09=09=09=09padding-left: 14px !important;
+=09=09=09=09=09padding-right: 14px !important;
+=09=09=09=09}
+=09=09=09=09.SP-Divider__footer,
+=09=09=09=09.SP-Text,
+=09=09=09=09.SP-Teaser__button,
+=09=09=09=09.SP-Teaser__image,
+=09=09=09=09.SP-Teaser__text,
+=09=09=09=09.SP-Footer__social {
+=09=09=09=09=09padding-left: 0px !important;
+=09=09=09=09=09padding-right: 0px !important;
+=09=09=09=09}
+=09=09=09=09.SP-Webview {
+=09=09=09=09=09padding-right: 10px !important;
+=09=09=09=09}=09=09=09=09
+=09=09=09=09.SP-Logo__column {
+=09=09=09=09=09width: 35%;
+=09=09=09=09}
+=09=09=09=09
+=09=09=09=09.SP-Issue__column {
+=09=09=09=09=09width: 65%;
+=09=09=09=09}=09=09=09=09
+=09=09=09}
+=09=09=09@media (480px <=3D width < 90rem) {
+=09=09=09=09.SP-Section__header .mj-column > table > tbody > tr > td,
+=09=09=09=09.SP-Footer__social,
+=09=09=09=09.SP-Divider,
+=09=09=09=09.SP-Divider__footer {
+=09=09=09=09=09padding-left: 14px !important;
+=09=09=09=09=09padding-right: 14px !important;=09=09=09=09
+=09=09=09=09}
+=09=09=09=09.SP-Teaser__button,
+=09=09=09=09.SP-Teaser__text {
+=09=09=09=09=09padding-left: 0 !important;
+=09=09=09=09=09padding-right: 0 !important;
+=09=09=09=09}
+=09=09=09=09.SP-Logo__column {
+=09=09=09=09=09width: 35%;
+=09=09=09=09}
+=09=09=09=09
+=09=09=09=09.SP-Issue__column {
+=09=09=09=09=09width: 65%;
+=09=09=09=09}=09=09=09=09
+=09=09=09}
+=09=09=09@media (width >=3D 90rem) {
+=09=09=09=09.SP-Section__header .mj-column > table > tbody > tr > td,
+=09=09=09=09.SP-Footer__social,
+=09=09=09=09.SP-Divider,
+=09=09=09=09.SP-Divider__footer {
+=09=09=09=09=09padding-left: 14px  !important;
+=09=09=09=09=09padding-right: 14px !important;=09=09=09=09
+=09=09=09=09}
+=09=09=09=09.SP-Teaser__button,
+=09=09=09=09.SP-Teaser__text {
+=09=09=09=09=09padding-left: 0 !important;
+=09=09=09=09=09padding-right: 0 !important;
+=09=09=09=09}
+=09=09=09=09.SP-Logo__column {
+=09=09=09=09=09width: 35%;
+=09=09=09=09}
+=09=09=09=09
+=09=09=09=09.SP-Issue__column {
+=09=09=09=09=09width: 65%;
+=09=09=09=09}=09=09=09=09
+=09=09=09}
+=09=09
+
+=09=09=09:root {
+=09=09=09=09color-scheme: light dark;
+=09=09=09=09supported-color-schemes: light dark;
+=09=09=09}
+=09=09=09@media (prefers-color-scheme: dark) {
+=09=09=09=09.SP-Divider {
+=09=09=09=09=09border-top-color: #FFFFFF !important;
+=09=09=09=09}
+=09=09=09=09body,
+=09=09=09=09body > div,
+=09=09=09=09.SP-Body {
+=09=09=09=09=09=09background-color: #292929 !important;
+=09=09=09=09=09=09background-image: linear-gradient(#292929, #292929) !impo=
+rtant;
+=09=09=09=09}
+=09=09=09=09.mj_wrapper,
+=09=09=09=09.mj_wrapper > table {
+=09=09=09=09=09=09background-color: #292929 !important;
+=09=09=09=09=09=09background-image: linear-gradient(#292929, #292929) !impo=
+rtant;
+=09=09=09=09}
+=09=09=09=09.mj_section,
+=09=09=09=09.mj_section > table {
+=09=09=09=09=09=09background-color: #292929 !important;
+=09=09=09=09=09=09background-image: linear-gradient(#292929, #292929) !impo=
+rtant;
+=09=09=09=09}
+=09=09=09=09.mj_column > table > tbody > tr > td {
+=09=09=09=09=09=09background-color: #292929 !important;
+=09=09=09=09=09=09background-image: linear-gradient(#292929, #292929) !impo=
+rtant;
+=09=09=09=09}
+=09=09=09=09.SP-Section__header,
+=09=09=09=09.mj_text p,
+=09=09=09=09.mj_text td,
+=09=09=09=09.mj_text div,
+=09=09=09=09.mj_text span {
+=09=09=09=09=09color: #ffffff !important;
+=09=09=09=09}
+=09=09=09=09.mj_text  div .SP-Headline--page,
+=09=09=09=09.mj_text  div .SP-Issue {
+=09=09=09=09=09color: #FFFFFF !important;=09=09=09=09
+=09=09=09=09}
+=09=09=09=09.SP-Footer__social img {
+=09=09=09=09=09background-color: #ffffff !important;
+=09=09=09=09}
+=09=09=09=09.SP-Section__header {
+=09=09=09=09=09=09background:  #081F5D !important;
+=09=09=09=09=09=09background-color: #081F5D !important;
+=09=09=09=09=09=09background-image: linear-gradient(#081F5D, #081F5D) !impo=
+rtant;=09
+=09=09=09=09=09=09position: relative !important;
+=09=09=09=09}
+=09=09=09=09.SP-Section__footer,
+=09=09=09=09.SP-Section__footer table {
+=09=09=09=09=09=09background: #121212 !important;
+=09=09=09=09=09=09background-color: #121212 !important;
+=09=09=09=09=09=09background-image: linear-gradient(#121212, #121212) !impo=
+rtant;
+=09=09=09=09}
+=09=09=09=09.SP-Paragraph a,
+=09=09=09=09.SP-Teaser__text a,
+=09=09=09=09.SP-Teaser__headline a,
+=09=09=09=09.mj_text .SP-Link__title,
+=09=09=09=09.mj_text .SP-Link__title span,
+=09=09=09=09.mj_text .SP-Link__text,
+=09=09=09=09.mj_text .SP-Link__title-footer {
+=09=09=09=09=09color: #79C0FF !important;
+=09=09=09=09=09text-decoration: underline !important;
+=09=09=09=09}
+=09=09=09=09.SP-Teaser__text .SP-Teaser__button a,
+=09=09=09=09.SP-Paragraph a.SP-Link,
+=09=09=09=09.mj_text .SP-Link__icon {
+=09=09=09=09=09color: #79C0FF !important;
+=09=09=09=09=09text-decoration: none !important;
+=09=09=09=09}
+=09=09=09}
+=09=09
+   =20
+    </style>
+
+=09=09
+=09=09
+=09=09
+=09=09
+=09=09
+=09=09
+=09=09=09<meta content=3D"light dark" name=3D"color-scheme">
+=09=09=09<meta content=3D"light dark" name=3D"supported-color-schemes">
+=09=09
+=09=09=09
+=09=09=09
+=09=09
+=09=09=09
+ =09   =20
+  </head>
+  <body style=3D"word-spacing:normal;background-color:#FFFFFF;">
+<div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;max-=
+height:0px;max-width:0px;opacity:0;overflow:hidden;">Lieber Christoph Pospi=
+ech,
+</div>
+  <div  style=3D"background-color:#FFFFFF;" lang=3D"de" dir=3D"auto" >
+
+=09=09    <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"mj_wrapper-outlook" role=3D"presentation=
+" style=3D"width:768px;" width=3D"768" bgcolor=3D"#081F5D" ><tr><td style=
+=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-=
+->
+    <div  class=3D"mj_wrapper" style=3D"background:#081F5D;background-color=
+:#081F5D;margin:0px auto;max-width:768px;" >
+      <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"background:#081F5D;background-color:#=
+081F5D;width:100%;" >
+        <tbody>
+          <tr>
+            <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:=
+center;" >
+
+              <!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-section-outlook SP-S=
+ection__header-outlook" width=3D"768px" ><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Secti=
+on__header-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"7=
+68" bgcolor=3D"#081F5D" ><tr><td style=3D"line-height:0px;font-size:0px;mso=
+-line-height-rule:exactly;"><![endif]-->
+              <div  class=3D"mj-section SP-Section__header" style=3D"backgr=
+ound:#081F5D;background-color:#081F5D;margin:0px auto;max-width:768px;" >
+                <table  align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"background:#081F5D;background=
+-color:#081F5D;width:100%;" >
+                  <tbody>
+                    <tr>
+                      <td  style=3D"direction:ltr;font-size:0px;padding:0;p=
+adding-top:20px;text-align:center;" >
+
+                        <!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"wi=
+dth:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0=
+;line-height:0;text-align:left;display:inline-block;width:100%;direction:lt=
+r;">
+<!--[if mso | IE]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" ><tr><td style=3D"vertical-align:top;width:384px;" ><!=
+[endif]-->
+<div  class=3D"mj-column-per-50 mj-outlook-group-fix mj-column SP-Logo__col=
+umn" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bl=
+ock;vertical-align:top;width:50%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-logo-image SP-Image-fallback" style=3D"font=
+-size:0px;padding:3px 0 0 14px;word-break:break-word;">
+                        <table  border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spaci=
+ng:0px;" >
+                          <tbody>
+                            <tr>
+                              <td  style=3D"width:120px;" >
+                                <img  alt=3D"Landeshauptstadt Wiesbaden" sr=
+c=3D"https://www.wiesbaden.de/images/wi-logo-white.png" style=3D"border:non=
+e;display:block;outline:none;text-decoration:none;height:auto;width:100%;fo=
+nt-size:13px;" width=3D"120" height=3D"auto" />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td style=3D"vertical-align:top;width:384px;" ><![en=
+dif]-->
+<div  class=3D"mj-column-per-50 mj-outlook-group-fix mj-column SP-Issue__co=
+lumn" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-b=
+lock;vertical-align:top;width:50%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"right" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddi=
+ng:0 14px 0 0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:10px;font-=
+weight:400;line-height:1.34;text-align:right;color:#FFFFFF;">
+=09=09=09=09=09=09<div class=3D"SP-Wrapper--Scheduling">
+=09=09=09=09=09=09
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Issue">30. Dezember 2025</div>
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09<div><span class=3D"SP-Issue">Ausgabe </span><sp=
+an class=3D"SP-Issue">51</span>
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09&ndash;
+=09=09=09=09=09=09=09=09<span>2025</span></div>
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__header-outlook" width=3D"768px" ><table align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-ou=
+tlook SP-Section__header-outlook" role=3D"presentation" style=3D"width:768p=
+x;" width=3D"768" bgcolor=3D"#081F5D" ><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+            <div  class=3D"mj-section SP-Section__header" style=3D"backgrou=
+nd:#081F5D;background-color:#081F5D;margin:0px auto;max-width:768px;" >
+              <table  align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:#081F5D;background-c=
+olor:#081F5D;width:100%;" >
+                <tbody>
+                  <tr>
+                    <td  style=3D"direction:ltr;font-size:0px;padding:0;tex=
+t-align:center;" >
+
+                      <!--[if mso | IE]><table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlo=
+ok" style=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:38px 14px 12px 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:18px;font-=
+weight:700;line-height:1.6;text-align:left;color:#FFFFFF;">
+=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--page"><h1 class=3D=
+"SP-Headline__text">Newsletter der Stadt Wiesbaden</h1></div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+   <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->      =
+  </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+   <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"mj_wrapper-outlook" role=3D"p=
+resentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj_wrapper" style=3D"margin:0px auto;max-width:768px;" >
+  <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:100%;" >
+    <tbody>
+      <tr>
+        <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:cent=
+er;" >
+
+          <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-section-outlook SP-Secti=
+on__weblink-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section_=
+_weblink-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]-->
+          <div  class=3D"mj-section SP-Section__weblink" style=3D"margin:0p=
+x auto;max-width:768px;" >
+            <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"width:100%;" >
+              <tbody>
+                <tr>
+                  <td  style=3D"direction:ltr;font-size:0px;padding:0;text-=
+align:center;" >
+
+                    <!--[if mso | IE]><table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"right" class=3D=
+"mj-column-outlook" style=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr><td class=3D"gradient" style=3D"position: relative; width: 100%; max-wi=
+dth: 768px; height: 40px; padding: 0 !important; background: linear-gradien=
+t(177deg,#081F5D 50%,transparent 51%);"></td></tr><tr>
+<td  align=3D"right" class=3D"mj_text SP-Webview" style=3D"font-size:0px;pa=
+dding:6px 14px 0 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:right;color:#292929;">
+=09=09=09=09=09=09<div class=3D"SP-LinkList__item">
+=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"https:/=
+/www.wiesbaden.de/newsletter/wiesbaden-de/newsletter-12-30.php">
+=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-link SP-Li=
+nk__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__text">Zur We=
+bansicht</span></a>
+=09=09=09=09=09=09</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__intro-outlook" width=3D"768px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-out=
+look SP-Section__intro-outlook" role=3D"presentation" style=3D"width:768px;=
+" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-he=
+ight-rule:exactly;"><![endif]-->
+        <div  class=3D"mj-section SP-Section__intro" style=3D"margin:0px au=
+to;max-width:768px;" >
+          <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"width:100%;" >
+            <tbody>
+              <tr>
+                <td  style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;" >
+
+                  <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" =
+style=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:22px;font-=
+weight:600;line-height:1.34;text-align:left;color:#292929;">
+=09=09=09=09=09=09<div class=3D"SP-Paragraph SP-Paragraph--intro">Lieber Ch=
+ristoph Pospiech,<br>
+</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+      <div  style=3D"margin:0px auto;max-width:768px;" >
+        <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;" >
+          <tbody>
+            <tr>
+              <td  style=3D"direction:ltr;font-size:0px;padding:0;text-alig=
+n:center;" >
+
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" st=
+yle=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+                <p  style=3D"border-top:solid 20px transparent;font-size:1p=
+x;margin:0px auto;width:100%;" >
+                </p>
+                <!--[if mso | IE]><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 20px transparent;=
+font-size:1px;margin:0px auto;width:740px;" role=3D"presentation" width=3D"=
+740px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__text-outlook" width=3D"768px" ><table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-outl=
+ook SP-Section__text-outlook" role=3D"presentation" style=3D"width:768px;" =
+width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heig=
+ht-rule:exactly;"><![endif]-->
+    <div  class=3D"mj-section SP-Section__text" style=3D"margin:0px auto;ma=
+x-width:768px;" >
+      <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;" >
+        <tbody>
+          <tr>
+            <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:=
+center;" >
+
+              <!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" styl=
+e=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline">
+=09=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Headline__text"></h3>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Paragraph"><p>Das Jahr 2025 geh=
+t am Mittwoch zu Ende, das neue Jahr steht schon vor der T=C3=BCr: So warte=
+t am letzten Tag des Jahres die rauschende Silvester-Gala im Kurhaus. Zudem=
+ stehen zu Beginn des neuen Jahres gleich einige Konzerte auf dem Programm.=
+</p><p>Einen guten Rutsch in ein gesundes Jahr 2026&nbsp;<br>w=C3=BCnscht I=
+hnen&nbsp;Ihre Redaktion von wiesbaden.de</p></div>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+  <div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;m=
+ax-width:768px;" >
+    <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"width:100%;" >
+      <tbody>
+        <tr>
+          <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:ce=
+nter;" >
+
+            <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=
+=3D"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Top-Themen:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+  <table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:100%;" >
+    <tbody>
+      <tr>
+        <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:cent=
+er;" >
+
+          <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D=
+"vertical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+          <p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0p=
+x auto;width:100%;" >
+          </p>
+          <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1=
+px;margin:0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr=
+><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+  <tbody>
+    <tr>
+      <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center=
+;" >
+
+        <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"v=
+ertical-align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+        <table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D=
+"mj-full-width-mobile" >
+          <tbody>
+            <tr>
+              <td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+                <a  href=3D"https://www.wiesbaden.de/rathaus/stadtpolitik/n=
+eujahrsgruss-stadtverordnetenvorsteher.php?pk_campaign=3Dwww.wiesbaden.de&p=
+k_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DNeujahrsgru%C3%9F+=
+Stadtverordnetenvorsteher+%28330528%29" target=3D"_blank" >
+                  <img  alt=3D"" src=3D"https://www.wiesbaden.de/rathaus/st=
+adtpolitik/neujahrsgruss-stadtverordnetenvorsteher.php.media/334124/86bcc52=
+6f16a42fc9779e22f2c0b3e81.webp.scaled/4d38da3d7a25ba1e56aeb8d4a0f79b0c.jpg"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"279" height=3D"auto" />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/rathaus/stadtpolitik/neujahrsgruss-stadtverordnetenvo=
+rsteher.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&=
+pk_source=3D&pk_content=3DNeujahrsgru%C3%9F+Stadtverordnetenvorsteher+%2833=
+0528%29" lang=3D"DE">Neujahrsgru=C3=9F Stadtverordnetenvorsteher</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Der Wiesbadener Stadtverordnetenvorsteher Dr.=
+ Gerhard Obermayr schaut auf das Jahr 2025 zur=C3=BCck und wagt einen Ausbl=
+ick ins neue Jahr.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/rathaus/stadtpolitik/neujahrsgruss-stadtverordneten=
+vorsteher.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%2=
+9&pk_source=3D&pk_content=3DNeujahrsgru%C3%9F+Stadtverordnetenvorsteher+%28=
+330528%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+  <tr>
+    <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;"=
+ >
+
+      <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"ver=
+tical-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+      <p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px au=
+to;width:100%;" >
+      </p>
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;m=
+argin:0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+  <td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+    <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"verti=
+cal-align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+    <table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-=
+full-width-mobile" >
+      <tbody>
+        <tr>
+          <td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+            <a  href=3D"https://www.wiesbaden.de/leben-in-wiesbaden/freizei=
+t/feste/silvester.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28=
+334155%29&pk_source=3D&pk_content=3DSilvester+im+Kurhaus+%28130343%29" targ=
+et=3D"_blank" >
+              <img  alt=3D"" src=3D"https://www.wiesbaden.de/leben-in-wiesb=
+aden/freizeit/feste/silvester.php.media/325990/ed092059643873315ef645f962ff=
+daea.webp.scaled/9f0dc09c7cd26a870b9de564db49f42e.jpg" style=3D"border:0;di=
+splay:block;outline:none;text-decoration:none;height:auto;width:100%;font-s=
+ize:13px;" width=3D"279" height=3D"auto" />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/leben-in-wiesbaden/freizeit/feste/silvester.php?pk_ca=
+mpaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_c=
+ontent=3DSilvester+im+Kurhaus+%28130343%29" lang=3D"DE">Silvester im Kurhau=
+s</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Noch immer keine Pl=C3=A4ne f=C3=BCr Silveste=
+r? In zehn Salons und S=C3=A4len des Kurhauses wartet eine gro=C3=9Fe Gala =
+mit kulinarischen Highlights, Live-Musik, Luftartistik und gro=C3=9Fer Mitt=
+ernachtsshow =C3=BCber dem Bowling Green auf Sie.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/leben-in-wiesbaden/freizeit/feste/silvester.php?pk_=
+campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk=
+_content=3DSilvester+im+Kurhaus+%28130343%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->  </td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+  <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"verti=
+cal-align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+  <p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;w=
+idth:100%;" >
+  </p>
+  <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margi=
+n:0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td sty=
+le=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+  <tbody>
+    <tr>
+      <td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+        <a  href=3D"https://www.wiesbaden.de/kultur/kultur-erleben/veransta=
+ltungsreihen/erinnern-27-januar.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=
+=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3D27.+Januar%3A+Erinnern+=
+an+die+Opfer+%28161688%29" target=3D"_blank" >
+          <img  alt=3D"" src=3D"https://www.wiesbaden.de/kultur/kultur-erle=
+ben/veranstaltungsreihen/erinnern-27-januar.php.media/329897/Typologo.jpg.s=
+caled/abcd3d71edcc389c0be4486de6d62cf2.jpg" style=3D"border:0;display:block=
+;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" =
+width=3D"279" height=3D"auto" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/kultur/kultur-erleben/veranstaltungsreihen/erinnern-2=
+7-januar.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29=
+&pk_source=3D&pk_content=3D27.+Januar%3A+Erinnern+an+die+Opfer+%28161688%29=
+" lang=3D"DE">27. Januar: Erinnern an die Opfer</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Von Ausstellungen =C3=BCber Lesungen bis zu F=
+ilmvorf=C3=BChrungen =E2=80=93 die Veranstaltungen der Reihe "27. Januar: E=
+rinnern an die Opfer" widmen sich dem Gedenken an die Opfer des Nationalsoz=
+ialismus.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/kultur/kultur-erleben/veranstaltungsreihen/erinnern=
+-27-januar.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%=
+29&pk_source=3D&pk_content=3D27.+Januar%3A+Erinnern+an+die+Opfer+%28161688%=
+29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Gut informiert:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/leben-in-wiesbaden/freizeit/veranstalt=
+ungskalender/wiesbaden-jahresplan-2026.php?pk_campaign=3Dwww.wiesbaden.de&p=
+k_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DWas+ist+2026+in+Wi=
+esbaden+los%3F+%28334008%29" target=3D"_blank" >
+  <img  alt=3D"" src=3D"https://www.wiesbaden.de/microsite/tourismus/galeri=
+en/downloadbilder/01_Sandra-Hoerr_-WICM_Bowling-Green_CC-BY-4.0.jpg.scaled/=
+ca92279a0534d6af1b133abffc307836.jpg" style=3D"border:0;display:block;outli=
+ne:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width=
+=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/leben-in-wiesbaden/freizeit/veranstaltungskalender/wi=
+esbaden-jahresplan-2026.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F20=
+25+%28334155%29&pk_source=3D&pk_content=3DWas+ist+2026+in+Wiesbaden+los%3F+=
+%28334008%29" lang=3D"DE">Was ist 2026 in Wiesbaden los?</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Im Jahreskalender der Stadt Wiesbaden sind ne=
+ben Daten von Festen, Kerben, Messen und M=C3=A4rkten auch Konzerte, Musikv=
+eranstaltungen, Ausstellungen, Lesungen und Fasanerieangebote zu finden.</p=
+>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/leben-in-wiesbaden/freizeit/veranstaltungskalender/=
+wiesbaden-jahresplan-2026.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F=
+2025+%28334155%29&pk_source=3D&pk_content=3DWas+ist+2026+in+Wiesbaden+los%3=
+F+%28334008%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Kultur-Highlights:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/kultur/kultur-erleben/musik/meisterkon=
+zert-aktuell.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%2833415=
+5%29&pk_source=3D&pk_content=3DMeisterkonzerte%3A+Neujahrskonzert+%28161323=
+%29" target=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/kultur/kultur-erleben/musik/=
+meisterkonzert-aktuell.php.media/334045/Anastasia-Kobekina_Lusine-Pepanyan.=
+jpg.scaled/a746b38e6e91ad354240b7797cd2e70f.jpg" style=3D"border:0;display:=
+block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13=
+px;" width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/kultur/kultur-erleben/musik/meisterkonzert-aktuell.ph=
+p?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=
+=3D&pk_content=3DMeisterkonzerte%3A+Neujahrskonzert+%28161323%29" lang=3D"D=
+E">Meisterkonzerte: Neujahrskonzert</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Am Donnerstag, 1. Januar, darf man sich im Ra=
+hmen der Meisterkonzerte um 15.30 Uhr auf ein "Neujahrskonzert zwischen Ele=
+ganz und Ekstase" mit Anastasia Kobekina und dem hr-Sinfonieorchester freue=
+n.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/kultur/kultur-erleben/musik/meisterkonzert-aktuell.=
+php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sourc=
+e=3D&pk_content=3DMeisterkonzerte%3A+Neujahrskonzert+%28161323%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/microsite/tourismus/erleben/events/kul=
+turevents/neujahrskonzert-platte.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=
+=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DNeujahrskonzert+Jagdsch=
+loss+%28142943%29" target=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/microsite/tourismus/erleben/=
+events/kulturevents/neujahrskonzert-platte.php.media/145073/98f5f5698674017=
+e4533eab7b6e51e3f.jpg.scaled/6540befc10e1101b744405ae15f80553.jpg" style=3D=
+"border:0;display:block;outline:none;text-decoration:none;height:auto;width=
+:100%;font-size:13px;" width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/microsite/tourismus/erleben/events/kulturevents/neuja=
+hrskonzert-platte.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28=
+334155%29&pk_source=3D&pk_content=3DNeujahrskonzert+Jagdschloss+%28142943%2=
+9" lang=3D"DE">Neujahrskonzert Jagdschloss</a></h3>
+=09=09=09=09=09=09=09=09=09<p>=C2=ADDas neue Jahr k=C3=B6nnen Sie mit dem t=
+raditionellen Neujahrskonzert im Jagdschloss Platte am 1. Januar um 15 Uhr =
+begr=C3=BC=C3=9Fen. Um 13 und 14 Uhr werden kostenlose F=C3=BChrungen durch=
+ das Schloss angeboten.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/microsite/tourismus/erleben/events/kulturevents/neu=
+jahrskonzert-platte.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%=
+28334155%29&pk_source=3D&pk_content=3DNeujahrskonzert+Jagdschloss+%28142943=
+%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/kultur/kultur-erleben/musik/prost-joha=
+nnes-strauss.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%2833415=
+5%29&pk_source=3D&pk_content=3DProst+Johann+Strau%C3%9F+%28327054%29" targe=
+t=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/kultur/kultur-erleben/musik/=
+prost-johannes-strauss.php.media/327058/SORhM121122_726.jpg.scaled/4825c882=
+eeaa33992bd9d8d89e6f0ca6.jpg" style=3D"border:0;display:block;outline:none;=
+text-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"279" =
+height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/kultur/kultur-erleben/musik/prost-johannes-strauss.ph=
+p?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=
+=3D&pk_content=3DProst+Johann+Strau%C3%9F+%28327054%29" lang=3D"DE">Prost J=
+ohann Strau=C3=9F</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Unter dem Motto "Prost Johann Strau=C3=9F" st=
+eht das Neujahrs-Konzert mit dem Sinfonieorchester Rhein-Main am Samstag, 3=
+. Januar, um 18 Uhr in der Wiesbadener Casino-Gesellschaft.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/kultur/kultur-erleben/musik/prost-johannes-strauss.=
+php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sourc=
+e=3D&pk_content=3DProst+Johann+Strau%C3%9F+%28327054%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/kultur/kultur-erleben/museen-ausstellu=
+ngen/freier-samstag-im-museum.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D5=
+1%2F2025+%28334155%29&pk_source=3D&pk_content=3DFreier+Samstag+im+Museum+%2=
+8306745%29" target=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/kultur/kultur-erleben/museen=
+-ausstellungen/freier-samstag-im-museum.php.media/330880/Max-und-mini_Etrus=
+kerspitzmaus_Foto_Museum_Wiesbaden_Bernd_Fickert.jpg.scaled/9d784a3ef20566a=
+d7e95b918aef7c005.jpg" style=3D"border:0;display:block;outline:none;text-de=
+coration:none;height:auto;width:100%;font-size:13px;" width=3D"279" height=
+=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/kultur/kultur-erleben/museen-ausstellungen/freier-sam=
+stag-im-museum.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334=
+155%29&pk_source=3D&pk_content=3DFreier+Samstag+im+Museum+%28306745%29" lan=
+g=3D"DE">Freier Samstag im Museum</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Das Museum Wiesbaden l=C3=A4dt am Samstag, 3.=
+ Januar, bei freiem Eintritt zum Besuch der aktuellen Ausstellungen ein. Im=
+ Fokus steht die Studienausstellung "Max und mini". Um 12 und 12.45 Uhr wer=
+den Familienf=C3=BChrungen angeboten.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/kultur/kultur-erleben/museen-ausstellungen/freier-s=
+amstag-im-museum.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%283=
+34155%29&pk_source=3D&pk_content=3DFreier+Samstag+im+Museum+%28306745%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Mitmachen:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook" width=3D"76=
+8px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mj-section-outlook SP-Section--teaserlist-outlook SP-TeaserLis=
+t-outlook" role=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr>=
+<td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><=
+![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList " style=3D"m=
+argin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/wies=
+baden-on-ice.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%2833415=
+5%29&pk_source=3D&pk_content=3DWiesbaden+on+Ice+%28324513%29" target=3D"_bl=
+ank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/microsite/sternschnuppenmark=
+t/ssm/wiesbaden-on-ice.php.media/326137/7859_Svenja-Muenzer_-WICM_Wiesbaden=
+-on-ice_21_CC-BY-4.0.jpg.scaled/53984443ba15c6092ac22caef4427576.jpg" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/wiesbaden-on-ice.ph=
+p?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=
+=3D&pk_content=3DWiesbaden+on+Ice+%28324513%29" lang=3D"DE">Wiesbaden on Ic=
+e</a></h3>
+=09=09=09=09=09=09=09=09=09<p>In der aktuellen Wintersaison verwandelt sich=
+ das Bowling Green noch bis zum 11. Januar vor dem Kurhaus in die gr=C3=B6=
+=C3=9Fte mobile Eisbahn Deutschlands. Tickets k=C3=B6nnen schon vorab gebuc=
+ht werden.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/wiesbaden-on-ice.=
+php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_sourc=
+e=3D&pk_content=3DWiesbaden+on+Ice+%28324513%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/wint=
+erstubb-sternschnuppenmarkt.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%=
+2F2025+%28334155%29&pk_source=3D&pk_content=3DRiesenrad+und+Hessische+Winte=
+rstubb+%28324493%29" target=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/microsite/sternschnuppenmark=
+t/ssm/winterstubb-sternschnuppenmarkt.php.media/326149/Foto-26.11.24-16-59-=
+19.jpg.scaled/21fb507f51ba0b482bed221017ceee24.jpg" style=3D"border:0;displ=
+ay:block;outline:none;text-decoration:none;height:auto;width:100%;font-size=
+:13px;" width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/winterstubb-sternsc=
+hnuppenmarkt.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%2833415=
+5%29&pk_source=3D&pk_content=3DRiesenrad+und+Hessische+Winterstubb+%2832449=
+3%29" lang=3D"DE">Riesenrad und Hessische Winterstubb</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Viel Freunde kommt bis zum 11. Januar 2026 au=
+ch auf dem Mauritiusplatz auf: In der Winterstubb warten hessische Speziali=
+t=C3=A4ten und ein Riesenrad auf die Besucherinnen und Besucher.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/microsite/sternschnuppenmarkt/ssm/winterstubb-stern=
+schnuppenmarkt.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334=
+155%29&pk_source=3D&pk_content=3DRiesenrad+und+Hessische+Winterstubb+%28324=
+493%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Wiesbaden sportlich:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/leben-in-wiesbaden/sport/sportveransta=
+ltungen/wiesbadener-liliencup.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D5=
+1%2F2025+%28334155%29&pk_source=3D&pk_content=3DWiesbadener+Liliencup+2026+=
+%28159127%29" target=3D"_blank" >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/leben-in-wiesbaden/sport/spo=
+rtveranstaltungen/wiesbadener-liliencup.php.media/159134/siegerehrung-lilie=
+ncup-2024-oliverhebel.jpg.scaled/3f03b166bf0fd390dd2f56fe1296142b.jpg" styl=
+e=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;w=
+idth:100%;font-size:13px;" width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/leben-in-wiesbaden/sport/sportveranstaltungen/wiesbad=
+ener-liliencup.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334=
+155%29&pk_source=3D&pk_content=3DWiesbadener+Liliencup+2026+%28159127%29" l=
+ang=3D"DE">Wiesbadener Liliencup 2026</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Schon jetzt vormerken: Nachwuchstalente, hoch=
+klassiger Fu=C3=9Fball, Spitzenatmosph=C3=A4re und Top-Organisation, daf=C3=
+=BCr steht der Wiesbadener Liliencup, der am Samstag und Sonntag, 17. und 1=
+8. Januar 2026, zum 31. Mal in Wiesbaden ausgetragen wird.</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/leben-in-wiesbaden/sport/sportveranstaltungen/wiesb=
+adener-liliencup.php?pk_campaign=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%283=
+34155%29&pk_source=3D&pk_content=3DWiesbadener+Liliencup+2026+%28159127%29"=
+>
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__section-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section__section-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__section" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-top:20px;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<div class=3D"SP-Headline SP-Headline--section">
+=09=09=09=09=09=09=09=09=09=09<h2 class=3D"SP-Headline--level2" style=3D"ma=
+rgin-bottom: 4px;">Freizeit-Tipps:</h2>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09<table width=3D"45"><tbody><tr><td height=3D"3" =
+style=3D"font-size: 3px; line-height: 3px; height: 3px; background: #292929=
+;">&#8202;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--divider-outlook" width=3D"768px" ><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-o=
+utlook SP-Section--divider-outlook" role=3D"presentation" style=3D"width:76=
+8px;" width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--divider" style=3D"margin:0px auto;max=
+-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:30px;padding-bottom:30px;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section--teaserlist-outlook SP-TeaserList-outlook SP-TeaserLis=
+t__last-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mj-section-outlook SP-Section--tea=
+serlist-outlook SP-TeaserList-outlook SP-TeaserList__last-outlook" role=3D"=
+presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section--teaserlist SP-TeaserList SP-TeaserLis=
+t__last" style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:307.2px;" ><![endif]-->
+<div  class=3D"mj-column-per-40 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"SP-Teaser__image" style=3D"font-size:0px;paddi=
+ng:14px;padding-top:0;padding-bottom:20px;word-break:break-word;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"border-collapse:collapse;border-spacing:0px;" class=3D"mj-full=
+-width-mobile" >
+<tbody>
+<tr>
+<td  style=3D"width:279px;" class=3D"mj-full-width-mobile" >
+<a  href=3D"https://www.wiesbaden.de/microsite/blog/index.php?pk_campaign=
+=3Dwww.wiesbaden.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=
+=3DQuellgefl%C3%BCster+-+der+Wiesbaden+Blog+%28317874%29" target=3D"_blank"=
+ >
+<img  alt=3D"" src=3D"https://www.wiesbaden.de/microsite/blog/index.php.med=
+ia/325340/7722_Roman-Knie_HA-Hessen-Tourismus-WICM_Kochbrunnen_CC0-4.0.jpg.=
+scaled/44792e897a90e1a3f1238b360bf61b52.jpg" style=3D"border:0;display:bloc=
+k;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"=
+ width=3D"279" height=3D"auto" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td><td class=3D"mj-column-outlook" style=3D"vertical-al=
+ign:top;width:460.8px;" ><![endif]-->
+<div  class=3D"mj-column-per-60 mj-outlook-group-fix mj-column" style=3D"fo=
+nt-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Teaser__text" style=3D"font-size:0p=
+x;padding:20px 14px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09=09=09<h3 class=3D"SP-Teaser__headline"><a href=3D"htt=
+ps://www.wiesbaden.de/microsite/blog/index.php?pk_campaign=3Dwww.wiesbaden.=
+de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DQuellgefl%C3%B=
+Cster+-+der+Wiesbaden+Blog+%28317874%29" lang=3D"DE">Quellgefl=C3=BCster - =
+der Wiesbaden Blog</a></h3>
+=09=09=09=09=09=09=09=09=09<p>Fun Facts =C3=BCber Wiesbaden, die sch=C3=B6n=
+sten Anekdoten und was gerade so richtig gute Laune macht - im Wiesbaden Bl=
+og "Quellgefl=C3=BCster" gibt's jede Menge Inspiration! Auch f=C3=BCr komme=
+nden Tage "zwischen den Jahren".</p>
+=09=09=09=09=09=09=09=09=09<p class=3D"SP-Teaser__button">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Iconized--left" href=3D"h=
+ttps://www.wiesbaden.de/microsite/blog/index.php?pk_campaign=3Dwww.wiesbade=
+n.de&pk_kwd=3D51%2F2025+%28334155%29&pk_source=3D&pk_content=3DQuellgefl%C3=
+%BCster+-+der+Wiesbaden+Blog+%28317874%29">
+=09=09=09=09=09=09=09=09=09=09<span aria-hidden=3D"true" class=3D"SPi SPi-l=
+ink SP-Link__icon SP-Iconized__icon" focusable=3D"false">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title">Mehr erfahren</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"SP-Sectio=
+n--divider-outlook" width=3D"768px" ><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" class=3D"SP-Section--divider-outlook" ro=
+le=3D"presentation" style=3D"width:768px;" width=3D"768" ><tr><td style=3D"=
+line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"SP-Section--divider" style=3D"margin:0px auto;max-width:768p=
+x;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider" style=3D"font-size:0px;padding:1=
+0px 25px;padding-top:0;padding-bottom:0;word-break:break-word;">
+<p  style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #B2B2B2;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__text-outlook" width=3D"768px" ><table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-outl=
+ook SP-Section__text-outlook" role=3D"presentation" style=3D"width:768px;" =
+width=3D"768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heig=
+ht-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__text" style=3D"margin:0px auto;max-wi=
+dth:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%">
+<tbody>
+<tr>
+<td  style=3D"vertical-align:top;padding-right:0;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text" style=3D"font-size:0px;paddin=
+g:20px 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:1.38;text-align:left;color:#292929;">
+=09=09=09=09=09=09<div class=3D"SP-Paragraph">Das waren die neuesten Inform=
+ationen aus der Landeshauptstadt Wiesbaden.</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=
+=3D"768px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:768px;" width=3D"=
+768" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]-->
+<div  style=3D"margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"width:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"center" style=3D"background:transparent;font-size:0px;padding=
+:10px 25px;padding-top:0;padding-right:14px;padding-bottom:0;padding-left:1=
+4px;word-break:break-word;">
+<p  style=3D"border-top:solid 40px transparent;font-size:1px;margin:0px aut=
+o;width:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 40px transparent;font-size:1px;ma=
+rgin:0px auto;width:740px;" role=3D"presentation" width=3D"740px" ><tr><td =
+style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"mj-sectio=
+n-outlook SP-Section__footer-outlook" width=3D"768px" ><table align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-ou=
+tlook SP-Section__footer-outlook" role=3D"presentation" style=3D"width:768p=
+x;" width=3D"768" bgcolor=3D"#F1EFE9" ><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div  class=3D"mj-section SP-Section__footer" style=3D"background:#F1EFE9;b=
+ackground-color:#F1EFE9;margin:0px auto;max-width:768px;" >
+<table  align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"background:#F1EFE9;background-color:#F1EFE9;w=
+idth:100%;" >
+<tbody>
+<tr>
+<td  style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;" >
+
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"mj-column-outlook" style=3D"vertical-=
+align:top;width:768px;" ><![endif]-->
+<div  class=3D"mj-column-per-100 mj-outlook-group-fix mj-column" style=3D"f=
+ont-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-al=
+ign:top;width:100%;">
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%">
+<tbody>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text SP-Footer__text" style=3D"font=
+-size:0px;padding:20px 14px;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09<div class=3D"SP-Headline"><h3 class=3D"SP-Headline__t=
+ext">Impressum</h3></div>
+=09=09=09=09=09=09=09<div class=3D"SP-Paragraph--footer"><p></p><p>Wiesbade=
+n Congress &amp;<br>Marketing GmbH=E2=80=A8<br>Friedrichstra=C3=9Fe 6<br>65=
+185 Wiesbaden</p><p></p></div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text SP-Footer__text" style=3D"font=
+-size:0px;padding:20px 14px;padding-top:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09<div class=3D"SP-Headline"><h3 class=3D"SP-Headline__text=
+">Service</h3></div>
+=09=09=09=09=09=09<div class=3D"SP-Paragraph">
+=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Link__footer SP-Iconized--left"=
+ href=3D"https://www.wiesbaden.de/newsletter.php?edit=3D66e61633d05442766be=
+12de5a4c0580957cb61a7ccb73f09">
+=09=09=09=09=09=09=09=09<span alt=3D"" class=3D"SPi SPi-linkNewWindow SP-Li=
+nk__icon SP-Iconized__icon">&#10095;</span>
+=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__text"><sp=
+an class=3D"SP-Link__title">Abonnement bearbeiten</span></span>
+=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09<p class=3D"SP-Paragraph"></p><p>Wenn Sie den Newslett=
+er abbestellen oder =C3=A4ndern m=C3=B6chten, klicken Sie einfach auf die S=
+chaltfl=C3=A4che "Abonnement bearbeiten". Sollten Sie den Link nicht aktivi=
+eren k=C3=B6nnen, dann schreiben Sie bitte eine Mail mit dem Betreff =E2=80=
+=9Eabbestellen=E2=80=9C an: <a href=3D"mailto:newsletter@wicm.de">newslette=
+r@wicm.de</a></p><p></p>
+=09=09=09=09=09=09</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+<tr>
+<td  align=3D"left" class=3D"mj_social SP-Footer__social" style=3D"font-siz=
+e:0px;padding:0 14px 10px 14px;word-break:break-word;">
+<!--[if mso | IE]><table align=3D"left" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" ><tr><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"https://www.facebook.com/sharer/sharer.php?u=3Dhttp://www.faceb=
+ook.com/Stadt.Wiesbaden" target=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/faceboo=
+k-black.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"https://www.instagram.com/stadt.wiesbaden/" target=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/instagr=
+am-black.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"https://mastodon.com/" target=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/mastodo=
+n-black.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"http://www.youtube.com/stadtwiesbaden" target=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/youtube=
+-black.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"https://www.linkedin.com/shareArticle?mini=3Dtrue&url=3Dhttps:/=
+/www.linkedin.com/company/stadt-wiesbaden/&title=3D&summary=3D&source=3D" t=
+arget=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/linkedi=
+n-black.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td><td><![endif]-->
+<table  align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"float:none;display:inline-table;" >
+<tbody>
+<tr  >
+<td  style=3D"padding:4px;vertical-align:middle;" >
+<table  border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:transparent;border-radius:3px;width:36px;" >
+<tbody>
+<tr>
+<td  style=3D"font-size:0;height:36px;vertical-align:middle;width:36px;" >
+<a  href=3D"https://www.xing.com/app/user?op=3Dshare&url=3Dhttps://www.xing=
+.com/companies/landeshauptstadtwiesbaden/" target=3D"_blank" >
+<img  alt=3D"" height=3D"36" src=3D"https://www.wiesbaden.de/images/xing-bl=
+ack.png" style=3D"border-radius:3px;display:block;" width=3D"36" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+<tr>
+<td  align=3D"center" class=3D"SP-Divider__footer" style=3D"font-size:0px;p=
+adding:10px 25px;word-break:break-word;">
+<p  style=3D"border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;wid=
+th:100%;" >
+</p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 2px #FFFFFF;font-size:1px;margin:=
+0px auto;width:718px;" role=3D"presentation" width=3D"718px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td>
+</tr>
+<tr>
+<td  align=3D"left" class=3D"mj_text SP-Text SP-Footer__text" style=3D"font=
+-size:0px;padding:20px 14px;padding-top:0;word-break:break-word;">
+<div  style=3D"font-family:Verdana, Geneva, sans-serif;font-size:16px;font-=
+weight:400;line-height:25px;text-align:left;color:#292929;">
+=09=09=09=09=09=09=09<div class=3D"SP-Paragraph">
+=09=09=09=09=09=09=09=09<p class=3D"SP-Paragraph">
+=09=09=09=09=09=09=09=09=09<a class=3D"SP-Link SP-Link__footer SP-Iconized-=
+-left" href=3D"https://www.wiesbaden.de/datenschutzerklaerung.php" rel=3D"n=
+oopener" target=3D"_blank">
+=09=09=09=09=09=09=09=09=09=09<span alt=3D"" class=3D"SPi SPi-linkNewWindow=
+ SP-Link__icon SP-Iconized__icon">&#10095;</span>
+=09=09=09=09=09=09=09=09=09=09<span class=3D"SP-Link__text SP-Iconized__tex=
+t"><span class=3D"SP-Link__title-footer">Datenschutzerkl=C3=A4rung wiesbade=
+n.de</span></span>
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09<p>&#169; Landeshauptstadt Wiesbaden</p>
+=09=09=09=09=09=09</div>
+=09=09=09=09=09</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+   <!--[if mso | IE]></td></tr></table><![endif]-->=09
+=09</div>
+  </body>
+</html>
+ =20
+------=_Part_20027_1044151494.1767080330631--
+
+------=_Part_20026_601733989.1767080330631--

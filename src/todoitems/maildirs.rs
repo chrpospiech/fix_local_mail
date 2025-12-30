@@ -1,4 +1,7 @@
+use crate::cmdline::CliArgs;
 use sqlx::{FromRow, MySql, Pool};
+
+pub(crate) mod root_paths;
 
 #[derive(Debug, Clone, FromRow)]
 #[allow(dead_code)]
@@ -40,7 +43,16 @@ pub async fn fetch_collections(
         .collect()
 }
 
-pub async fn get_root_paths(pool: Pool<MySql>) -> Vec<Option<String>> {
+pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Vec<Option<String>> {
+    if args.maildir_path != "auto" {
+        if args.verbose || args.dry_run {
+            println!(
+                "Using maildir root path from command line argument: {}",
+                args.maildir_path
+            );
+        }
+        return vec![Some(args.maildir_path.clone())];
+    }
     let root_dirs: std::collections::HashMap<i64, Collection> =
         fetch_collections(pool.clone(), true).await;
     root_dirs
