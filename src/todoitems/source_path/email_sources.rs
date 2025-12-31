@@ -1,0 +1,116 @@
+#[cfg(test)]
+/// Test module for email source functionality.
+///
+/// This module contains integration tests that verify the email retrieval system
+/// works correctly for both file-based and database-based email caching scenarios.
+///
+/// # Test Setup
+///
+/// The tests create a temporary mail directory structure by copying test data from
+/// `src/todoitems/tests/data` to a unique temporary location. This ensures test
+/// isolation and prevents interference between test runs.
+///
+/// # Helper Functions
+///
+/// - `setup_tmp_mail_dir()`: Creates a temporary maildir with test data copied from fixtures
+/// - `teardown_tmp_mail_dir()`: Cleans up the temporary directory after tests complete
+/// - `create_test_cli_args()`: Constructs CLI arguments pointing to the temporary test directories
+///
+/// # Test Cases
+///
+/// - `test_get_cached_email_from_file`: Verifies email retrieval when the email is cached
+///   in the filesystem (file_id 50638, no remote_id)
+/// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
+///   in the database (file_id 50645, has remote_id)
+///
+/// # Regarding the `.map_err(std::io::Error::other)` call
+///
+/// The `map` here is used because `fs_extra::dir::copy()` returns a custom error type
+/// (`fs_extra::error::Error`), but we need to convert it to `std::io::Error` for
+/// compatibility with the `.expect()` call and standard error handling. The `map_err()`
+/// function transforms the error type while preserving the error information.
+mod tests {
+
+    use crate::{cmdline::CliArgs, todoitems::source_path::get_cached_email};
+    use sqlx::MySqlPool;
+
+    pub fn setup_tmp_mail_dir() -> String {
+        // Create a temporary mail directory structure for testing
+        // Recursively copy src/todoitems/tests/data to this structure
+        let temp_dir = std::env::temp_dir().join(format!("maildir_test_{}", uuid::Uuid::new_v4()));
+        std::fs::create_dir_all(&temp_dir).expect("Failed to create temp maildir");
+        let manifest_dir = env!("CARGO_MANIFEST_DIR"); // compile-time
+        let path = std::path::Path::new(manifest_dir).join("src/todoitems/tests/data");
+        let mut options = fs_extra::dir::CopyOptions::new();
+        options.content_only = true;
+        fs_extra::dir::copy(&path, &temp_dir, &options)
+            .map_err(std::io::Error::other)
+            .expect("Could not copy mail directories");
+
+        temp_dir.to_string_lossy().to_string()
+    }
+
+    pub fn teardown_tmp_mail_dir(temp_dir: &str) {
+        std::fs::remove_dir_all(temp_dir).expect("Failed to remove temp maildir");
+    }
+
+    pub fn create_test_cli_args(temp_dir: &str) -> CliArgs {
+        CliArgs {
+            maildir_path: format!("{}/local_mail/", temp_dir),
+            mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            ..Default::default()
+        }
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_file(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct
+        let args = create_test_cli_args(&temp_dir);
+
+        // Test: Retrieve the cached email path for file_id 50638
+        // The email with file_id 50638 has no remote_id and is cached in the file system
+        let file_id = 50638;
+        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(result.contains(&args.mail_cache_path));
+        assert!(!result.contains("//"));
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_db(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct
+        let args = create_test_cli_args(&temp_dir);
+
+        // Test: Retrieve the cached email path for file_id 50645
+        // The email with file_id 50645 has a remote_id and is cached in the database
+        let file_id = 50645;
+        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(!result.contains("//"));
+        assert!(result.contains(&args.mail_cache_path));
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+}
