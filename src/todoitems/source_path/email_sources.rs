@@ -54,11 +54,15 @@ mod tests {
         std::fs::remove_dir_all(temp_dir).expect("Failed to remove temp maildir");
     }
 
-    pub fn create_test_cli_args(temp_dir: &str) -> CliArgs {
+    pub fn create_test_cli_args(temp_dir: &str, db_url_auto: bool) -> CliArgs {
         CliArgs {
             maildir_path: format!("{}/local_mail/", temp_dir),
             mail_cache_path: format!("{}/file_db_data/", temp_dir),
-            db_url: "auto".to_string(),
+            db_url: if db_url_auto {
+                "auto".to_string()
+            } else {
+                "some_other_db_url".to_string()
+            },
             ..Default::default()
         }
     }
@@ -71,7 +75,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir();
 
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir);
+        let args = create_test_cli_args(&temp_dir, true);
 
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
@@ -90,6 +94,33 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_pattern(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct
+        let args = create_test_cli_args(&temp_dir, false);
+
+        // Test: Retrieve the cached email path for file_id 50638
+        // The email with file_id 50638 has no remote_id and is cached in the file system
+        // We simulate a non-auto db_url to test that no pattern matching occurs
+        let file_id = 50638;
+        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(result.contains(&args.mail_cache_path));
+        assert!(!result.contains("//"));
+        assert!(result.contains("*"));
+        assert!(!std::path::Path::new(&result).exists());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_cached_email_from_db(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -97,10 +128,11 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir();
 
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir);
+        let args = create_test_cli_args(&temp_dir, true);
 
         // Test: Retrieve the cached email path for file_id 50645
-        // The email with file_id 50645 has a remote_id and is cached in the database
+        // The email with file_id 50645 has no remote_id and is cached in the database
+        // This should create a temporary file with the email contents
         let file_id = 50645;
         let result: String = get_cached_email(file_id, pool.clone(), &args).await;
         assert!(!result.is_empty());
@@ -108,6 +140,30 @@ mod tests {
         assert!(result.contains(&args.mail_cache_path));
         assert!(std::path::Path::new(&result).exists());
         assert!(std::path::Path::new(&result).is_file());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_not_caching_email(pool: MySqlPool) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct
+        let args = create_test_cli_args(&temp_dir, false);
+
+        // Test: Retrieve the cached email path for file_id 50645
+        // The email with file_id 50645 has no remote_id and is cached in the database
+        // However, for db_url != auto, this should not create a temporary file
+        let file_id = 50645;
+        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(!result.contains("//"));
+        assert!(result.contains(&args.mail_cache_path));
+        assert!(!std::path::Path::new(&result).exists());
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir);

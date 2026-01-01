@@ -1,7 +1,6 @@
 use crate::todoitems::CliArgs;
 use sqlx::{MySql, Pool};
 use std::io::Write;
-use std::path::PathBuf;
 use uuid::Uuid;
 
 pub(crate) mod cache_root;
@@ -23,13 +22,16 @@ pub async fn get_source_file_name(
     }
     if let Some(rid) = remote_id {
         let pattern = format!("{}*/{}", path, rid);
-        get_single_matching_file(&pattern).await
+        get_single_matching_file(&pattern, args).await
     } else {
         get_cached_email(file_id, pool, args).await
     }
 }
 
-pub async fn get_single_matching_file(pattern: &str) -> String {
+pub async fn get_single_matching_file(pattern: &str, args: &CliArgs) -> String {
+    if args.db_url != "auto" {
+        return pattern.to_string();
+    }
     let mut paths = Vec::new();
 
     for entry in glob::glob(pattern).expect("Failed to read glob pattern") {
@@ -88,14 +90,15 @@ pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>, args: &CliArgs) -
     if result.storage == 1 {
         // Cached email is stored in file system
         let pattern = format!("{}*/{}", cache_root_dir, data_string);
-        return get_single_matching_file(&pattern).await;
+        return get_single_matching_file(&pattern, args).await;
     } else {
         // Cached email is stored in database
         let unique_name = format!("{}tmp{}", cache_root_dir, Uuid::new_v4());
-        let path = PathBuf::from(&unique_name);
-        let mut file = std::fs::File::create(&path).expect("Failed to create temp file");
-        file.write_all(&result.data)
-            .expect("Failed to write to temp file");
+        if args.db_url == "auto" && !args.dry_run {
+            let mut file = std::fs::File::create(&unique_name).expect("Failed to create temp file");
+            file.write_all(&result.data)
+                .expect("Failed to write to temp file");
+        }
         unique_name
     }
 }

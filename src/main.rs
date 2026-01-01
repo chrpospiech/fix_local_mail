@@ -26,12 +26,8 @@ async fn main() {
                 "Dry run item ID {}: would move {} to {}",
                 item.id, item.source_path, item.target_path
             );
-            // Remove temporary files created for cached emails
-            execute::remove_temp_file(&item.source_path);
         } else {
-            // Move files to their target locations
-            // We don't need to remove temp files separately here since they are moved
-            // We don't need to move files if source and target are the same
+            // Move files to their target locations if source and target are not the same
             if item.source_path != item.target_path {
                 if args.verbose {
                     println!(

@@ -26,14 +26,6 @@ pub fn ensure_writable_directory(dir: String) {
     }
 }
 
-pub fn remove_temp_file(file_path: &str) {
-    if file_path.contains("/file_db_data/tmp") {
-        if let Err(e) = fs::remove_file(file_path) {
-            eprintln!("Failed to remove temp file {}: {}", file_path, e);
-        }
-    }
-}
-
 pub fn move_file(source: &str, target: &str) {
     // Ensure both, source and target directory are writable
     if let Some(parent) = std::path::Path::new(&source).parent() {
