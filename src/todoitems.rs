@@ -111,7 +111,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
     };
     // Fetch full paths of all mail directories
     let full_paths: std::collections::HashMap<i64, String> =
-        maildirs::fetch_full_paths(pool.clone()).await;
+        maildirs::fetch_full_paths(pool.clone(), args).await;
     // Fetch todo items corresponding to new mail files
     let todo_pim_items: Vec<TodoPimItem> =
         fetch_todo_pim_items(pool.clone(), new_mail_list, args).await;

@@ -1,6 +1,8 @@
 use crate::cmdline::CliArgs;
 use sqlx::{FromRow, MySql, Pool};
+use std::collections::HashMap;
 
+pub(crate) mod full_paths;
 pub(crate) mod root_paths;
 
 #[derive(Debug, Clone, FromRow)]
@@ -13,10 +15,7 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(
-    pool: Pool<MySql>,
-    get_root_only: bool,
-) -> std::collections::HashMap<i64, Collection> {
+pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> HashMap<i64, Collection> {
     let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,
@@ -67,27 +66,32 @@ pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Vec<Option<Str
 #[allow(dead_code)]
 pub fn set_parent_paths(
     id: i64,
-    collections: std::collections::HashMap<i64, Collection>,
-    paths: &mut std::collections::HashMap<i64, String>,
+    collections: HashMap<i64, Collection>,
+    paths: &mut HashMap<i64, String>,
+    args: &CliArgs,
 ) {
     let collection = collections.get(&id).expect("Collection not found");
     if paths.contains_key(&id) {
         return;
     }
     if collection.parent_id.is_none() {
-        let remote_id = collection
-            .remote_id
-            .as_ref()
-            .expect("Root collection has NULL remote_id");
-        let path = if remote_id.ends_with('/') {
-            remote_id.clone()
+        let root_path = if args.maildir_path != "auto" {
+            &args.maildir_path
         } else {
-            format!("{}/", remote_id)
+            collection
+                .remote_id
+                .as_ref()
+                .expect("Root collection has NULL remote_id")
+        };
+        let path = if root_path.ends_with('/') {
+            root_path.clone()
+        } else {
+            format!("{}/", root_path)
         };
         paths.insert(id, path);
     } else {
         let parent_id = collection.parent_id.expect("Parent ID should be Some");
-        set_parent_paths(parent_id, collections.clone(), paths);
+        set_parent_paths(parent_id, collections.clone(), paths, args);
         let parent_path = paths.get(&parent_id).expect("Parent path not found");
         let remote_id = collection
             .remote_id
@@ -98,13 +102,12 @@ pub fn set_parent_paths(
     }
 }
 
-pub async fn fetch_full_paths(pool: Pool<MySql>) -> std::collections::HashMap<i64, String> {
-    let collections: std::collections::HashMap<i64, Collection> =
-        fetch_collections(pool.clone(), false).await;
-    let mut paths: std::collections::HashMap<i64, String> = std::collections::HashMap::new();
+pub async fn fetch_full_paths(pool: Pool<MySql>, args: &CliArgs) -> HashMap<i64, String> {
+    let collections: HashMap<i64, Collection> = fetch_collections(pool.clone(), false).await;
+    let mut paths: HashMap<i64, String> = HashMap::new();
 
     for id in collections.keys() {
-        set_parent_paths(*id, collections.clone(), &mut paths);
+        set_parent_paths(*id, collections.clone(), &mut paths, args);
     }
 
     collections
