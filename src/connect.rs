@@ -21,14 +21,14 @@ pub fn get_mysql_socket() -> Option<String> {
 pub fn get_database_url() -> String {
     let socket: Option<String> = get_mysql_socket();
     if socket.is_none() {
-        panic!("Failed to get MySQL socket path. Is the Akonadi database running?");
+        panic!("Failed to get MySQL auto path. Is the Akonadi database running?");
     }
     let sock = socket.unwrap();
     format!("mysql://localhost/akonadi?socket={}", sock)
 }
 
 pub async fn connect_to_database(args: &CliArgs) -> sqlx::Pool<sqlx::MySql> {
-    let database_url: String = if args.db_url == "socket" {
+    let database_url: String = if args.db_url == "auto" {
         get_database_url()
     } else {
         args.db_url.clone()

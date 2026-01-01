@@ -58,6 +58,7 @@ mod tests {
         CliArgs {
             maildir_path: format!("{}/local_mail/", temp_dir),
             mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            db_url: "auto".to_string(),
             ..Default::default()
         }
     }

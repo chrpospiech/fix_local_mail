@@ -75,7 +75,7 @@ Options:
   -c, --mail-cache-path <MAIL_CACHE_PATH>
           mail cache path if not determined automatically [default: auto]
   -u, --db-url <DB_URL>
-          Database URL if not determined automatically [default: socket]
+          Database URL if not determined automatically [default: auto]
   -i, --ignore-new-dirs
           Ignore list of mails in new directories
   -a, --stop-akonadi

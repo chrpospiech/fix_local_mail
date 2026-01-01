@@ -57,7 +57,7 @@ pub async fn create_new_mail_name(
 }
 
 pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
-    if args.db_url != "socket" {
+    if args.db_url != "auto" {
         if args.verbose || args.dry_run {
             println!(
                 "Custom DB URL: Not looking for mail timestamp from file {}.",

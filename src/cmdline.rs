@@ -24,7 +24,7 @@ pub struct CliArgs {
     pub mail_cache_path: String,
 
     /// Database URL if not determined automatically
-    #[arg(short = 'u', long, default_value = "socket")]
+    #[arg(short = 'u', long, default_value = "auto")]
     pub db_url: String,
 
     /// Ignore list of mails in new directories

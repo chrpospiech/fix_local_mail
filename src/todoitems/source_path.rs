@@ -14,7 +14,7 @@ pub async fn get_source_file_name(
     pool: Pool<MySql>,
     args: &CliArgs,
 ) -> String {
-    if args.db_url != "socket" {
+    if args.db_url != "auto" {
         if let Some(rid) = remote_id {
             return format!("tbd/{}", rid);
         } else {
