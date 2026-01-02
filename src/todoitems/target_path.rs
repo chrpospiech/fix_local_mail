@@ -11,6 +11,8 @@ use sqlx::Pool;
 use rand::Rng;
 use regex::Regex;
 
+pub(crate) mod email_targets;
+
 pub async fn get_target_file_name(
     path: String,
     remote_id: Option<&String>,

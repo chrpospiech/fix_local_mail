@@ -3,7 +3,7 @@
 ///
 /// This module contains integration tests that verify the email retrieval system
 /// works correctly for both file-based and database-based email caching scenarios.
-/// works correctly for both file-based and database-based email caching scenarios.
+/// works correctly for both emails stored in mail directories and in the database.
 ///
 /// # Test Setup
 ///
@@ -20,6 +20,17 @@
 /// # Test Cases
 ///
 /// - `test_get_cached_email_from_file`: Verifies email retrieval when the email is cached
+///   in the filesystem (file_id 50638, no remote_id) with db_url set to "auto"
+/// - `test_get_cached_email_pattern`: Verifies that when db_url is not "auto", the cached
+///   email path contains a wildcard pattern instead of being resolved to an actual file
+/// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
+///   in the database (file_id 50645, has remote_id) and creates a temporary file with db_url="auto"
+/// - `test_not_caching_email`: Verifies that when db_url is not "auto", emails cached in the
+///   database return a path pattern without creating a temporary file
+/// - `test_get_source_file_name_with_auto_db`: Verifies source file name resolution for an
+///   email with a remote_id when db_url is "auto"
+/// - `test_get_pattern_for_source_file_name`: Verifies source file name returns a wildcard
+///   pattern when db_url is not "auto"
 ///   in the filesystem (file_id 50638, no remote_id)
 /// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
 ///   in the database (file_id 50645, has remote_id)
