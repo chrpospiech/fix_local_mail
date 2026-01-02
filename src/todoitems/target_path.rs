@@ -123,22 +123,28 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> u64 {
 
 pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
     // Fetch mail flags from the database and construct the mail info string
+    // the `flagtable`.`id` entries, might be different for each user.
+    // Hence they should not be used in SQL queries. Instead a four letter
+    // acronym `flag` is used instead.
     let query = format!(
-        "SELECT `Flag_id` FROM `pimitemflagrelation` WHERE `PimItem_id` = {}",
+        "SELECT SUBSTR(CONVERT(`flagtable`.`name`, CHAR), 2,4) AS `flag`
+         FROM `pimitemflagrelation` RIGHT JOIN `flagtable`
+           ON `pimitemflagrelation`.`Flag_id` = `flagtable`.`id`
+        WHERE `pimitemflagrelation`.`PimItem_id` = {}",
         file_id
     );
-    // Map of flag IDs to their corresponding characters
-    let flag_map: HashMap<i32, &str> = HashMap::from([
-        (1, "S"),
-        (6, "P"),
-        (9, "R"),
-        (12, "R"),
-        (14, "F"),
-        (16, "T"),
+    // Map of flags to their corresponding characters
+    let flag_map: HashMap<&str, &str> = HashMap::from([
+        ("SEEN", "S"),
+        ("FORW", "P"),
+        ("ANSW", "R"),
+        ("REPL", "R"),
+        ("FLAG", "F"),
+        ("DELE", "T"),
     ]);
 
-    // Execute the query to get flag IDs
-    let rows: Vec<(i32,)> = sqlx::query_as(&query)
+    // Execute the query to get flags
+    let rows: Vec<(String,)> = sqlx::query_as(&query)
         .fetch_all(&pool)
         .await
         .expect("Failed to fetch mail flags");
@@ -151,7 +157,7 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
         //
         let mut flags = rows
             .into_iter()
-            .filter_map(|(flag_id,)| flag_map.get(&flag_id).copied())
+            .filter_map(|(flag,)| flag_map.get(flag.as_str()).copied())
             .collect::<Vec<&str>>();
         flags.sort();
         flags.dedup();

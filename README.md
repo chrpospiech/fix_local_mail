@@ -123,7 +123,9 @@ Options:
         AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2%S'
              OR (`id` IN (SELECT `pimItem_Id`
                           FROM `pimitemflagrelation`
-                          WHERE `flag_Id` = 9)
+                          WHERE `flag_Id` IN (SELECT `id`
+                                              FROM `flagtable`
+                                              WHERE `name` LIKE '%ANSWERED'))
                   AND `remoteId` NOT LIKE '%:2%RS'
                 )
              OR `remoteId` IN (<list of emails in new dirs>)
@@ -200,3 +202,36 @@ database --- based in their name on path location.
 
 - Called functions need to be exported in the dynamic symbol table.
 - `cargo` needs to set the `rpath` in order to find the dynamic library at run time.
+
+### Volatile flag ids
+
+The `flagtable`, particularly the `flagtable`.`id` entries, might be different for
+each user. Hence they should not be used in SQL queries. Instead a four letter
+acronym `flag` is used instead. For example, the table might look like this.
+
+```SQL
+MariaDB [akonadi]> SELECT *,
+   SUBSTR(CONVERT(`flagtable`.`name`, CHAR), 2,4) AS `flag`
+   FROM `flagtable`;
++----+------------------+------+
+| id | name             | flag |
++----+------------------+------+
+|  4 | $ATTACHMENT      | ATTA |
+| 13 | $ENCRYPTED       | ENCR |
+| 15 | $ERROR           | ERRO |
+|  6 | $FORWARDED       | FORW |
+|  5 | $HasAttachment   | HasA |
+|  3 | $HasNoAttachment | HasN |
+|  2 | $IGNORED         | IGNO |
+|  8 | $INVITATION      | INVI |
+| 10 | $QUEUED          | QUEU |
+| 12 | $REPLIED         | REPL |
+| 11 | $SENT            | SENT |
+|  7 | $SIGNED          | SIGN |
+|  9 | \ANSWERED        | ANSW |
+| 16 | \DELETED         | DELE |
+| 14 | \FLAGGED         | FLAG |
+|  1 | \SEEN            | SEEN |
++----+------------------+------+
+16 rows in set (0,000 sec)
+```

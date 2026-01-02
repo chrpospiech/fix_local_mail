@@ -39,14 +39,16 @@ pub async fn fetch_todo_pim_items(
     query_builder.push_bind(args.min_id);
     query_builder.push(" AND (`dirty` = 1 OR `remoteId` NOT LIKE '%:2,%S'");
 
-    // Include items flagged as answered but not marked as replied
+    // Include items flagged as `\ANSWERED` but not marked as replied
     // These items also need to be processed and the flag
     // changed to replied after moving.
     query_builder.push(
         " OR (
         `id` IN (SELECT pimItem_Id
                  FROM `pimitemflagrelation`
-                 WHERE `flag_Id` = 9)
+                 WHERE `flag_Id` IN (SELECT `id`
+                                     FROM `flagtable`
+                                     WHERE `name` LIKE '%ANSWERED'))
         AND `remoteId` NOT LIKE '%:2%RS')",
     );
 
