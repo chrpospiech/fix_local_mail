@@ -1,0 +1,145 @@
+#[cfg(test)]
+/// Test module for email target functionality.
+///
+/// This module contains integration tests that verify generation of the to-do list.
+/// works correctly for both file-based and database-based email caching scenarios.
+/// works correctly for both emails stored in mail directories and in the database.
+///
+/// # Test Setup
+///
+/// The tests create a temporary mail directory structure by copying test data from
+/// `src/todoitems/tests/data` to a unique temporary location. This ensures test
+/// isolation and prevents interference between test runs.
+///
+/// # Helper Functions
+///
+/// - `setup_tmp_mail_dir()`: Creates a temporary maildir with test data copied from fixtures
+/// - `teardown_tmp_mail_dir()`: Cleans up the temporary directory after tests complete
+/// - `create_test_cli_args()`: Constructs CLI arguments pointing to the temporary test directories
+///
+/// # Test Cases
+///
+/// - `test_default_number_of_todoitems`:
+///   Verifies that all todo items are fetched when no filters are applied
+/// - `test_number_of_todoitems_ignoring_new`:
+///   Verifies that todo items from 'new' directories are excluded when `ignore_new_dirs` is enabled
+/// - `test_number_of_todoitems_below_limit`:
+///   Verifies that the number of fetched todo items respects the specified limit
+/// - `test_number_of_todoitems_above_minimum_id`:
+///   Verifies that only todo items with IDs greater than or equal to `min_id` are fetched
+///
+mod tests {
+
+    use crate::cmdline::CliArgs;
+    use crate::todoitems::{
+        fetch_todo_items,
+        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
+    };
+    use sqlx::mysql::MySqlPool;
+
+    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    pub async fn test_default_number_of_todoitems(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = create_test_cli_args(&temp_dir, true);
+
+        // Fetch todo items from the database
+        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+
+        // Verify the number of todo items fetched
+        assert_eq!(todo_items.len(), 8);
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    pub async fn test_number_of_todoitems_ignoring_new(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = CliArgs {
+            maildir_path: format!("{}/local_mail/", temp_dir),
+            mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            db_url: "auto".to_string(),
+            ignore_new_dirs: true,
+            ..Default::default()
+        };
+
+        // Fetch todo items from the database ignoring new directories
+        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+
+        // Verify the number of todo items fetched
+        assert_eq!(todo_items.len(), 5);
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    pub async fn test_number_of_todoitems_below_limit(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = CliArgs {
+            maildir_path: format!("{}/local_mail/", temp_dir),
+            mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            db_url: "auto".to_string(),
+            limit: 5,
+            ..Default::default()
+        };
+
+        // Fetch todo items from the database
+        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+
+        // Verify the number of todo items is below the given limit
+        assert_eq!(todo_items.len(), 5);
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    pub async fn test_number_of_todoitems_above_minimum_id(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = CliArgs {
+            maildir_path: format!("{}/local_mail/", temp_dir),
+            mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            db_url: "auto".to_string(),
+            min_id: 50642,
+            ..Default::default()
+        };
+
+        // Fetch todo items from the database ignoring new directories
+        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+
+        // Verify the number of todo items fetched
+        assert_eq!(todo_items.len(), 3);
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+}

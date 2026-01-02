@@ -9,6 +9,8 @@ pub(crate) mod mockup;
 pub(crate) mod new_mails;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
+#[cfg(test)]
+pub(crate) mod test_todoitems;
 
 #[derive(Debug, FromRow)]
 pub struct TodoPimItem {
