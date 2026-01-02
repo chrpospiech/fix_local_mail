@@ -13,13 +13,6 @@ pub async fn get_source_file_name(
     pool: Pool<MySql>,
     args: &CliArgs,
 ) -> String {
-    if args.db_url != "auto" {
-        if let Some(rid) = remote_id {
-            return format!("tbd/{}", rid);
-        } else {
-            return "tbd/NULL".to_string();
-        }
-    }
     if let Some(rid) = remote_id {
         let pattern = format!("{}*/{}", path, rid);
         get_single_matching_file(&pattern, args).await

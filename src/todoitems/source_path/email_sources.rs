@@ -31,7 +31,11 @@
 /// function transforms the error type while preserving the error information.
 mod tests {
 
-    use crate::{cmdline::CliArgs, todoitems::source_path::get_cached_email};
+    use crate::{
+        cmdline::CliArgs,
+        todoitems::maildirs::fetch_full_paths,
+        todoitems::source_path::{get_cached_email, get_source_file_name},
+    };
     use sqlx::MySqlPool;
 
     pub fn setup_tmp_mail_dir() -> String {
@@ -163,6 +167,82 @@ mod tests {
         assert!(!result.is_empty());
         assert!(!result.contains("//"));
         assert!(result.contains(&args.mail_cache_path));
+        assert!(!std::path::Path::new(&result).exists());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_source_file_name_with_auto_db(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = create_test_cli_args(&temp_dir, true);
+
+        // Fetch full paths of all mail directories
+        let full_paths: std::collections::HashMap<i64, String> =
+            fetch_full_paths(pool.clone(), &args).await;
+
+        // Test: Retrieve the source file name for a file_id
+        // that is stored in tests/data and has a remote_id.
+        let file_id = 206;
+        let collection_id = 388;
+        let path = full_paths
+            .get(&collection_id)
+            .cloned()
+            .unwrap_or("tbd/".to_string());
+        let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let result: String =
+            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(result.contains(&args.maildir_path));
+        assert!(result.contains(&remote_id));
+        assert!(!result.contains("//"));
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_pattern_for_source_file_name(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto"
+        let args = create_test_cli_args(&temp_dir, false);
+
+        // Fetch full paths of all mail directories
+        let full_paths: std::collections::HashMap<i64, String> =
+            fetch_full_paths(pool.clone(), &args).await;
+
+        // Test: Retrieve the source file name for a file_id
+        // that is stored in tests/data and has a remote_id.
+        let file_id = 206;
+        let collection_id = 388;
+        let path = full_paths
+            .get(&collection_id)
+            .cloned()
+            .unwrap_or("tbd/".to_string());
+        let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let result: String =
+            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await;
+        assert!(!result.is_empty());
+        assert!(result.contains(&args.maildir_path));
+        assert!(result.contains(&remote_id));
+        assert!(!result.contains("//"));
+        assert!(result.contains("*"));
         assert!(!std::path::Path::new(&result).exists());
 
         // Clean up: Remove the temporary directory
