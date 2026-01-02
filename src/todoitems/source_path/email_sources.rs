@@ -3,6 +3,7 @@
 ///
 /// This module contains integration tests that verify the email retrieval system
 /// works correctly for both file-based and database-based email caching scenarios.
+/// works correctly for both file-based and database-based email caching scenarios.
 ///
 /// # Test Setup
 ///
@@ -32,44 +33,11 @@
 mod tests {
 
     use crate::{
-        cmdline::CliArgs,
         todoitems::maildirs::fetch_full_paths,
+        todoitems::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
         todoitems::source_path::{get_cached_email, get_source_file_name},
     };
-    use sqlx::MySqlPool;
-
-    pub fn setup_tmp_mail_dir() -> String {
-        // Create a temporary mail directory structure for testing
-        // Recursively copy src/todoitems/tests/data to this structure
-        let temp_dir = std::env::temp_dir().join(format!("maildir_test_{}", uuid::Uuid::new_v4()));
-        std::fs::create_dir_all(&temp_dir).expect("Failed to create temp maildir");
-        let manifest_dir = env!("CARGO_MANIFEST_DIR"); // compile-time
-        let path = std::path::Path::new(manifest_dir).join("src/todoitems/tests/data");
-        let mut options = fs_extra::dir::CopyOptions::new();
-        options.content_only = true;
-        fs_extra::dir::copy(&path, &temp_dir, &options)
-            .map_err(std::io::Error::other)
-            .expect("Could not copy mail directories");
-
-        temp_dir.to_string_lossy().to_string()
-    }
-
-    pub fn teardown_tmp_mail_dir(temp_dir: &str) {
-        std::fs::remove_dir_all(temp_dir).expect("Failed to remove temp maildir");
-    }
-
-    pub fn create_test_cli_args(temp_dir: &str, db_url_auto: bool) -> CliArgs {
-        CliArgs {
-            maildir_path: format!("{}/local_mail/", temp_dir),
-            mail_cache_path: format!("{}/file_db_data/", temp_dir),
-            db_url: if db_url_auto {
-                "auto".to_string()
-            } else {
-                "some_other_db_url".to_string()
-            },
-            ..Default::default()
-        }
-    }
+    use sqlx::mysql::MySqlPool;
 
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_cached_email_from_file(

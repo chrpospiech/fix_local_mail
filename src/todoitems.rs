@@ -4,6 +4,8 @@ use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
 
 pub(crate) mod maildirs;
+#[cfg(test)]
+pub(crate) mod mockup;
 pub(crate) mod new_mails;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
