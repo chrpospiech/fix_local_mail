@@ -114,9 +114,7 @@ Options:
      ```SQL
      SELECT `id`,
             CONVERT(`remoteId`, CHAR) AS `remote_id`,
-            `collectionId` AS `collection_id`,
-            `dirty`,
-            `mimeTypeId` AS `mime_type_id`
+            `collectionId` AS `collection_id`
         FROM `pimitemtable`
         WHERE `mimeTypeId` = 2
         AND `id` >= <value of args.min_id>

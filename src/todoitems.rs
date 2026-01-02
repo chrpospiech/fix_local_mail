@@ -11,13 +11,10 @@ pub(crate) mod source_path;
 pub(crate) mod target_path;
 
 #[derive(Debug, FromRow)]
-#[allow(dead_code)]
 pub struct TodoPimItem {
     pub id: i64,
     pub remote_id: Option<String>,
     pub collection_id: i64,
-    pub dirty: bool,
-    pub mime_type_id: i64,
 }
 
 pub async fn fetch_todo_pim_items(
@@ -30,9 +27,7 @@ pub async fn fetch_todo_pim_items(
     let mut query_builder = QueryBuilder::new(
         "SELECT `id`,
             CONVERT(`remoteId`, CHAR) AS `remote_id`,
-            `collectionId` AS `collection_id`,
-            `dirty`,
-            `mimeTypeId` AS `mime_type_id`
+            `collectionId` AS `collection_id`
         FROM `pimitemtable`
         WHERE `mimeTypeId` = 2
         AND `id` >= ",
@@ -90,10 +85,8 @@ pub async fn fetch_todo_pim_items(
 }
 
 #[derive(Debug)]
-#[allow(dead_code)]
 pub struct TodoItem {
     pub id: i64,
-    pub dirty: bool,
     pub source_path: String,
     pub target_path: String,
 }
@@ -148,7 +141,6 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
                 .await;
                 TodoItem {
                     id: item.id,
-                    dirty: item.dirty,
                     source_path: item_source,
                     target_path: item_target,
                 }
