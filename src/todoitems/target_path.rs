@@ -59,10 +59,10 @@ pub async fn create_new_mail_name(
 }
 
 pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
-    if args.db_url != "auto" {
+    if args.db_url != "auto" || args.dry_run {
         if args.verbose || args.dry_run {
             println!(
-                "Custom DB URL: Not looking for mail timestamp from file {}.",
+                "Custom DB URL or dry run: Not looking for mail timestamp from file {}.",
                 mail_file
             );
         }
