@@ -51,8 +51,8 @@ mod tests {
         let full_paths: std::collections::HashMap<i64, String> =
             fetch_full_paths(pool.clone(), &args).await;
 
-        // Get current time in seconds
-        let now_secs: u64 = get_time_now_secs();
+        // Get current time in seconds minus half an hour
+        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -97,8 +97,8 @@ mod tests {
         // Verify timestamp is sufficiently old
         // (i.e., was read from remote_id, not newly generated now)
         // This is where we need the source file to exist with the correct remote_id
-        assert!(timestamp <= now_secs);
-        assert!(now_secs - timestamp > 7200);
+        assert!(timestamp <= recent_secs);
+        assert!(recent_secs - timestamp > 7200);
         let expected_timestamp = get_mail_time_stamp(&source_file_name, &args);
         assert_eq!(timestamp, expected_timestamp);
 
@@ -124,8 +124,8 @@ mod tests {
         let full_paths: std::collections::HashMap<i64, String> =
             fetch_full_paths(pool.clone(), &args).await;
 
-        // Get current time in seconds
-        let now_secs: u64 = get_time_now_secs();
+        // Get current time in seconds minus half an hour
+        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -171,8 +171,8 @@ mod tests {
         let timestamp: u64 = timestamp_str.parse().unwrap();
         // Verify timestamp is sufficiently new
         // (i.e., was not read from remote_id, but newly generated now)
-        assert!(timestamp >= now_secs);
-        assert!(timestamp - now_secs < 180);
+        assert!(timestamp >= recent_secs);
+        assert!(timestamp - recent_secs < 1800);
 
         Ok(())
     }

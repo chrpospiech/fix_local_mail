@@ -66,7 +66,13 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
                 mail_file
             );
         }
-        return get_time_now_secs();
+
+        /*
+        If args.db_url != "auto", return current time in seconds since UNIX_EPOCH minus
+        a random value between 1 and 1800 to avoid collisions - simulating mails received in the recent past
+        */
+        let random_offset: u64 = rand::rng().random_range(1..=1800);
+        return get_time_now_secs().saturating_sub(random_offset);
     }
     // Open the mail file and read line by line to find the Date header
     let error_msg = format!("Cannot read mail file: {}", mail_file);
@@ -84,8 +90,12 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
         }
     }
 
-    // If no date found or parsing failed, return current time in seconds since UNIX_EPOCH
-    get_time_now_secs()
+    /*
+    If no date found or parsing failed, return current time in seconds since UNIX_EPOCH minus
+    a random value between 1 and 1800 to avoid collisions - simulating mails received in the recent past
+    */
+    let random_offset: u64 = rand::rng().random_range(1..=1800);
+    get_time_now_secs().saturating_sub(random_offset)
 }
 
 pub fn get_time_now_secs() -> u64 {
