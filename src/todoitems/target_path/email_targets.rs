@@ -29,11 +29,12 @@
 ///   is preserved in the new file name.
 mod tests {
 
-    use crate::{
-        todoitems::maildirs::fetch_full_paths,
-        todoitems::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
-        todoitems::source_path::get_source_file_name,
-        todoitems::target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
+    use crate::cmdline::CliArgs;
+    use crate::todoitems::{
+        maildirs::fetch_full_paths,
+        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
+        source_path::get_source_file_name,
+        target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
     };
     use sqlx::mysql::MySqlPool;
 
@@ -231,6 +232,76 @@ mod tests {
         // Verify that the remote_id part is preserved in the target file name
         // and the "SEEN" flag is appended
         assert!(target_file_name.contains("1767111571664.R424.helios:2,S"));
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_fake_target_file_name_for_cached_dry_run(
+        pool: MySqlPool,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir();
+
+        // Setup an argument struct with db_url = "auto" and dry_run = true
+        let args = CliArgs {
+            maildir_path: format!("{}/local_mail/", temp_dir),
+            mail_cache_path: format!("{}/file_db_data/", temp_dir),
+            db_url: "auto".to_string(),
+            dry_run: true,
+            ..Default::default()
+        };
+
+        // Fetch full paths of all mail directories
+        let full_paths: std::collections::HashMap<i64, String> =
+            fetch_full_paths(pool.clone(), &args).await;
+
+        // Get current time in seconds minus half an hour
+        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
+
+        // Test: Retrieve the source file name for a file_id
+        // that is stored in tests/data and has a remote_id.
+        let file_id = 50645;
+        let collection_id = 394;
+        let path = full_paths
+            .get(&collection_id)
+            .cloned()
+            .unwrap_or("tbd/".to_string());
+        let source_file_name: String =
+            get_source_file_name(path.clone(), None, file_id, pool.clone(), &args).await;
+        assert!(!source_file_name.is_empty());
+        assert!(source_file_name.contains(&args.mail_cache_path));
+        assert!(!source_file_name.contains("//"));
+        assert!(!std::path::Path::new(&source_file_name).exists());
+
+        // Test: Retrieve the target file name for the same file_id
+        let target_file_name: String = get_target_file_name(
+            path,
+            None,
+            source_file_name.clone(),
+            file_id,
+            pool.clone(),
+            &args,
+        )
+        .await;
+        assert!(!target_file_name.is_empty());
+        assert!(target_file_name.contains(&args.maildir_path));
+        assert!(!target_file_name.contains("//"));
+        // Verify that the "SEEN" flag is appended to the target file name
+        assert!(target_file_name.contains(":2,S"));
+        // Extract timestamp from target file name
+        // This also indirectly verifies that the target file name was generated correctly
+        let re = regex::Regex::new(r"(\d+)\.R\d+\.\w+").unwrap();
+        let caps = re.captures(&target_file_name).unwrap();
+        let timestamp_str = caps.get(1).unwrap().as_str();
+        let timestamp: u64 = timestamp_str.parse().unwrap();
+        // Verify timestamp is sufficiently new
+        // (i.e., was not read from remote_id, but newly generated now)
+        assert!(timestamp >= recent_secs);
+        assert!(timestamp - recent_secs < 1800);
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir);
 
         Ok(())
     }
