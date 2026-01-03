@@ -1,7 +1,7 @@
 use clap::Parser;
 
 #[derive(Parser, Debug, Default)]
-#[command(name = "fix_local_mail", author = "C. Pospiech", version = "1.2", about = "fix local mail folders", long_about = None)]
+#[command(name = "fix_local_mail", author = "C. Pospiech", version = "1.3", about = "fix local mail folders", long_about = None)]
 pub struct CliArgs {
     /// Perform a dry run without making actual changes
     #[arg(short = 'D', long, default_value_t = false)]
