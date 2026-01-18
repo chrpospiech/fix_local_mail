@@ -187,6 +187,14 @@ database --- based in their name on path location.
 
 ## Lessons Learned
 
+The first two items below refer to a dead end branch marked by the tag
+`akonadi_dead_end`. This branch marks an attempt to handle the
+synchronization with Akonadi through the C++ API for KDE. However,
+synchronizing via sending a DBus message turned out to be a much simpler
+approach, as Akonadi is not touched other than by DBus messages. Also,
+only delete operations are directly executed on the database, while
+any import or update operations are left to Akonadi.
+
 ### Correct Way of Integrating CMakeLists.txt
 
 - A `CMakeLists.txt` on the top level directory helps `VS code` to recognize that
