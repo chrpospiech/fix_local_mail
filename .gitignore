@@ -5,3 +5,5 @@ __pycache__/
 .env
 *.log
 fix_local_mail.code-workspace
+pyproject.toml
+uv.lock

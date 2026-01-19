@@ -170,6 +170,22 @@ The latter avoids confusion as the corrected emails are seen as newly
 imported emails that create new appropriate entries in the Akonadi
 database --- based in their name on path location.
 
+## Hints for the Developer
+
+The distribution contains linter configuration files `rustfmt.toml`,
+`.codespell.dictionary` and `.pre-commit-config.yaml`. These are meant
+for the use of `pre-commit`. Every developer is strongly encouraged to
+use `pre-commit` to maintain code quality.
+
+To enable `pre-commit` using `uv`, please proceed as follows.
+
+- `uv init`
+- `rm .python-version main.py`
+- `uv add pre-commit`
+- `source .venv/bin/activate`
+- `pre-commit run --all`
+- `pre-commit install`
+
 ## Debugging and Unit Testing
 
 - To help with debugging and unit testing, the list of mails in "/new/"
