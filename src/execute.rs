@@ -12,11 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use anyhow::Result;
 use std::fs;
 use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
 
-pub fn ensure_writable_directory(dir: String) {
+pub fn ensure_writable_directory(dir: String) -> Result<()> {
     let path = Path::new(&dir);
 
     // Attempt to create the directory if it doesn't exist
@@ -24,7 +25,7 @@ pub fn ensure_writable_directory(dir: String) {
     fs::create_dir_all(path).expect(&msg);
 
     // Check write permissions by attempting to get metadata
-    let metadata = fs::metadata(path).expect("Failed to get metadata");
+    let metadata = fs::metadata(path)?;
     let permissions = metadata.permissions();
 
     // On Unix, ensure owner has write permission
@@ -34,35 +35,34 @@ pub fn ensure_writable_directory(dir: String) {
         if mode & 0o200 == 0 {
             let mut new_permissions = permissions.clone();
             new_permissions.set_mode(mode | 0o200);
-            let error = format!("Failed to set write permissions on {}", dir);
-            fs::set_permissions(path, new_permissions).expect(&error);
+            fs::set_permissions(path, new_permissions)?;
         }
     }
+    Ok(())
 }
 
-pub fn move_file(source: &str, target: &str) {
+pub fn move_file(source: &str, target: &str) -> Result<()> {
     // Ensure both, source and target directory are writable
     if let Some(parent) = std::path::Path::new(&source).parent() {
-        ensure_writable_directory(parent.to_string_lossy().to_string());
+        ensure_writable_directory(parent.to_string_lossy().to_string())?;
     }
     if let Some(parent) = std::path::Path::new(&target).parent() {
-        ensure_writable_directory(parent.to_string_lossy().to_string());
+        ensure_writable_directory(parent.to_string_lossy().to_string())?;
     }
     // Move the file
-    if let Err(e) = std::fs::rename(source, target) {
-        eprintln!("Failed to move {} to {}: {}", source, target, e);
-    }
+    std::fs::rename(source, target)?;
+    Ok(())
 }
 
-pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, id: i64) {
+pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, id: i64) -> Result<()> {
     sqlx::query("DELETE FROM pimitemtable WHERE id = ?")
         .bind(id)
         .execute(&pool)
-        .await
-        .unwrap();
+        .await?;
+    Ok(())
 }
 
-pub async fn trigger_akonadi_sync() -> Result<(), Box<dyn std::error::Error>> {
+pub async fn trigger_akonadi_sync() -> Result<()> {
     let conn = zbus::Connection::session().await?;
 
     conn.call_method(
@@ -77,7 +77,7 @@ pub async fn trigger_akonadi_sync() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-pub async fn trigger_kmail_quit() -> Result<(), Box<dyn std::error::Error>> {
+pub async fn trigger_kmail_quit() -> Result<()> {
     let conn = zbus::Connection::session().await?;
 
     // Quit KMail to force it to reload everything from Akonadi
@@ -106,7 +106,7 @@ pub async fn trigger_kmail_quit() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-pub async fn trigger_akonadi_stop() -> Result<(), Box<dyn std::error::Error>> {
+pub async fn trigger_akonadi_stop() -> Result<()> {
     let conn = zbus::Connection::session().await?;
 
     match conn
@@ -131,14 +131,13 @@ pub async fn trigger_akonadi_stop() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-pub async fn clean_up(stop_akonadi: bool, stop_kmail: bool) {
+pub async fn clean_up(stop_akonadi: bool, stop_kmail: bool) -> Result<()> {
     // Clean up Akonadi and KMail
 
     // Trigger Akonadi to synchronize changes
     if let Err(e) = trigger_akonadi_sync().await {
-        eprintln!("Failed to trigger Akonadi sync: {}", e);
+        eprintln!("Failed to trigger Akonadi synchronization: {}", e);
     }
-
     if stop_akonadi || stop_kmail {
         // Trigger KMail to refresh all views
         if let Err(e) = trigger_kmail_quit().await {
@@ -152,4 +151,5 @@ pub async fn clean_up(stop_akonadi: bool, stop_kmail: bool) {
             eprintln!("Failed to stop Akonadi: {}", e);
         }
     }
+    Ok(())
 }

@@ -49,12 +49,11 @@ mod tests {
         fetch_todo_items,
         mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
     };
+    use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
-    pub async fn test_default_number_of_todoitems(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_default_number_of_todoitems(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir();
 
@@ -62,7 +61,7 @@ mod tests {
         let args = create_test_cli_args(&temp_dir, true);
 
         // Fetch todo items from the database
-        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
         assert_eq!(todo_items.len(), 8);
@@ -74,9 +73,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
-    pub async fn test_number_of_todoitems_ignoring_new(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_number_of_todoitems_ignoring_new(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir();
 
@@ -90,7 +87,7 @@ mod tests {
         };
 
         // Fetch todo items from the database ignoring new directories
-        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
         assert_eq!(todo_items.len(), 5);
@@ -102,9 +99,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
-    pub async fn test_number_of_todoitems_below_limit(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_number_of_todoitems_below_limit(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir();
 
@@ -118,7 +113,7 @@ mod tests {
         };
 
         // Fetch todo items from the database
-        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items is below the given limit
         assert_eq!(todo_items.len(), 5);
@@ -130,9 +125,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
-    pub async fn test_number_of_todoitems_above_minimum_id(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_number_of_todoitems_above_minimum_id(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir();
 
@@ -146,7 +139,7 @@ mod tests {
         };
 
         // Fetch todo items from the database ignoring new directories
-        let todo_items = fetch_todo_items(pool.clone(), &args).await;
+        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
         assert_eq!(todo_items.len(), 3);

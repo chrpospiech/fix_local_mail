@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use anyhow::Result;
 use futures::future::join_all;
 use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
@@ -37,7 +38,7 @@ pub async fn fetch_todo_pim_items(
     pool: Pool<MySql>,
     mail_list: Vec<String>,
     args: &CliArgs,
-) -> Vec<TodoPimItem> {
+) -> Result<Vec<TodoPimItem>> {
     // Build the query starting with mails that have `Id >= args.min_id`
     // and are marked as dirty or new
     let mut query_builder = QueryBuilder::new(
@@ -93,11 +94,8 @@ pub async fn fetch_todo_pim_items(
         ));
     }
 
-    query_builder
-        .build_query_as::<_>()
-        .fetch_all(&pool)
-        .await
-        .expect("Failed to fetch mail todo items")
+    let query = query_builder.build_query_as::<_>().fetch_all(&pool).await?;
+    Ok(query)
 }
 
 #[derive(Debug)]
@@ -107,7 +105,7 @@ pub struct TodoItem {
     pub target_path: String,
 }
 
-pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem> {
+pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<TodoItem>> {
     let new_mail_list: Vec<String> = if args.ignore_new_dirs {
         if args.verbose || args.dry_run {
             println!("Ignoring new directories as per command line argument.");
@@ -127,7 +125,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
         maildirs::fetch_full_paths(pool.clone(), args).await;
     // Fetch todo items corresponding to new mail files
     let todo_pim_items: Vec<TodoPimItem> =
-        fetch_todo_pim_items(pool.clone(), new_mail_list, args).await;
+        fetch_todo_pim_items(pool.clone(), new_mail_list, args).await?;
 
     let async_todo_items = todo_pim_items
         .into_iter()
@@ -166,5 +164,5 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Vec<TodoItem
 
     let todo_items = join_all(async_todo_items).await;
 
-    todo_items
+    Ok(todo_items)
 }
