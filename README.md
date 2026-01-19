@@ -58,7 +58,21 @@ we have the following.
 
 - Flags must be stored in ASCII order: e.g., "2,FRS".
 
-## Usage of the tool
+## Installation
+
+The tool is written in [Rust](https://rust-lang.org/),
+which is also required for installing the tool. The recommended
+way to install `Rust` is by using
+[rustup](https://rust-lang.org/tools/install/).
+
+Once `Rust` is installed, `fix_local_mail` can be installed
+with the following command into `<install_prefix>/bin`.
+
+```bash
+cargo install --path [<project_dir>|.] [--root <install_prefix>]
+```
+
+## Usage
 
 ```bash
 Usage: fix_local_mail [OPTIONS]
@@ -89,6 +103,10 @@ Options:
   -V, --version
           Print version
 ```
+
+## License
+
+See LICENSE file for details.
 
 ## Implementation
 
