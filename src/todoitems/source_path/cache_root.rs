@@ -16,10 +16,12 @@
 mod tests {
     use std::path::PathBuf;
 
+    use anyhow::Result;
+
     use crate::{cmdline::CliArgs, todoitems::source_path::get_cache_root_path};
 
     #[test]
-    fn test_get_cache_root_path_with_auto() -> Result<(), Box<dyn std::error::Error>> {
+    fn test_get_cache_root_path_with_auto() -> Result<()> {
         let args = CliArgs {
             mail_cache_path: "auto".to_string(),
             ..Default::default()
