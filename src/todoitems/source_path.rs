@@ -118,7 +118,7 @@ pub async fn get_cached_email(
     if result.storage == 1 {
         // Cached email is stored in file system
         let pattern = format!("{}*/{}", cache_root_dir, data_string);
-        return Ok(get_single_matching_file(&pattern, args).await?.into());
+        return Ok(Some(get_single_matching_file(&pattern, args).await?));
     } else {
         // Cached email is stored in database
         let unique_name = format!("{}tmp{}", &cache_root_dir, Uuid::new_v4());
