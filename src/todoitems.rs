@@ -143,26 +143,40 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<T
                     pool.clone(),
                     args,
                 )
-                .await;
+                .await?;
+
+                // Skip items where source is None
+                let source = match item_source {
+                    Some(s) => s,
+                    None => return Ok(None),
+                };
+
                 let item_target = target_path::get_target_file_name(
                     full_path,
                     item.remote_id.as_ref(),
-                    item_source.clone(),
+                    source.clone(),
                     item.id,
                     pool.clone(),
                     args,
                 )
                 .await;
-                TodoItem {
+
+                Ok(Some(TodoItem {
                     id: item.id,
-                    source_path: item_source,
+                    source_path: source,
                     target_path: item_target,
-                }
+                }))
             }
         })
         .collect::<Vec<_>>();
 
-    let todo_items = join_all(async_todo_items).await;
+    let results = join_all(async_todo_items).await;
+    let todo_items: Vec<TodoItem> = results
+        .into_iter()
+        .collect::<Result<Vec<_>>>()?
+        .into_iter()
+        .flatten()
+        .collect();
 
     Ok(todo_items)
 }

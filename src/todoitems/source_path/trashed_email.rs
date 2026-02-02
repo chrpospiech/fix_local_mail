@@ -29,12 +29,16 @@ mod tests {
             ..Default::default()
         };
 
-        // Assuming file_id 1 exists in the test database
+        // file_id 132632 exists in the test database without a cached email
+        // Ensure that the function returns None
         let file_id = 132632;
         let result = get_cached_email(file_id, pool, &args).await;
 
-        // Check that the result is not empty
-        assert!(!result.is_empty());
+        // Assert that the result is OK
+        assert!(result.is_ok());
+
+        // Check that the result is None
+        assert!(result.unwrap().is_none());
 
         Ok(())
     }

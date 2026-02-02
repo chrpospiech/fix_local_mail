@@ -50,12 +50,11 @@ mod tests {
         source_path::get_source_file_name,
         target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
     };
+    use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_target_file_name_for_stored_email(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir();
 
@@ -78,9 +77,11 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
-        let source_file_name: String =
+        let source_file_name: Option<String> =
             get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await;
+                .await?;
+        assert!(source_file_name.is_some());
+        let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
         assert!(source_file_name.contains(&args.maildir_path));
         assert!(source_file_name.contains(&remote_id));
@@ -124,9 +125,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_fake_target_file_name_for_stored_email(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_fake_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct with db_url != "auto"
         // to trigger fake target name generation
         // (i.e., not reading from remote_id)
@@ -154,9 +153,11 @@ mod tests {
         // Even though we provide a remote_id, since db_url != "auto",
         // the source file name will be generated without relying on it.
         // It is only a regex pattern in this case and contains a "*".
-        let source_file_name: String =
+        let source_file_name: Option<String> =
             get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await;
+                .await?;
+        assert!(source_file_name.is_some());
+        let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
         assert!(source_file_name.contains(&args.maildir_path));
         assert!(source_file_name.contains(&remote_id));
@@ -221,9 +222,11 @@ mod tests {
         // Even though we provide a remote_id, since db_url != "auto",
         // the source file name will be generated without relying on it.
         // It is only a regex pattern in this case and contains a "*".
-        let source_file_name: String =
+        let source_file_name: Option<String> =
             get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await;
+                .await?;
+        assert!(source_file_name.is_some());
+        let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
         assert!(source_file_name.contains(&args.maildir_path));
         assert!(source_file_name.contains(&remote_id));
@@ -281,8 +284,10 @@ mod tests {
             .get(&collection_id)
             .cloned()
             .unwrap_or("tbd/".to_string());
-        let source_file_name: String =
-            get_source_file_name(path.clone(), None, file_id, pool.clone(), &args).await;
+        let source_file_name: Option<String> =
+            get_source_file_name(path.clone(), None, file_id, pool.clone(), &args).await?;
+        assert!(source_file_name.is_some());
+        let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
         assert!(source_file_name.contains(&args.mail_cache_path));
         assert!(!source_file_name.contains("//"));
