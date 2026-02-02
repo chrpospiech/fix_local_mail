@@ -21,8 +21,8 @@ pub fn ensure_writable_directory(dir: String) -> Result<()> {
     let path = Path::new(&dir);
 
     // Attempt to create the directory if it doesn't exist
-    let msg = format!("Failed to create directory {}", dir);
-    fs::create_dir_all(path).expect(&msg);
+    fs::create_dir_all(path)
+        .map_err(|e| anyhow::anyhow!("Failed to create directory {}: {}", dir, e))?;
 
     // Check write permissions by attempting to get metadata
     let metadata = fs::metadata(path)?;

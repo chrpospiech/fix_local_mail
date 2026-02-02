@@ -28,7 +28,7 @@ mod tests {
             ..Default::default()
         };
         // Test: Retrieve the root path
-        let result: Vec<Option<String>> = get_root_paths(pool.clone(), &args).await;
+        let result: Vec<Option<String>> = get_root_paths(pool.clone(), &args).await?;
         assert_eq!(result.len(), 1);
         assert_eq!(result[0], Some("/tmp/maildir/path".to_string()));
 
@@ -45,7 +45,7 @@ mod tests {
             ..Default::default()
         };
         // Test: Retrieve the root path
-        let result: Vec<Option<String>> = get_root_paths(pool.clone(), &args).await;
+        let result: Vec<Option<String>> = get_root_paths(pool.clone(), &args).await?;
         assert_eq!(result.len(), 1);
         assert_eq!(
             result[0],

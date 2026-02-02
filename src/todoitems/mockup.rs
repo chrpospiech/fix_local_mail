@@ -35,20 +35,19 @@ use crate::cmdline::CliArgs;
 /// function that may not be called in all test configurations or modules. Without
 /// this attribute, the compiler would warn about unused code when the function
 /// isn't referenced in certain build configurations.
-pub fn setup_tmp_mail_dir() -> String {
+pub fn setup_tmp_mail_dir() -> anyhow::Result<String> {
     // Create a temporary mail directory structure for testing
     // Recursively copy src/todoitems/tests/data to this structure
     let temp_dir = std::env::temp_dir().join(format!("maildir_test_{}", uuid::Uuid::new_v4()));
-    std::fs::create_dir_all(&temp_dir).expect("Failed to create temp maildir");
+    std::fs::create_dir_all(&temp_dir)?;
     let manifest_dir = env!("CARGO_MANIFEST_DIR"); // compile-time
     let path = std::path::Path::new(manifest_dir).join("src/todoitems/tests/data");
     let mut options = fs_extra::dir::CopyOptions::new();
     options.content_only = true;
     fs_extra::dir::copy(&path, &temp_dir, &options)
-        .map_err(std::io::Error::other)
-        .expect("Could not copy mail directories");
+        .map_err(std::io::Error::other)?;
 
-    temp_dir.to_string_lossy().to_string()
+    Ok(temp_dir.to_string_lossy().to_string())
 }
 
 /// Cleans up a temporary mail directory created by `setup_tmp_mail_dir`.
@@ -66,8 +65,9 @@ pub fn setup_tmp_mail_dir() -> String {
 /// The `#[allow(dead_code)]` attribute is needed because this cleanup function
 /// may not be explicitly called in all tests (some may rely on system cleanup
 /// or use different teardown patterns).
-pub fn teardown_tmp_mail_dir(temp_dir: &str) {
-    std::fs::remove_dir_all(temp_dir).expect("Failed to remove temp maildir");
+pub fn teardown_tmp_mail_dir(temp_dir: &str) -> anyhow::Result<()> {
+    std::fs::remove_dir_all(temp_dir)?;
+    Ok(())
 }
 
 /// Creates a `CliArgs` instance configured for testing.

@@ -69,7 +69,7 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
         let args = create_test_cli_args(&temp_dir, true);
@@ -87,7 +87,7 @@ mod tests {
         assert!(std::path::Path::new(&result).is_file());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -97,7 +97,7 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
         let args = create_test_cli_args(&temp_dir, false);
@@ -116,7 +116,7 @@ mod tests {
         assert!(!std::path::Path::new(&result).exists());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -126,7 +126,7 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
         let args = create_test_cli_args(&temp_dir, true);
@@ -145,7 +145,7 @@ mod tests {
         assert!(std::path::Path::new(&result).is_file());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -153,7 +153,7 @@ mod tests {
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
     pub async fn test_not_caching_email(pool: MySqlPool) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
         let args = create_test_cli_args(&temp_dir, false);
@@ -171,7 +171,7 @@ mod tests {
         assert!(!std::path::Path::new(&result).exists());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -181,14 +181,14 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = create_test_cli_args(&temp_dir, true);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -211,7 +211,7 @@ mod tests {
         assert!(std::path::Path::new(&result).is_file());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -221,14 +221,14 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = create_test_cli_args(&temp_dir, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -251,7 +251,7 @@ mod tests {
         assert!(!std::path::Path::new(&result).exists());
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }

@@ -116,13 +116,13 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<T
             println!("Finding new mail files...");
         }
         // Fetch mail root directories
-        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone(), args).await;
+        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone(), args).await?;
         // Find new mail files
         new_mails::find_new_mail_files(root_paths).await
     };
     // Fetch full paths of all mail directories
     let full_paths: std::collections::HashMap<i64, String> =
-        maildirs::fetch_full_paths(pool.clone(), args).await;
+        maildirs::fetch_full_paths(pool.clone(), args).await?;
     // Fetch todo items corresponding to new mail files
     let todo_pim_items: Vec<TodoPimItem> =
         fetch_todo_pim_items(pool.clone(), new_mail_list, args).await?;
@@ -159,7 +159,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<T
                     pool.clone(),
                     args,
                 )
-                .await;
+                .await?;
 
                 Ok(Some(TodoItem {
                     id: item.id,

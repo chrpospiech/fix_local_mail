@@ -28,7 +28,7 @@ mod tests {
         let result = get_cache_root_path(&args);
 
         // Should return the standard akonadi cache path
-        let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
+        let home_dir = std::env::var("HOME")?;
         let akonadi_cache: String = format!("{}/.local/share/akonadi/file_db_data/", home_dir);
         assert!(result.is_ok());
         let result = result.unwrap();

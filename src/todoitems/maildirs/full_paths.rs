@@ -30,7 +30,7 @@ mod tests {
             ..Default::default()
         };
         // Test: Retrieve the root path
-        let result: HashMap<i64, String> = fetch_full_paths(pool.clone(), &args).await;
+        let result: HashMap<i64, String> = fetch_full_paths(pool.clone(), &args).await?;
         for (_key, value) in result.iter() {
             assert!(value.starts_with(&args.maildir_path));
         }
@@ -48,7 +48,7 @@ mod tests {
             ..Default::default()
         };
         // Test: Retrieve the root path
-        let result: HashMap<i64, String> = fetch_full_paths(pool.clone(), &args).await;
+        let result: HashMap<i64, String> = fetch_full_paths(pool.clone(), &args).await?;
         for (_key, value) in result.iter() {
             assert!(value.starts_with("/home/cp/.local/share/akonadi_maildir_resource_0/"));
         }

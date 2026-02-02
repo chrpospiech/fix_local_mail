@@ -29,7 +29,7 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> HashMap<i64, Collection> {
+pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> anyhow::Result<HashMap<i64, Collection>> {
     let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,
@@ -46,17 +46,17 @@ pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> HashMa
         query.push(" AND `parentId` IS NULL");
     }
 
-    query
+    let result = query
         .build_query_as::<Collection>()
         .fetch_all(&pool)
-        .await
-        .expect("Failed to fetch collections")
+        .await?
         .into_iter()
         .map(|c| (c.id, c))
-        .collect()
+        .collect();
+    Ok(result)
 }
 
-pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Vec<Option<String>> {
+pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> anyhow::Result<Vec<Option<String>>> {
     if args.maildir_path != "auto" {
         if args.verbose || args.dry_run {
             println!(
@@ -64,14 +64,14 @@ pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Vec<Option<Str
                 args.maildir_path
             );
         }
-        return vec![Some(args.maildir_path.clone())];
+        return Ok(vec![Some(args.maildir_path.clone())]);
     }
     let root_dirs: std::collections::HashMap<i64, Collection> =
-        fetch_collections(pool.clone(), true).await;
-    root_dirs
+        fetch_collections(pool.clone(), true).await?;
+    Ok(root_dirs
         .values()
         .map(|collection| collection.remote_id.clone())
-        .collect::<Vec<Option<String>>>()
+        .collect::<Vec<Option<String>>>())
 }
 
 // Recursively build the full path for a collection by traversing its parent collections.
@@ -83,10 +83,12 @@ pub fn set_parent_paths(
     collections: HashMap<i64, Collection>,
     paths: &mut HashMap<i64, String>,
     args: &CliArgs,
-) {
-    let collection = collections.get(&id).expect("Collection not found");
+) -> anyhow::Result<()> {
+    let collection = collections
+        .get(&id)
+        .ok_or_else(|| anyhow::anyhow!("Collection not found: {}", id))?;
     if paths.contains_key(&id) {
-        return;
+        return Ok(());
     }
     if collection.parent_id.is_none() {
         let root_path = if args.maildir_path != "auto" {
@@ -95,7 +97,7 @@ pub fn set_parent_paths(
             collection
                 .remote_id
                 .as_ref()
-                .expect("Root collection has NULL remote_id")
+                .ok_or_else(|| anyhow::anyhow!("Root collection has NULL remote_id"))?
         };
         let path = if root_path.ends_with('/') {
             root_path.clone()
@@ -104,44 +106,58 @@ pub fn set_parent_paths(
         };
         paths.insert(id, path);
     } else {
-        let parent_id = collection.parent_id.expect("Parent ID should be Some");
-        set_parent_paths(parent_id, collections.clone(), paths, args);
-        let parent_path = paths.get(&parent_id).expect("Parent path not found");
+        let parent_id = collection
+            .parent_id
+            .ok_or_else(|| anyhow::anyhow!("Parent ID should be Some"))?;
+        set_parent_paths(parent_id, collections.clone(), paths, args)?;
+        let parent_path = paths
+            .get(&parent_id)
+            .ok_or_else(|| anyhow::anyhow!("Parent path not found"))?;
         let remote_id = collection
             .remote_id
             .as_ref()
-            .expect("Collection has NULL remote_id");
+            .ok_or_else(|| anyhow::anyhow!("Collection has NULL remote_id"))?;
         let path = format!("{}.{}.directory/", parent_path, remote_id);
         paths.insert(id, path);
     }
+    Ok(())
 }
 
-pub async fn fetch_full_paths(pool: Pool<MySql>, args: &CliArgs) -> HashMap<i64, String> {
-    let collections: HashMap<i64, Collection> = fetch_collections(pool.clone(), false).await;
+pub async fn fetch_full_paths(pool: Pool<MySql>, args: &CliArgs) -> anyhow::Result<HashMap<i64, String>> {
+    let collections: HashMap<i64, Collection> = fetch_collections(pool.clone(), false).await?;
     let mut paths: HashMap<i64, String> = HashMap::new();
 
     for id in collections.keys() {
-        set_parent_paths(*id, collections.clone(), &mut paths, args);
+        set_parent_paths(*id, collections.clone(), &mut paths, args)?;
     }
 
-    collections
+    let result = collections
         .keys()
-        .map(|id| {
-            let collection = collections.get(id).expect("Collection not found");
-            let path = paths.get(id).expect("Path not found");
+        .map(|id| -> anyhow::Result<(i64, String)> {
+            let collection = collections
+                .get(id)
+                .ok_or_else(|| anyhow::anyhow!("Collection not found"))?;
+            let path = paths
+                .get(id)
+                .ok_or_else(|| anyhow::anyhow!("Path not found"))?;
             let full_path = if collection.parent_id.is_none() {
                 path.clone()
             } else {
                 let parent_path = paths
-                    .get(&collection.parent_id.expect("Parent ID should be Some"))
-                    .expect("Parent path not found");
+                    .get(
+                        &collection
+                            .parent_id
+                            .ok_or_else(|| anyhow::anyhow!("Parent ID should be Some"))?,
+                    )
+                    .ok_or_else(|| anyhow::anyhow!("Parent path not found"))?;
                 let remote_id = collection
                     .remote_id
                     .as_ref()
-                    .expect("Collection has NULL remote_id");
+                    .ok_or_else(|| anyhow::anyhow!("Collection has NULL remote_id"))?;
                 format!("{}{}/", parent_path, remote_id)
             };
-            (*id, full_path)
+            Ok((*id, full_path))
         })
-        .collect()
+        .collect::<anyhow::Result<HashMap<i64, String>>>()?;
+    Ok(result)
 }
