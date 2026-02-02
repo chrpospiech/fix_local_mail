@@ -15,22 +15,19 @@
 #[cfg(test)]
 mod tests {
     use anyhow::Result;
+    use sqlx::MySqlPool;
 
-    use crate::{
-        cmdline::CliArgs, connect::connect_to_database, todoitems::source_path::get_cached_email,
-    };
+    use crate::{cmdline::CliArgs, todoitems::source_path::get_cached_email};
 
-    #[tokio::test]
-    async fn test_get_cached_email() -> Result<()> {
+    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    async fn test_get_cached_email(pool: MySqlPool) -> Result<()> {
         let args = CliArgs {
-            mail_cache_path: "/home/cp/tools/Rust/snapshot_gesche/mail_cache/".to_string(),
-            db_url: "mysql://cp:IdNut,olif6kneurfibs@localhost/akonadi".to_string(),
-            maildir_path: "/home/cp/tools/Rust/snapshot_gesche/maildir/".to_string(),
+            mail_cache_path: "auto".to_string(),
+            db_url: "auto".to_string(),
+            maildir_path: "auto".to_string(),
             dry_run: true,
             ..Default::default()
         };
-
-        let pool = connect_to_database(&args).await?;
 
         // Assuming file_id 1 exists in the test database
         let file_id = 132632;
