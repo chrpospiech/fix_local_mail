@@ -19,6 +19,7 @@ use uuid::Uuid;
 
 pub(crate) mod cache_root;
 pub(crate) mod email_sources;
+pub(crate) mod trashed_email;
 
 pub async fn get_source_file_name(
     path: String,
@@ -88,8 +89,18 @@ pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>, args: &CliArgs) -
     )
     .bind(file_id)
     .fetch_one(&pool)
-    .await
-    .expect("Failed to fetch cached email");
+    .await;
+
+    let result = match result {
+        Ok(r) => r,
+        Err(e) => {
+            eprintln!(
+                "Failed to fetch cached email with given file_id {}: {}",
+                file_id, e
+            );
+            std::process::exit(1);
+        }
+    };
 
     // Convert data bytes to string
     let data_string = result.data.iter().map(|&b| b as char).collect::<String>();
