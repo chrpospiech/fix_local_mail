@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::todoitems::CliArgs;
+use anyhow::Result;
 use chrono::DateTime;
 use std::collections::HashMap;
 use std::fs::File;
@@ -34,7 +35,7 @@ pub async fn get_target_file_name(
     item_id: i64,
     pool: Pool<MySql>,
     args: &CliArgs,
-) -> anyhow::Result<String> {
+) -> Result<String> {
     let mail_name: String;
     let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
     if let Some(rid) = remote_id {
@@ -60,7 +61,7 @@ pub async fn create_new_mail_name(
     source_path: String,
     pool: Pool<MySql>,
     args: &CliArgs,
-) -> anyhow::Result<String> {
+) -> Result<String> {
     // Generate mail name based on timestamp, R value, and hostname
     let mail_time_stamp = get_mail_time_stamp(&source_path, args)?;
     let hostname = gethostname::gethostname()
@@ -72,7 +73,7 @@ pub async fn create_new_mail_name(
     Ok(format!("{}.R{}.{}", mail_time_stamp, r_value, hostname))
 }
 
-pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> anyhow::Result<u64> {
+pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> Result<u64> {
     if args.db_url != "auto" || args.dry_run {
         if args.verbose || args.dry_run {
             println!(
@@ -112,7 +113,7 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> anyhow::Result<u6
     Ok(get_time_now_secs()?.saturating_sub(random_offset))
 }
 
-pub fn get_time_now_secs() -> anyhow::Result<u64> {
+pub fn get_time_now_secs() -> Result<u64> {
     // Get the current system time in seconds since UNIX_EPOCH
     Ok(SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -120,7 +121,7 @@ pub fn get_time_now_secs() -> anyhow::Result<u64> {
         .as_secs())
 }
 
-pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> anyhow::Result<u64> {
+pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> Result<u64> {
     // Find the maximum R value for mails with similar timestamp prefix
     let query = format!(
         "SELECT MAX(CONVERT(SUBSTR(REGEXP_SUBSTR(`remoteId`,'R[0-9]+'),2),UNSIGNED)) AS `r_value` \
@@ -146,7 +147,7 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> anyhow::Result<u
     }
 }
 
-pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> anyhow::Result<String> {
+pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> Result<String> {
     // Fetch mail flags from the database and construct the mail info string
     // the `flagtable`.`id` entries, might be different for each user.
     // Hence they should not be used in SQL queries. Instead a four letter

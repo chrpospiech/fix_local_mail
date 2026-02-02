@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use anyhow::Result;
 
 /// Sets up a temporary mail directory structure for testing purposes.
 ///
@@ -35,7 +36,7 @@ use crate::cmdline::CliArgs;
 /// function that may not be called in all test configurations or modules. Without
 /// this attribute, the compiler would warn about unused code when the function
 /// isn't referenced in certain build configurations.
-pub fn setup_tmp_mail_dir() -> anyhow::Result<String> {
+pub fn setup_tmp_mail_dir() -> Result<String> {
     // Create a temporary mail directory structure for testing
     // Recursively copy src/todoitems/tests/data to this structure
     let temp_dir = std::env::temp_dir().join(format!("maildir_test_{}", uuid::Uuid::new_v4()));
@@ -65,7 +66,7 @@ pub fn setup_tmp_mail_dir() -> anyhow::Result<String> {
 /// The `#[allow(dead_code)]` attribute is needed because this cleanup function
 /// may not be explicitly called in all tests (some may rely on system cleanup
 /// or use different teardown patterns).
-pub fn teardown_tmp_mail_dir(temp_dir: &str) -> anyhow::Result<()> {
+pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
     std::fs::remove_dir_all(temp_dir)?;
     Ok(())
 }

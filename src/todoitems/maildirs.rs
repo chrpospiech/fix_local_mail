@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use anyhow::Result;
 use sqlx::{FromRow, MySql, Pool};
 use std::collections::HashMap;
 
@@ -29,7 +30,7 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> anyhow::Result<HashMap<i64, Collection>> {
+pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> Result<HashMap<i64, Collection>> {
     let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,
@@ -56,7 +57,7 @@ pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> anyhow
     Ok(result)
 }
 
-pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> anyhow::Result<Vec<Option<String>>> {
+pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<Option<String>>> {
     if args.maildir_path != "auto" {
         if args.verbose || args.dry_run {
             println!(
@@ -83,7 +84,7 @@ pub fn set_parent_paths(
     collections: HashMap<i64, Collection>,
     paths: &mut HashMap<i64, String>,
     args: &CliArgs,
-) -> anyhow::Result<()> {
+) -> Result<()> {
     let collection = collections
         .get(&id)
         .ok_or_else(|| anyhow::anyhow!("Collection not found: {}", id))?;
@@ -123,7 +124,7 @@ pub fn set_parent_paths(
     Ok(())
 }
 
-pub async fn fetch_full_paths(pool: Pool<MySql>, args: &CliArgs) -> anyhow::Result<HashMap<i64, String>> {
+pub async fn fetch_full_paths(pool: Pool<MySql>, args: &CliArgs) -> Result<HashMap<i64, String>> {
     let collections: HashMap<i64, Collection> = fetch_collections(pool.clone(), false).await?;
     let mut paths: HashMap<i64, String> = HashMap::new();
 
