@@ -55,7 +55,7 @@ mod tests {
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
     pub async fn test_default_number_of_todoitems(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = create_test_cli_args(&temp_dir, true);
@@ -67,7 +67,7 @@ mod tests {
         assert_eq!(todo_items.len(), 8);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -75,7 +75,7 @@ mod tests {
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_ignoring_new(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = CliArgs {
@@ -93,7 +93,7 @@ mod tests {
         assert_eq!(todo_items.len(), 5);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -101,7 +101,7 @@ mod tests {
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_below_limit(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = CliArgs {
@@ -119,7 +119,7 @@ mod tests {
         assert_eq!(todo_items.len(), 5);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -127,7 +127,7 @@ mod tests {
     #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_above_minimum_id(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = CliArgs {
@@ -145,7 +145,7 @@ mod tests {
         assert_eq!(todo_items.len(), 3);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }

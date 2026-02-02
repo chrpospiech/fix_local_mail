@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::todoitems::CliArgs;
+use anyhow::Result;
 use chrono::DateTime;
 use std::collections::HashMap;
 use std::fs::File;
@@ -34,7 +35,7 @@ pub async fn get_target_file_name(
     item_id: i64,
     pool: Pool<MySql>,
     args: &CliArgs,
-) -> String {
+) -> Result<String> {
     let mail_name: String;
     let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
     if let Some(rid) = remote_id {
@@ -43,36 +44,36 @@ pub async fn get_target_file_name(
             mail_name = caps.get(1).unwrap().as_str().to_string();
         } else {
             // Generate mail name based on timestamp, R value, and hostname
-            mail_name = create_new_mail_name(source_path, pool.clone(), args).await;
+            mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
         }
     } else {
         // Generate mail name based on timestamp, R value, and hostname
-        mail_name = create_new_mail_name(source_path, pool.clone(), args).await;
+        mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
     }
     // Get mail info (flags) from database
-    let mail_info = get_mail_info(item_id, pool).await;
+    let mail_info = get_mail_info(item_id, pool).await?;
     // Construct final target file name with path, cur/new prefix, mail name, and mail info
     let cur_new_name = if mail_info.is_empty() { "new" } else { "cur" };
-    format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info)
+    Ok(format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info))
 }
 
 pub async fn create_new_mail_name(
     source_path: String,
     pool: Pool<MySql>,
     args: &CliArgs,
-) -> String {
+) -> Result<String> {
     // Generate mail name based on timestamp, R value, and hostname
-    let mail_time_stamp = get_mail_time_stamp(&source_path, args);
+    let mail_time_stamp = get_mail_time_stamp(&source_path, args)?;
     let hostname = gethostname::gethostname()
         .into_string()
         .unwrap_or("unknownhost".to_string());
     // Get R value from database
-    let r_value = get_r_value(pool.clone(), mail_time_stamp).await;
+    let r_value = get_r_value(pool.clone(), mail_time_stamp).await?;
     // Construct mail name
-    format!("{}.R{}.{}", mail_time_stamp, r_value, hostname)
+    Ok(format!("{}.R{}.{}", mail_time_stamp, r_value, hostname))
 }
 
-pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
+pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> Result<u64> {
     if args.db_url != "auto" || args.dry_run {
         if args.verbose || args.dry_run {
             println!(
@@ -86,11 +87,11 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
         a random value between 1 and 1800 to avoid collisions - simulating mails received in the recent past
         */
         let random_offset: u64 = rand::rng().random_range(1..=1800);
-        return get_time_now_secs().saturating_sub(random_offset);
+        return Ok(get_time_now_secs()?.saturating_sub(random_offset));
     }
     // Open the mail file and read line by line to find the Date header
-    let error_msg = format!("Cannot read mail file: {}", mail_file);
-    let file = File::open(mail_file).expect(&error_msg);
+    let file = File::open(mail_file)
+        .map_err(|e| anyhow::anyhow!("Cannot read mail file: {}: {}", mail_file, e))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines().map_while(Result::ok) {
@@ -99,7 +100,7 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
             // Parse the date string using RFC 2822 format
             if let Ok(date_time) = DateTime::parse_from_rfc2822(date_str) {
                 // Return the timestamp as seconds since UNIX_EPOCH
-                return date_time.timestamp() as u64;
+                return Ok(date_time.timestamp() as u64);
             }
         }
     }
@@ -109,18 +110,18 @@ pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> u64 {
     a random value between 1 and 1800 to avoid collisions - simulating mails received in the recent past
     */
     let random_offset: u64 = rand::rng().random_range(1..=1800);
-    get_time_now_secs().saturating_sub(random_offset)
+    Ok(get_time_now_secs()?.saturating_sub(random_offset))
 }
 
-pub fn get_time_now_secs() -> u64 {
+pub fn get_time_now_secs() -> Result<u64> {
     // Get the current system time in seconds since UNIX_EPOCH
-    SystemTime::now()
+    Ok(SystemTime::now()
         .duration_since(UNIX_EPOCH)
-        .expect("Time went backwards")
-        .as_secs()
+        .map_err(|_| anyhow::anyhow!("Time went backwards"))?
+        .as_secs())
 }
 
-pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> u64 {
+pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> Result<u64> {
     // Find the maximum R value for mails with similar timestamp prefix
     let query = format!(
         "SELECT MAX(CONVERT(SUBSTR(REGEXP_SUBSTR(`remoteId`,'R[0-9]+'),2),UNSIGNED)) AS `r_value` \
@@ -134,20 +135,19 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> u64 {
     // Execute the query
     let result: Option<(Option<u64>,)> = sqlx::query_as(&query)
         .fetch_optional(&pool)
-        .await
-        .expect("Failed to execute query");
+        .await?;
 
     if let Some((Some(r_value),)) = result {
         // If an R value exists, increment it by a random number between 1 and 50
         // to avoid collisions with existing mails
-        r_value + rand::rng().random_range(1..=50)
+        Ok(r_value + rand::rng().random_range(1..=50))
     } else {
         // If no R value exists, start with a random number between 20 and 950
-        rand::rng().random_range(20..=950)
+        Ok(rand::rng().random_range(20..=950))
     }
 }
 
-pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
+pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> Result<String> {
     // Fetch mail flags from the database and construct the mail info string
     // the `flagtable`.`id` entries, might be different for each user.
     // Hence they should not be used in SQL queries. Instead a four letter
@@ -172,13 +172,12 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
     // Execute the query to get flags
     let rows: Vec<(String,)> = sqlx::query_as(&query)
         .fetch_all(&pool)
-        .await
-        .expect("Failed to fetch mail flags");
+        .await?;
 
     // Construct the mail info string based on the fetched flags
     if rows.is_empty() {
         //
-        String::new()
+        Ok(String::new())
     } else {
         //
         let mut flags = rows
@@ -190,10 +189,10 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> String {
         let flag_string = flags.join("");
         if !flag_string.is_empty() {
             // Prepend :2, if there are flags
-            ":2,".to_string() + &flag_string
+            Ok(":2,".to_string() + &flag_string)
         } else {
             // No flags found - return empty string
-            String::new()
+            Ok(String::new())
         }
     }
 }

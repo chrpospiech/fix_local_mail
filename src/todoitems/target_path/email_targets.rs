@@ -56,17 +56,17 @@ mod tests {
     #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
         let args = create_test_cli_args(&temp_dir, true);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Get current time in seconds minus half an hour
-        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
+        let recent_secs: u64 = get_time_now_secs()?.saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -98,7 +98,7 @@ mod tests {
             pool.clone(),
             &args,
         )
-        .await;
+        .await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -115,11 +115,11 @@ mod tests {
         // This is where we need the source file to exist with the correct remote_id
         assert!(timestamp <= recent_secs);
         assert!(recent_secs - timestamp > 7200);
-        let expected_timestamp = get_mail_time_stamp(&source_file_name, &args);
+        let expected_timestamp = get_mail_time_stamp(&source_file_name, &args)?;
         assert_eq!(timestamp, expected_timestamp);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
@@ -136,10 +136,10 @@ mod tests {
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Get current time in seconds minus half an hour
-        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
+        let recent_secs: u64 = get_time_now_secs()?.saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -173,7 +173,7 @@ mod tests {
             pool.clone(),
             &args,
         )
-        .await;
+        .await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -207,7 +207,7 @@ mod tests {
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -242,7 +242,7 @@ mod tests {
             pool.clone(),
             &args,
         )
-        .await;
+        .await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -258,7 +258,7 @@ mod tests {
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir();
+        let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto" and dry_run = true
         let args = CliArgs {
@@ -271,10 +271,10 @@ mod tests {
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
-            fetch_full_paths(pool.clone(), &args).await;
+            fetch_full_paths(pool.clone(), &args).await?;
 
         // Get current time in seconds minus half an hour
-        let recent_secs: u64 = get_time_now_secs().saturating_sub(1800);
+        let recent_secs: u64 = get_time_now_secs()?.saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -302,7 +302,7 @@ mod tests {
             pool.clone(),
             &args,
         )
-        .await;
+        .await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -320,7 +320,7 @@ mod tests {
         assert!(timestamp - recent_secs < 1800);
 
         // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir);
+        teardown_tmp_mail_dir(&temp_dir)?;
 
         Ok(())
     }
