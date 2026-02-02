@@ -31,7 +31,7 @@ pub async fn get_source_file_name(
 ) -> Result<Option<String>> {
     if let Some(rid) = remote_id {
         let pattern = format!("{}*/{}", path, rid);
-        Ok(get_single_matching_file(&pattern, args).await?.into())
+        Ok(Some(get_single_matching_file(&pattern, args).await?))
     } else {
         get_cached_email(file_id, pool, args).await
     }
