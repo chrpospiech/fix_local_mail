@@ -30,6 +30,8 @@ mod tests {
         // Should return the standard akonadi cache path
         let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
         let akonadi_cache: String = format!("{}/.local/share/akonadi/file_db_data/", home_dir);
+        assert!(result.is_ok());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.ends_with('/'));
         assert_eq!(result, akonadi_cache);
@@ -44,6 +46,9 @@ mod tests {
         };
 
         let result = get_cache_root_path(&args);
+
+        assert!(result.is_ok());
+        let result = result.unwrap();
 
         // Should return the custom path with trailing slash
         assert!(!result.is_empty());

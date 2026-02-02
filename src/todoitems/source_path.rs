@@ -13,12 +13,14 @@
 // limitations under the License.
 
 use crate::todoitems::CliArgs;
+use anyhow::Result;
 use sqlx::{MySql, Pool};
 use std::io::Write;
 use uuid::Uuid;
 
 pub(crate) mod cache_root;
 pub(crate) mod email_sources;
+pub(crate) mod trashed_email;
 
 pub async fn get_source_file_name(
     path: String,
@@ -26,36 +28,33 @@ pub async fn get_source_file_name(
     file_id: i64,
     pool: Pool<MySql>,
     args: &CliArgs,
-) -> String {
+) -> Result<Option<String>> {
     if let Some(rid) = remote_id {
         let pattern = format!("{}*/{}", path, rid);
-        get_single_matching_file(&pattern, args).await
+        Ok(Some(get_single_matching_file(&pattern, args).await?))
     } else {
         get_cached_email(file_id, pool, args).await
     }
 }
 
-pub async fn get_single_matching_file(pattern: &str, args: &CliArgs) -> String {
+pub async fn get_single_matching_file(pattern: &str, args: &CliArgs) -> Result<String> {
     if args.db_url != "auto" {
-        return pattern.to_string();
+        return Ok(pattern.to_string());
     }
     let mut paths = Vec::new();
 
-    for entry in glob::glob(pattern).expect("Failed to read glob pattern") {
-        match entry {
-            Ok(path) => paths.push(path),
-            Err(e) => panic!("Glob error: {}", e),
-        }
+    for entry in glob::glob(pattern)? {
+        paths.push(entry?);
     }
 
     if paths.len() != 1 {
-        panic!("Expected exactly one file, found {}", paths.len());
+        anyhow::bail!("Expected exactly one file, found {}", paths.len());
     }
 
-    paths[0].to_string_lossy().to_string()
+    Ok(paths[0].to_string_lossy().to_string())
 }
 
-pub fn get_cache_root_path(args: &CliArgs) -> String {
+pub fn get_cache_root_path(args: &CliArgs) -> Result<String> {
     if args.mail_cache_path != "auto" {
         let cache_root_dir = if args.mail_cache_path.ends_with('/') {
             args.mail_cache_path.clone()
@@ -68,17 +67,21 @@ pub fn get_cache_root_path(args: &CliArgs) -> String {
                 cache_root_dir
             );
         }
-        cache_root_dir
+        Ok(cache_root_dir)
     } else {
-        let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
-        format!("{}/.local/share/akonadi/file_db_data/", home_dir)
+        let home_dir = std::env::var("HOME")?;
+        Ok(format!("{}/.local/share/akonadi/file_db_data/", home_dir))
     }
 }
 
-pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>, args: &CliArgs) -> String {
+pub async fn get_cached_email(
+    file_id: i64,
+    pool: Pool<MySql>,
+    args: &CliArgs,
+) -> Result<Option<String>> {
     #[derive(sqlx::FromRow)]
     struct CachedEmail {
-        data: Vec<u8>,
+        data: Option<Vec<u8>>,
         storage: i32,
     }
 
@@ -89,23 +92,40 @@ pub async fn get_cached_email(file_id: i64, pool: Pool<MySql>, args: &CliArgs) -
     .bind(file_id)
     .fetch_one(&pool)
     .await
-    .expect("Failed to fetch cached email");
+    .map_err(|e| {
+        anyhow::anyhow!(
+            "Failed to fetch cached email with given file_id {}: {}",
+            file_id,
+            e
+        )
+    })?;
+
+    // Check if data is present
+    if result.data.is_none() {
+        if args.verbose || args.dry_run {
+            println!(
+                "Ignoring: No cached email found in database for file_id {}.",
+                file_id
+            );
+        }
+        return Ok(None);
+    }
+    let data = result.data.unwrap();
 
     // Convert data bytes to string
-    let data_string = result.data.iter().map(|&b| b as char).collect::<String>();
-    let cache_root_dir = get_cache_root_path(args);
+    let data_string = data.iter().map(|&b| b as char).collect::<String>();
+    let cache_root_dir = get_cache_root_path(args)?;
     if result.storage == 1 {
         // Cached email is stored in file system
         let pattern = format!("{}*/{}", cache_root_dir, data_string);
-        return get_single_matching_file(&pattern, args).await;
+        return Ok(Some(get_single_matching_file(&pattern, args).await?));
     } else {
         // Cached email is stored in database
-        let unique_name = format!("{}tmp{}", cache_root_dir, Uuid::new_v4());
+        let unique_name = format!("{}tmp{}", &cache_root_dir, Uuid::new_v4());
         if args.db_url == "auto" && !args.dry_run {
-            let mut file = std::fs::File::create(&unique_name).expect("Failed to create temp file");
-            file.write_all(&result.data)
-                .expect("Failed to write to temp file");
+            let mut file = std::fs::File::create(&unique_name)?;
+            file.write_all(&data)?;
         }
-        unique_name
+        Ok(Some(unique_name))
     }
 }

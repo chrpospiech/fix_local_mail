@@ -77,7 +77,9 @@ mod tests {
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
         let file_id = 50638;
-        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.contains(&args.mail_cache_path));
         assert!(!result.contains("//"));
@@ -104,7 +106,9 @@ mod tests {
         // The email with file_id 50638 has no remote_id and is cached in the file system
         // We simulate a non-auto db_url to test that no pattern matching occurs
         let file_id = 50638;
-        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.contains(&args.mail_cache_path));
         assert!(!result.contains("//"));
@@ -131,7 +135,9 @@ mod tests {
         // The email with file_id 50645 has no remote_id and is cached in the database
         // This should create a temporary file with the email contents
         let file_id = 50645;
-        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(!result.contains("//"));
         assert!(result.contains(&args.mail_cache_path));
@@ -156,7 +162,9 @@ mod tests {
         // The email with file_id 50645 has no remote_id and is cached in the database
         // However, for db_url != auto, this should not create a temporary file
         let file_id = 50645;
-        let result: String = get_cached_email(file_id, pool.clone(), &args).await;
+        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(!result.contains("//"));
         assert!(result.contains(&args.mail_cache_path));
@@ -191,8 +199,10 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
-        let result: String =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await;
+        let result: Option<String> =
+            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.contains(&args.maildir_path));
         assert!(result.contains(&remote_id));
@@ -229,8 +239,10 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
-        let result: String =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await;
+        let result: Option<String> =
+            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.contains(&args.maildir_path));
         assert!(result.contains(&remote_id));
