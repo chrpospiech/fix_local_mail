@@ -45,8 +45,7 @@ pub fn setup_tmp_mail_dir() -> Result<String> {
     let path = std::path::Path::new(manifest_dir).join("src/todoitems/tests/data");
     let mut options = fs_extra::dir::CopyOptions::new();
     options.content_only = true;
-    fs_extra::dir::copy(&path, &temp_dir, &options)
-        .map_err(std::io::Error::other)?;
+    fs_extra::dir::copy(&path, &temp_dir, &options).map_err(std::io::Error::other)?;
 
     Ok(temp_dir.to_string_lossy().to_string())
 }

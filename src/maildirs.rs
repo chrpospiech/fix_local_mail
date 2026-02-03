@@ -30,7 +30,10 @@ pub struct Collection {
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> Result<HashMap<i64, Collection>> {
+pub async fn fetch_collections(
+    pool: Pool<MySql>,
+    get_root_only: bool,
+) -> Result<HashMap<i64, Collection>> {
     let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,

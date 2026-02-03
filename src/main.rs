@@ -18,6 +18,9 @@ use anyhow::Result;
 pub(crate) mod cmdline;
 pub(crate) mod connect;
 pub(crate) mod execute;
+pub(crate) mod maildirs;
+#[cfg(test)]
+pub(crate) mod mockup;
 pub(crate) mod todoitems;
 
 #[tokio::main]
@@ -35,29 +38,44 @@ async fn main() -> Result<()> {
         todoitems::fetch_todo_items(pool.clone(), &args).await?;
 
     // Handle fetched data
+    // We have to take into account that source_path can be None
+    // if the source file does not exist.
+    let dry_run_msg_start = if dry_run { "Dry run" } else { "Processing" };
+    let dry_run_msg_would = if dry_run { "Would move" } else { "Moving" };
     for item in todo_items {
-        if dry_run {
-            println!(
-                "Dry run item ID {}: would move {} to {}",
-                item.id, item.source_path, item.target_path
-            );
-        } else {
-            // Move files to their target locations if source and target are not the same
-            if item.source_path != item.target_path {
-                if args.verbose {
-                    println!(
-                        "Processing item ID {}: moving {} to {}",
-                        item.id, item.source_path, item.target_path
-                    );
-                }
-                execute::move_file(&item.source_path, &item.target_path)?;
-                execute::update_akonadi_db(pool.clone(), item.id).await?;
-            } else if args.verbose {
+        // Move files to their target locations if source and target are not the same
+        // Necessarily, source_path must be Some here, otherwise target_path would also be None
+        if item.source_path != item.target_path {
+            let source = item.source_path.as_ref().unwrap();
+            let target = item.target_path.as_ref().unwrap();
+            if args.verbose || args.dry_run {
                 println!(
-                    "Item ID {}: source and target path {} are the same. No action taken.",
-                    item.id, item.source_path
+                    "{} item ID {}: {} {} to {}",
+                    dry_run_msg_start, item.id, dry_run_msg_would, source, target
                 );
             }
+            if !args.dry_run {
+                execute::move_file(source, target)?;
+                execute::update_akonadi_db(pool.clone(), item.id).await?;
+            }
+        } else if item.source_path.is_none() {
+            if args.verbose || args.dry_run {
+                println!(
+                    "{} item ID {}: source path does not exist. Remove from database.",
+                    dry_run_msg_start, item.id
+                );
+            }
+            if !args.dry_run {
+                execute::update_akonadi_db(pool.clone(), item.id).await?;
+            }
+        } else {
+            // The remaining case is source_path == target_path
+            // and both are Some
+            let source = item.source_path.as_ref().unwrap();
+            println!(
+                "Item ID {}: source and target path {} are the same. No action taken.",
+                item.id, source
+            );
         }
     }
 

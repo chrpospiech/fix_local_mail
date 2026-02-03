@@ -15,10 +15,10 @@
 #[cfg(test)]
 mod tests {
 
-    use crate::{cmdline::CliArgs, todoitems::maildirs::get_root_paths};
+    use crate::{cmdline::CliArgs, maildirs::get_root_paths};
     use sqlx::MySqlPool;
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_root_path_from_args(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -35,7 +35,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_root_path_default(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {

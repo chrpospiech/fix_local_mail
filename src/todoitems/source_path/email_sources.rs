@@ -58,13 +58,13 @@
 mod tests {
 
     use crate::{
+        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
         todoitems::maildirs::fetch_full_paths,
-        todoitems::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
         todoitems::source_path::{get_cached_email, get_source_file_name},
     };
     use sqlx::mysql::MySqlPool;
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_cached_email_from_file(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -92,7 +92,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_cached_email_pattern(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -121,7 +121,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_cached_email_from_db(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -150,7 +150,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_not_caching_email(pool: MySqlPool) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
@@ -176,7 +176,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_source_file_name_with_auto_db(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -216,7 +216,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_pattern_for_source_file_name(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {

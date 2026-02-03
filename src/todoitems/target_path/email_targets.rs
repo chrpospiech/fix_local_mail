@@ -44,16 +44,16 @@
 mod tests {
 
     use crate::cmdline::CliArgs;
+    use crate::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir};
     use crate::todoitems::{
         maildirs::fetch_full_paths,
-        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
         source_path::get_source_file_name,
         target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
     };
     use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
@@ -64,7 +64,6 @@ mod tests {
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
             fetch_full_paths(pool.clone(), &args).await?;
-
         // Get current time in seconds minus half an hour
         let recent_secs: u64 = get_time_now_secs()?.saturating_sub(1800);
 
@@ -124,7 +123,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_fake_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct with db_url != "auto"
         // to trigger fake target name generation
@@ -193,7 +192,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_old_target_file_name_for_stored_email(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -253,7 +252,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_fake_target_file_name_for_cached_dry_run(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {

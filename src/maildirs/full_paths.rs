@@ -17,10 +17,10 @@ mod tests {
 
     use std::collections::HashMap;
 
-    use crate::{cmdline::CliArgs, todoitems::maildirs::fetch_full_paths};
+    use crate::{cmdline::CliArgs, maildirs::fetch_full_paths};
     use sqlx::MySqlPool;
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_full_paths_from_args(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {
@@ -38,7 +38,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_full_paths_default(
         pool: MySqlPool,
     ) -> Result<(), Box<dyn std::error::Error>> {

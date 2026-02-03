@@ -54,7 +54,10 @@ pub async fn get_target_file_name(
     let mail_info = get_mail_info(item_id, pool).await?;
     // Construct final target file name with path, cur/new prefix, mail name, and mail info
     let cur_new_name = if mail_info.is_empty() { "new" } else { "cur" };
-    Ok(format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info))
+    Ok(format!(
+        "{}{}/{}{}",
+        path, cur_new_name, mail_name, mail_info
+    ))
 }
 
 pub async fn create_new_mail_name(
@@ -133,9 +136,7 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> Result<u64> {
     );
 
     // Execute the query
-    let result: Option<(Option<u64>,)> = sqlx::query_as(&query)
-        .fetch_optional(&pool)
-        .await?;
+    let result: Option<(Option<u64>,)> = sqlx::query_as(&query).fetch_optional(&pool).await?;
 
     if let Some((Some(r_value),)) = result {
         // If an R value exists, increment it by a random number between 1 and 50
@@ -170,9 +171,7 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> Result<String> {
     ]);
 
     // Execute the query to get flags
-    let rows: Vec<(String,)> = sqlx::query_as(&query)
-        .fetch_all(&pool)
-        .await?;
+    let rows: Vec<(String,)> = sqlx::query_as(&query).fetch_all(&pool).await?;
 
     // Construct the mail info string based on the fetched flags
     if rows.is_empty() {

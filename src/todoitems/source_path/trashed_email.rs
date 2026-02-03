@@ -19,7 +19,7 @@ mod tests {
 
     use crate::{cmdline::CliArgs, todoitems::source_path::get_cached_email};
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     async fn test_get_cached_email(pool: MySqlPool) -> Result<()> {
         let args = CliArgs {
             mail_cache_path: "auto".to_string(),

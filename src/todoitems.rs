@@ -13,19 +13,15 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use crate::maildirs;
 use anyhow::Result;
 use futures::future::join_all;
 use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
 
-pub(crate) mod maildirs;
-#[cfg(test)]
-pub(crate) mod mockup;
 pub(crate) mod new_mails;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
-#[cfg(test)]
-pub(crate) mod test_todoitems;
 
 #[derive(Debug, FromRow)]
 pub struct TodoPimItem {
@@ -101,8 +97,8 @@ pub async fn fetch_todo_pim_items(
 #[derive(Debug)]
 pub struct TodoItem {
     pub id: i64,
-    pub source_path: String,
-    pub target_path: String,
+    pub source_path: Option<String>,
+    pub target_path: Option<String>,
 }
 
 pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<TodoItem>> {
@@ -136,7 +132,7 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<T
                 .cloned()
                 .unwrap_or("tbd/".to_string());
             async move {
-                let item_source = source_path::get_source_file_name(
+                let item_source: Option<String> = source_path::get_source_file_name(
                     full_path.clone(),
                     item.remote_id.as_ref(),
                     item.id,
@@ -145,25 +141,25 @@ pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<T
                 )
                 .await?;
 
-                // Skip items where source is None
-                let source = match item_source {
-                    Some(s) => s,
-                    None => return Ok(None),
+                let item_target = if let Some(ref source) = item_source {
+                    Some(
+                        target_path::get_target_file_name(
+                            full_path,
+                            item.remote_id.as_ref(),
+                            source.clone(),
+                            item.id,
+                            pool.clone(),
+                            args,
+                        )
+                        .await?,
+                    )
+                } else {
+                    None
                 };
-
-                let item_target = target_path::get_target_file_name(
-                    full_path,
-                    item.remote_id.as_ref(),
-                    source.clone(),
-                    item.id,
-                    pool.clone(),
-                    args,
-                )
-                .await?;
 
                 Ok(Some(TodoItem {
                     id: item.id,
-                    source_path: source,
+                    source_path: item_source,
                     target_path: item_target,
                 }))
             }
