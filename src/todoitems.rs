@@ -18,6 +18,8 @@ use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
 
 pub(crate) mod new_mails;
+#[cfg(test)]
+pub(crate) mod test_todoitems;
 
 #[derive(Debug, FromRow)]
 pub struct TodoPimItem {
