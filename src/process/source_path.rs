@@ -13,8 +13,10 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use crate::todoitems::TodoPimItem;
 use anyhow::Result;
 use sqlx::{MySql, Pool};
+use std::collections::HashMap;
 use std::io::Write;
 use uuid::Uuid;
 
@@ -23,17 +25,25 @@ pub(crate) mod email_sources;
 pub(crate) mod trashed_email;
 
 pub async fn get_source_file_name(
-    path: String,
-    remote_id: Option<&String>,
-    file_id: i64,
     pool: Pool<MySql>,
+    item: &TodoPimItem,
+    full_paths: &HashMap<i64, String>,
     args: &CliArgs,
 ) -> Result<Option<String>> {
-    if let Some(rid) = remote_id {
-        let pattern = format!("{}*/{}", path, rid);
+    if let Some(rid) = item.remote_id.as_ref() {
+        let path = full_paths
+            .get(&item.collection_id)
+            .ok_or_else(|| {
+                anyhow::anyhow!(
+                    "Collection ID {} not found in full paths mapping.",
+                    item.collection_id
+                )
+            })?
+            .clone();
+        let pattern = format!("{}*/{}", &path, rid);
         Ok(Some(get_single_matching_file(&pattern, args).await?))
     } else {
-        get_cached_email(file_id, pool, args).await
+        get_cached_email(item.id, pool, args).await
     }
 }
 

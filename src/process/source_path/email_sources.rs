@@ -61,6 +61,7 @@ mod tests {
         mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
         process::maildirs::fetch_full_paths,
         process::source_path::{get_cached_email, get_source_file_name},
+        todoitems::TodoPimItem,
     };
     use sqlx::mysql::MySqlPool;
 
@@ -193,13 +194,14 @@ mod tests {
         // that is stored in tests/data and has a remote_id.
         let file_id = 206;
         let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         let result: Option<String> =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(result.is_some());
         let result = result.unwrap();
         assert!(!result.is_empty());
@@ -233,13 +235,14 @@ mod tests {
         // that is stored in tests/data and has a remote_id.
         let file_id = 206;
         let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         let result: Option<String> =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(result.is_some());
         let result = result.unwrap();
         assert!(!result.is_empty());

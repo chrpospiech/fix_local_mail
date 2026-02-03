@@ -50,6 +50,7 @@ mod tests {
         source_path::get_source_file_name,
         target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
     };
+    use crate::todoitems::TodoPimItem;
     use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
@@ -76,9 +77,13 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         let source_file_name: Option<String> =
-            get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
@@ -149,12 +154,16 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         // Even though we provide a remote_id, since db_url != "auto",
         // the source file name will be generated without relying on it.
         // It is only a regex pattern in this case and contains a "*".
         let source_file_name: Option<String> =
-            get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
@@ -218,12 +227,16 @@ mod tests {
             .cloned()
             .unwrap_or("tbd/".to_string());
         let remote_id = "1767111571664.R424.helios".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         // Even though we provide a remote_id, since db_url != "auto",
         // the source file name will be generated without relying on it.
         // It is only a regex pattern in this case and contains a "*".
         let source_file_name: Option<String> =
-            get_source_file_name(path.clone(), Some(&remote_id), file_id, pool.clone(), &args)
-                .await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());
@@ -283,8 +296,14 @@ mod tests {
             .get(&collection_id)
             .cloned()
             .unwrap_or("tbd/".to_string());
+        let remote_id = "1767111571689.R425.helios".to_string();
+        let item = TodoPimItem {
+            id: file_id,
+            remote_id: Some(remote_id.clone()),
+            collection_id,
+        };
         let source_file_name: Option<String> =
-            get_source_file_name(path.clone(), None, file_id, pool.clone(), &args).await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
         assert!(!source_file_name.is_empty());

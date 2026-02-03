@@ -20,6 +20,7 @@ use crate::process::target_path::get_target_file_name;
 use crate::todoitems::{fetch_todo_pim_items, TodoPimItem};
 use anyhow::Result;
 use sqlx::{MySql, Pool};
+use std::collections::HashMap;
 
 pub(crate) mod execute;
 pub(crate) mod maildirs;
@@ -28,13 +29,13 @@ pub(crate) mod target_path;
 
 pub async fn process_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<()> {
     // Fetch mail directory tree with full paths
-    let _full_paths = fetch_full_paths(pool.clone(), args).await?;
+    let full_paths = fetch_full_paths(pool.clone(), args).await?;
 
     // get todo pim items
     let todo_items: Vec<TodoPimItem> = fetch_todo_pim_items(pool.clone(), args).await?;
 
     for item in todo_items {
-        process_single_todo_item(pool.clone(), &item, args).await?;
+        process_single_todo_item(pool.clone(), &item, &full_paths, args).await?;
     }
 
     Ok(())
@@ -43,6 +44,7 @@ pub async fn process_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<()>
 async fn process_single_todo_item(
     pool: Pool<MySql>,
     item: &TodoPimItem,
+    full_paths: &HashMap<i64, String>,
     args: &CliArgs,
 ) -> Result<()> {
     let dry_run_msg_start = if args.dry_run {
@@ -60,14 +62,7 @@ async fn process_single_todo_item(
     }
 
     let dummy_path = "/dummy/path/for/testing".to_string();
-    let source = get_source_file_name(
-        dummy_path.clone(),
-        item.remote_id.as_ref(),
-        item.id,
-        pool.clone(),
-        args,
-    )
-    .await?;
+    let source = get_source_file_name(pool.clone(), item, full_paths, args).await?;
     let target = get_target_file_name(
         dummy_path.clone(),
         item.remote_id.as_ref(),
