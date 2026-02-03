@@ -18,7 +18,7 @@ mod tests {
 
     use anyhow::Result;
 
-    use crate::{cmdline::CliArgs, todoitems::source_path::get_cache_root_path};
+    use crate::{cmdline::CliArgs, process::source_path::get_cache_root_path};
 
     #[test]
     fn test_get_cache_root_path_with_auto() -> Result<()> {

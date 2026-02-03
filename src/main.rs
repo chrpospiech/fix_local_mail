@@ -13,14 +13,14 @@
 // limitations under the License.
 
 use crate::connect::connect_to_database;
+use crate::process::execute::clean_up;
 use anyhow::Result;
 
 pub(crate) mod cmdline;
 pub(crate) mod connect;
-pub(crate) mod execute;
-pub(crate) mod maildirs;
 #[cfg(test)]
 pub(crate) mod mockup;
+pub(crate) mod process;
 pub(crate) mod todoitems;
 
 #[tokio::main]
@@ -34,50 +34,8 @@ async fn main() -> Result<()> {
     // Connect to the database
     let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&args).await?;
 
-    let todo_items: Vec<todoitems::TodoItem> =
-        todoitems::fetch_todo_items(pool.clone(), &args).await?;
-
-    // Handle fetched data
-    // We have to take into account that source_path can be None
-    // if the source file does not exist.
-    let dry_run_msg_start = if dry_run { "Dry run" } else { "Processing" };
-    let dry_run_msg_would = if dry_run { "Would move" } else { "Moving" };
-    for item in todo_items {
-        // Move files to their target locations if source and target are not the same
-        // Necessarily, source_path must be Some here, otherwise target_path would also be None
-        if item.source_path != item.target_path {
-            let source = item.source_path.as_ref().unwrap();
-            let target = item.target_path.as_ref().unwrap();
-            if args.verbose || args.dry_run {
-                println!(
-                    "{} item ID {}: {} {} to {}",
-                    dry_run_msg_start, item.id, dry_run_msg_would, source, target
-                );
-            }
-            if !args.dry_run {
-                execute::move_file(source, target)?;
-                execute::update_akonadi_db(pool.clone(), item.id).await?;
-            }
-        } else if item.source_path.is_none() {
-            if args.verbose || args.dry_run {
-                println!(
-                    "{} item ID {}: source path does not exist. Remove from database.",
-                    dry_run_msg_start, item.id
-                );
-            }
-            if !args.dry_run {
-                execute::update_akonadi_db(pool.clone(), item.id).await?;
-            }
-        } else {
-            // The remaining case is source_path == target_path
-            // and both are Some
-            let source = item.source_path.as_ref().unwrap();
-            println!(
-                "Item ID {}: source and target path {} are the same. No action taken.",
-                item.id, source
-            );
-        }
-    }
+    // Fetch todo pim items and process them
+    process::process_todo_items(pool.clone(), &args).await?;
 
     // Explicit disconnect from the database
     pool.close().await;
@@ -89,7 +47,7 @@ async fn main() -> Result<()> {
         if args.verbose {
             println!("Cleaning up Akonadi and KMail...");
         }
-        execute::clean_up(args.stop_akonadi, args.stop_kmail).await?;
+        clean_up(args.stop_akonadi, args.stop_kmail).await?;
     }
     Ok(())
 }

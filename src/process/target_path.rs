@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::todoitems::CliArgs;
+use crate::cmdline::CliArgs;
 use anyhow::Result;
 use chrono::DateTime;
 use std::collections::HashMap;

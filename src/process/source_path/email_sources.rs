@@ -59,8 +59,8 @@ mod tests {
 
     use crate::{
         mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
-        todoitems::maildirs::fetch_full_paths,
-        todoitems::source_path::{get_cached_email, get_source_file_name},
+        process::maildirs::fetch_full_paths,
+        process::source_path::{get_cached_email, get_source_file_name},
     };
     use sqlx::mysql::MySqlPool;
 
@@ -70,7 +70,6 @@ mod tests {
     ) -> Result<(), Box<dyn std::error::Error>> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
-
         // Setup an argument struct
         let args = create_test_cli_args(&temp_dir, true);
 

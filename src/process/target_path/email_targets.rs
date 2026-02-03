@@ -45,7 +45,7 @@ mod tests {
 
     use crate::cmdline::CliArgs;
     use crate::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir};
-    use crate::todoitems::{
+    use crate::process::{
         maildirs::fetch_full_paths,
         source_path::get_source_file_name,
         target_path::{get_mail_time_stamp, get_target_file_name, get_time_now_secs},
