@@ -16,12 +16,11 @@
 mod tests {
 
     use crate::{cmdline::CliArgs, maildirs::get_root_paths};
+    use anyhow::Result;
     use sqlx::MySqlPool;
 
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_root_path_from_args(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_root_path_from_args(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct
         let args = CliArgs {
             maildir_path: "/tmp/maildir/path".to_string(),
@@ -36,9 +35,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_root_path_default(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_root_path_default(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct
         let args = CliArgs {
             maildir_path: "auto".to_string(),
