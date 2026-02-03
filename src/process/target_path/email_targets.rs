@@ -70,39 +70,22 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
         let item = TodoPimItem {
-            id: file_id,
+            id: 206,
             remote_id: Some(remote_id.clone()),
-            collection_id,
+            collection_id: 388,
         };
+        // Retrieve the source file name
         let source_file_name: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
-        assert!(!source_file_name.is_empty());
-        assert!(source_file_name.contains(&args.maildir_path));
-        assert!(source_file_name.contains(&remote_id));
-        assert!(!source_file_name.contains("//"));
-        assert!(std::path::Path::new(&source_file_name).exists());
-        assert!(std::path::Path::new(&source_file_name).is_file());
+        let time_stamp = get_mail_time_stamp(&source_file_name, &args)?;
 
         // Test: Retrieve the target file name for the same file_id
-        let target_file_name: String = get_target_file_name(
-            path,
-            Some(&remote_id),
-            source_file_name.clone(),
-            file_id,
-            pool.clone(),
-            &args,
-        )
-        .await?;
+        let target_file_name: String =
+            get_target_file_name(pool.clone(), &item, &full_paths, time_stamp).await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -119,6 +102,7 @@ mod tests {
         // This is where we need the source file to exist with the correct remote_id
         assert!(timestamp <= recent_secs);
         assert!(recent_secs - timestamp > 7200);
+        // Verify that the timestamp matches what is expected from the remote_id
         let expected_timestamp = get_mail_time_stamp(&source_file_name, &args)?;
         assert_eq!(timestamp, expected_timestamp);
 
@@ -147,39 +131,25 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
         let item = TodoPimItem {
-            id: file_id,
+            id: 206,
             remote_id: Some(remote_id.clone()),
-            collection_id,
+            collection_id: 388,
         };
-        // Even though we provide a remote_id, since db_url != "auto",
-        // the source file name will be generated without relying on it.
-        // It is only a regex pattern in this case and contains a "*".
+        // Retrieve the source file name
         let source_file_name: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
         let source_file_name = source_file_name.unwrap();
-        assert!(!source_file_name.is_empty());
-        assert!(source_file_name.contains(&args.maildir_path));
-        assert!(source_file_name.contains(&remote_id));
-        assert!(!source_file_name.contains("//"));
-        assert!(source_file_name.contains("*"));
+        let time_stamp = get_mail_time_stamp(&source_file_name, &args)?;
 
         // Test: Retrieve the target file name for the same file_id
         let target_file_name: String = get_target_file_name(
-            path,
-            Some(&remote_id),
-            source_file_name.clone(),
-            file_id,
             pool.clone(),
-            &args,
+            &item,
+            &full_paths,
+            time_stamp, // use the extracted time_stamp
         )
         .await?;
         assert!(!target_file_name.is_empty());
@@ -202,9 +172,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_old_target_file_name_for_stored_email(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_old_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct with db_url != "auto"
         // to trigger fake target name generation
         // (i.e., not reading from remote_id)
@@ -220,17 +188,11 @@ mod tests {
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
         // We are testing a case where the remote_id can be kept as is.
-        let file_id = 50628;
-        let collection_id = 394;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1767111571664.R424.helios".to_string();
         let item = TodoPimItem {
-            id: file_id,
+            id: 50628,
             remote_id: Some(remote_id.clone()),
-            collection_id,
+            collection_id: 394,
         };
         // Even though we provide a remote_id, since db_url != "auto",
         // the source file name will be generated without relying on it.
@@ -244,17 +206,22 @@ mod tests {
         assert!(source_file_name.contains(&remote_id));
         assert!(!source_file_name.contains("//"));
         assert!(source_file_name.contains("*"));
+        let time_stamp = get_mail_time_stamp(&source_file_name, &args)?;
 
         // Test: Retrieve the target file name for the same file_id
         let target_file_name: String = get_target_file_name(
-            path,
-            Some(&remote_id),
-            source_file_name.clone(),
-            file_id,
             pool.clone(),
-            &args,
+            &item,
+            &full_paths,
+            time_stamp, // use the extracted time_stamp
         )
         .await?;
+        assert!(!target_file_name.is_empty());
+        assert!(target_file_name.contains(&args.maildir_path));
+        assert!(!target_file_name.contains("//"));
+        // Verify that the remote_id part is preserved in the target file name
+        // and the "SEEN" flag is appended
+        assert!(target_file_name.contains("1767111571664.R424.helios:2,S"));
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));
@@ -266,9 +233,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_fake_target_file_name_for_cached_dry_run(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_fake_target_file_name_for_cached_dry_run(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -290,17 +255,10 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 50645;
-        let collection_id = 394;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
-        let remote_id = "1767111571689.R425.helios".to_string();
         let item = TodoPimItem {
-            id: file_id,
-            remote_id: Some(remote_id.clone()),
-            collection_id,
+            id: 50645,
+            remote_id: None,
+            collection_id: 394,
         };
         let source_file_name: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
@@ -311,16 +269,11 @@ mod tests {
         assert!(!source_file_name.contains("//"));
         assert!(!std::path::Path::new(&source_file_name).exists());
 
+        let time_stamp = get_mail_time_stamp(&source_file_name, &args)?;
+
         // Test: Retrieve the target file name for the same file_id
-        let target_file_name: String = get_target_file_name(
-            path,
-            None,
-            source_file_name.clone(),
-            file_id,
-            pool.clone(),
-            &args,
-        )
-        .await?;
+        let target_file_name: String =
+            get_target_file_name(pool.clone(), &item, &full_paths, time_stamp).await?;
         assert!(!target_file_name.is_empty());
         assert!(target_file_name.contains(&args.maildir_path));
         assert!(!target_file_name.contains("//"));

@@ -13,6 +13,7 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
+use crate::todoitems::TodoPimItem;
 use anyhow::Result;
 use chrono::DateTime;
 use std::collections::HashMap;
@@ -29,44 +30,52 @@ use regex::Regex;
 pub(crate) mod email_targets;
 
 pub async fn get_target_file_name(
-    path: String,
-    remote_id: Option<&String>,
-    source_path: String,
-    item_id: i64,
     pool: Pool<MySql>,
-    args: &CliArgs,
+    item: &TodoPimItem,
+    full_paths: &HashMap<i64, String>,
+    time_stamp: u64,
 ) -> Result<String> {
     let mail_name: String;
     let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
-    if let Some(rid) = remote_id {
+    if let Some(rid) = item.remote_id.as_ref() {
         if let Some(caps) = re.captures(rid) {
             // Use existing mail name from remote ID
             mail_name = caps.get(1).unwrap().as_str().to_string();
         } else {
             // Generate mail name based on timestamp, R value, and hostname
-            mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
+            mail_name = create_new_mail_name(pool.clone(), time_stamp).await?;
         }
     } else {
         // Generate mail name based on timestamp, R value, and hostname
-        mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
+        mail_name = create_new_mail_name(pool.clone(), time_stamp).await?;
     }
     // Get mail info (flags) from database
-    let mail_info = get_mail_info(item_id, pool).await?;
+    let mail_info = get_mail_info(item.id, pool).await?;
     // Construct final target file name with path, cur/new prefix, mail name, and mail info
     let cur_new_name = if mail_info.is_empty() { "new" } else { "cur" };
+    let directory_path = full_paths
+        .get(&item.collection_id)
+        .ok_or_else(|| {
+            anyhow::anyhow!(
+                "Collection ID {} not found in full paths mapping.",
+                item.collection_id
+            )
+        })?
+        .clone();
+    let path = if directory_path.ends_with('/') {
+        directory_path
+    } else {
+        format!("{}/", directory_path)
+    };
     Ok(format!(
         "{}{}/{}{}",
         path, cur_new_name, mail_name, mail_info
     ))
 }
 
-pub async fn create_new_mail_name(
-    source_path: String,
-    pool: Pool<MySql>,
-    args: &CliArgs,
-) -> Result<String> {
+pub async fn create_new_mail_name(pool: Pool<MySql>, time_stamp: u64) -> Result<String> {
     // Generate mail name based on timestamp, R value, and hostname
-    let mail_time_stamp = get_mail_time_stamp(&source_path, args)?;
+    let mail_time_stamp = time_stamp;
     let hostname = gethostname::gethostname()
         .into_string()
         .unwrap_or("unknownhost".to_string());

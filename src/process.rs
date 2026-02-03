@@ -16,7 +16,7 @@ use crate::cmdline::CliArgs;
 use crate::process::execute::{move_file, update_akonadi_db};
 use crate::process::maildirs::fetch_full_paths;
 use crate::process::source_path::get_source_file_name;
-use crate::process::target_path::get_target_file_name;
+use crate::process::target_path::{get_mail_time_stamp, get_target_file_name};
 use crate::todoitems::{fetch_todo_pim_items, TodoPimItem};
 use anyhow::Result;
 use sqlx::{MySql, Pool};
@@ -61,17 +61,7 @@ async fn process_single_todo_item(
         );
     }
 
-    let dummy_path = "/dummy/path/for/testing".to_string();
     let source = get_source_file_name(pool.clone(), item, full_paths, args).await?;
-    let target = get_target_file_name(
-        dummy_path.clone(),
-        item.remote_id.as_ref(),
-        dummy_path.clone(),
-        item.id,
-        pool.clone(),
-        args,
-    )
-    .await?;
     if source.is_none() {
         if args.verbose || args.dry_run {
             println!(
@@ -85,6 +75,12 @@ async fn process_single_todo_item(
         return Ok(());
     }
     let source = source.as_ref().unwrap();
+    let time_stamp = if item.remote_id.is_none() {
+        get_mail_time_stamp(source, args)?
+    } else {
+        0
+    };
+    let target = get_target_file_name(pool.clone(), item, full_paths, time_stamp).await?;
     if source != &target {
         if args.verbose || args.dry_run {
             println!(
