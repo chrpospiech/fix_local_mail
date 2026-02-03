@@ -49,12 +49,6 @@
 /// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
 ///   in the database (file_id 50645, has remote_id)
 ///
-/// # Regarding the `.map_err(std::io::Error::other)` call
-///
-/// The `map` here is used because `fs_extra::dir::copy()` returns a custom error type
-/// (`fs_extra::error::Error`), but we need to convert it to `std::io::Error` for
-/// compatibility with the `.expect()` call and standard error handling. The `map_err()`
-/// function transforms the error type while preserving the error information.
 mod tests {
 
     use crate::{
@@ -63,12 +57,11 @@ mod tests {
         process::source_path::{get_cached_email, get_source_file_name},
         todoitems::TodoPimItem,
     };
+    use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_from_file(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_cached_email_from_file(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
@@ -93,9 +86,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_pattern(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_cached_email_pattern(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -122,9 +113,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_from_db(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_cached_email_from_db(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -151,7 +140,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_not_caching_email(pool: MySqlPool) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_not_caching_email(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -177,9 +166,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_source_file_name_with_auto_db(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_source_file_name_with_auto_db(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -192,13 +179,11 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
         let item = TodoPimItem {
-            id: file_id,
+            id: 206,
             remote_id: Some(remote_id.clone()),
-            collection_id,
+            collection_id: 388,
         };
         let result: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
@@ -218,9 +203,7 @@ mod tests {
     }
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_pattern_for_source_file_name(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn test_get_pattern_for_source_file_name(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -233,13 +216,11 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
         let item = TodoPimItem {
-            id: file_id,
+            id: 206,
             remote_id: Some(remote_id.clone()),
-            collection_id,
+            collection_id: 388,
         };
         let result: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
