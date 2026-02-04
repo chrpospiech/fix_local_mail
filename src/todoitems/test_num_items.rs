@@ -56,7 +56,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, false);
 
         // Fetch todo items from the database
         let todo_items = fetch_todo_pim_items(pool.clone(), &args).await?;

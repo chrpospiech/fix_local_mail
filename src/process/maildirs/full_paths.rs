@@ -21,6 +21,20 @@ mod tests {
     use anyhow::Result;
     use sqlx::MySqlPool;
 
+    #[sqlx::test(fixtures("../../../tests/fixtures/broken.sql"))]
+    pub async fn test_get_full_paths_broken_db(pool: MySqlPool) -> Result<()> {
+        // Setup an argument struct
+        let args = CliArgs {
+            maildir_path: "/tmp/maildir/path".to_string(),
+            ..Default::default()
+        };
+        // Test: Retrieve the root path
+        let result = fetch_full_paths(pool.clone(), &args).await;
+        assert!(result.is_err());
+
+        Ok(())
+    }
+
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_full_paths_from_args(pool: MySqlPool) -> Result<()> {
         // Setup an argument struct

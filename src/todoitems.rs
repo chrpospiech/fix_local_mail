@@ -19,7 +19,9 @@ use sqlx::{FromRow, MySql, Pool};
 
 pub(crate) mod new_mails;
 #[cfg(test)]
-pub(crate) mod test_todoitems;
+pub(crate) mod test_db_error;
+#[cfg(test)]
+pub(crate) mod test_num_items;
 
 #[derive(Debug, FromRow)]
 pub struct TodoPimItem {
