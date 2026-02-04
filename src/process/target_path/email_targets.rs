@@ -56,7 +56,7 @@ mod tests {
 
     #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
     pub async fn test_get_target_file_name_for_stored_email(pool: MySqlPool) -> Result<()> {
-        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        // Recursively copy tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
@@ -65,8 +65,6 @@ mod tests {
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
             fetch_full_paths(pool.clone(), &args).await?;
-        // Get current time in seconds minus half an hour
-        let recent_secs: u64 = get_time_now_secs()?.saturating_sub(1800);
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
@@ -76,7 +74,8 @@ mod tests {
             remote_id: Some(remote_id.clone()),
             collection_id: 388,
         };
-        // Retrieve the source file name
+        let expected_timestamp = 1686315625; // Extracted from email content
+                                             // Retrieve the source file name
         let source_file_name: Option<String> =
             get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(source_file_name.is_some());
@@ -97,13 +96,7 @@ mod tests {
         let caps = re.captures(&target_file_name).unwrap();
         let timestamp_str = caps.get(1).unwrap().as_str();
         let timestamp: u64 = timestamp_str.parse().unwrap();
-        // Verify timestamp is sufficiently old
-        // (i.e., was read from remote_id, not newly generated now)
-        // This is where we need the source file to exist with the correct remote_id
-        assert!(timestamp <= recent_secs);
-        assert!(recent_secs - timestamp > 7200);
-        // Verify that the timestamp matches what is expected from the remote_id
-        let expected_timestamp = get_mail_time_stamp(&source_file_name, &args)?;
+        // Verify timestamp is correctly read from the email content
         assert_eq!(timestamp, expected_timestamp);
 
         // Clean up: Remove the temporary directory

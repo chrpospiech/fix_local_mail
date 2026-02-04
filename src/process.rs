@@ -26,6 +26,8 @@ pub(crate) mod execute;
 pub(crate) mod maildirs;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
+#[cfg(test)]
+pub(crate) mod test_process;
 
 /// Process todo pim items: move files and update akonadi db
 /// - Fetch mail directory tree with full paths
@@ -100,7 +102,7 @@ async fn process_single_todo_item(
         return Ok(());
     }
     let source = source.as_ref().unwrap();
-    let time_stamp = if item.remote_id.is_none() {
+    let time_stamp = if item.remote_id.is_some() {
         get_mail_time_stamp(source, args)?
     } else {
         0
