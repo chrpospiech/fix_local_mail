@@ -62,22 +62,18 @@ pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
 /// # Arguments
 ///
 /// * `temp_dir` - Base path for the temporary test directory
-/// * `db_url_auto` - If `true`, sets `db_url` to "auto"; otherwise sets it to "some_other_db_url"
+/// * `dry_run` - dry run flag to set in the arguments
 ///
 /// # Returns
 ///
 /// Returns a `CliArgs` instance with maildir and cache paths configured to use
 /// subdirectories within the provided `temp_dir`.
 ///
-pub fn create_test_cli_args(temp_dir: &str, db_url_auto: bool) -> CliArgs {
+pub fn create_test_cli_args(temp_dir: &str, dry_run: bool) -> CliArgs {
     CliArgs {
         maildir_path: format!("{}/local_mail/", temp_dir),
         mail_cache_path: format!("{}/file_db_data/", temp_dir),
-        db_url: if db_url_auto {
-            "auto".to_string()
-        } else {
-            "some_other_db_url".to_string()
-        },
+        dry_run,
         ..Default::default()
     }
 }

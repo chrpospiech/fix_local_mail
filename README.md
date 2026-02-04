@@ -213,13 +213,10 @@ To enable `pre-commit` using `uv`, please proceed as follows.
 ## Debugging and Unit Testing
 
 - To help with debugging and unit testing, the list of mails in "/new/"
-  directories can be ignored and an alternative URL to a database can
-  be provided via command line options. In case of an
-  alternative URL, no mail directories or mail caches are accessed
-  to avoid clashes of current mail directories or mail caches and different
-  data in the database.
-- For unit testing, command line options
+  directories can be ignored and the number of todo items can be restricted.
+- For debugging and unit testing, command line options
 
+   - `-u, --db-url <DB_URL>`
    - `-p, --maildir-path <MAILDIR_PATH>`
    - `-c, --mail-cache-path`
 

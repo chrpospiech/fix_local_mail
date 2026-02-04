@@ -84,7 +84,7 @@ mod tests {
             })?
             .clone();
         let pattern = format!("{}/cur/{}*S", mail_directory, expected_timestamp);
-        let matching_file = get_single_matching_file(&pattern, &args).await?;
+        let matching_file = get_single_matching_file(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
 
         // Verify that the item.id has been cleared from the database.

@@ -41,16 +41,13 @@ pub async fn get_source_file_name(
             })?
             .clone();
         let pattern = format!("{}*/{}", &path, rid);
-        Ok(Some(get_single_matching_file(&pattern, args).await?))
+        Ok(Some(get_single_matching_file(&pattern).await?))
     } else {
         get_cached_email(item.id, pool, args).await
     }
 }
 
-pub async fn get_single_matching_file(pattern: &str, args: &CliArgs) -> Result<String> {
-    if args.db_url != "auto" {
-        return Ok(pattern.to_string());
-    }
+pub async fn get_single_matching_file(pattern: &str) -> Result<String> {
     let mut paths = Vec::new();
 
     for entry in glob::glob(pattern)? {
@@ -128,14 +125,14 @@ pub async fn get_cached_email(
     if result.storage == 1 {
         // Cached email is stored in file system
         let pattern = format!("{}*/{}", cache_root_dir, data_string);
-        return Ok(Some(get_single_matching_file(&pattern, args).await?));
+        return Ok(Some(get_single_matching_file(&pattern).await?));
     } else {
         // Cached email is stored in database
-        let unique_name = format!("{}tmp{}", &cache_root_dir, Uuid::new_v4());
-        if args.db_url == "auto" && !args.dry_run {
-            let mut file = std::fs::File::create(&unique_name)?;
-            file.write_all(&data)?;
-        }
+        // Create a temporary file to store the cached email data
+        // In case of dry-run, this file is later removed without further use
+        let unique_name = format!("{}tmp_db_{}", &cache_root_dir, Uuid::new_v4());
+        let mut file = std::fs::File::create(&unique_name)?;
+        file.write_all(&data)?;
         Ok(Some(unique_name))
     }
 }
