@@ -27,6 +27,17 @@ pub(crate) mod maildirs;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
 
+/// Process todo pim items: move files and update akonadi db
+/// - Fetch mail directory tree with full paths
+/// - Get todo pim items
+/// - Process each todo item by calling process_single_todo_item()
+///
+/// # Arguments
+/// - `pool`: Database connection pool
+/// - `args`: Command line arguments
+///
+/// Returns `Result<()>`
+///
 pub async fn process_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<()> {
     // Fetch mail directory tree with full paths
     let full_paths = fetch_full_paths(pool.clone(), args).await?;
@@ -41,6 +52,20 @@ pub async fn process_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<()>
     Ok(())
 }
 
+/// Process a single todo pim item: move file and update akonadi db
+/// - Get source file name
+/// - If source file does not exist, remove item from database
+/// - Get target file name
+/// - If source and target are different, move file and update database
+///
+/// # Arguments
+/// - `pool`: Database connection pool
+/// - `item`: Reference to TodoPimItem
+/// - `full_paths`: Reference to HashMap of full paths
+/// - `args`: Command line arguments
+///
+/// Returns `Result<()>`
+///
 async fn process_single_todo_item(
     pool: Pool<MySql>,
     item: &TodoPimItem,
