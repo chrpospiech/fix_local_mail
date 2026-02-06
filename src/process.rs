@@ -13,10 +13,10 @@
 // limitations under the License.
 
 use crate::cmdline::CliArgs;
-use crate::process::execute::{move_file, update_akonadi_db};
+use crate::process::execute::{delete_file, move_file, update_akonadi_db};
 use crate::process::maildirs::fetch_full_paths;
 use crate::process::source_path::get_source_file_name;
-use crate::process::target_path::{get_mail_time_stamp, get_target_file_name};
+use crate::process::target_path::get_target_file_name;
 use crate::todoitems::{fetch_todo_pim_items, TodoPimItem};
 use anyhow::Result;
 use sqlx::{MySql, Pool};
@@ -102,12 +102,7 @@ async fn process_single_todo_item(
         return Ok(());
     }
     let source = source.as_ref().unwrap();
-    let time_stamp = if item.remote_id.is_some() {
-        get_mail_time_stamp(source, args)?
-    } else {
-        0
-    };
-    let target = get_target_file_name(pool.clone(), item, full_paths, time_stamp).await?;
+    let target = get_target_file_name(pool.clone(), item, full_paths, source).await?;
     if source != &target {
         if args.verbose || args.dry_run {
             println!(
@@ -118,6 +113,9 @@ async fn process_single_todo_item(
         if !args.dry_run {
             move_file(source, &target)?;
             update_akonadi_db(pool.clone(), item.id).await?;
+        } else if source.contains("tmp_db_") {
+            // In dry run mode, clean up temporary cached files
+            delete_file(source)?;
         }
     } else if args.verbose || args.dry_run {
         println!(
