@@ -63,9 +63,10 @@ mod test {
                 .min_depth(1)
                 .max_depth(2)
                 .into_iter()
+                .filter_entry(|e| e.file_type().is_dir())
             {
                 let entry = entry?; // Propagate any filesystem errors
-                if entry.file_name() == "new" && entry.file_type().is_dir() {
+                if entry.file_name() == std::ffi::OsStr::new("new") {
                     file_count += std::fs::read_dir(entry.path())?.count();
                 }
             }
