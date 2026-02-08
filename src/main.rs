@@ -27,8 +27,7 @@ pub(crate) mod todoitems;
 async fn main() -> Result<()> {
     let args = cmdline::parse_args();
 
-    let dry_run = args.dry_run || &args.db_url != "auto";
-    if dry_run {
+    if args.dry_run {
         println!("Dry run mode enabled. No changes will be made.");
     }
     // Connect to the database
@@ -41,7 +40,7 @@ async fn main() -> Result<()> {
     pool.close().await;
 
     // Clean up operations
-    if dry_run {
+    if args.dry_run {
         println!("Dry run: would clean up Akonadi and KMail.");
     } else {
         if args.verbose {
