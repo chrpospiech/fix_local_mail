@@ -55,12 +55,15 @@ mod test {
         let inbox_dir = std::path::Path::new(&temp_dir).join("local_mail").join(".inbox.directory");
         let mut file_count = 0;
         if inbox_dir.exists() {
+            // Walk the directory tree:
+            // - min_depth(1) skips .inbox.directory itself
+            // - max_depth(2) reaches the "new" directories under each mailbox subfolder
             for entry in WalkDir::new(&inbox_dir)
                 .min_depth(1)
                 .max_depth(2)
                 .into_iter()
-                .filter_map(|e| e.ok())
             {
+                let entry = entry?; // Propagate any filesystem errors
                 if entry.file_name() == "new" && entry.file_type().is_dir() {
                     file_count += std::fs::read_dir(entry.path())?.count();
                 }
