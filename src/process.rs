@@ -27,7 +27,7 @@ pub(crate) mod maildirs;
 pub(crate) mod source_path;
 pub(crate) mod target_path;
 #[cfg(test)]
-pub(crate) mod test_process;
+pub(crate) mod test_single_todo;
 
 /// Process todo pim items: move files and update akonadi db
 /// - Fetch mail directory tree with full paths
