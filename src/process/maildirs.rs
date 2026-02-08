@@ -21,22 +21,20 @@ pub(crate) mod full_paths;
 pub(crate) mod root_paths;
 
 #[derive(Debug, Clone, FromRow)]
-#[allow(dead_code)]
 pub struct Collection {
     pub id: i64,
     pub remote_id: Option<String>,
-    pub remote_revision: Option<String>,
-    pub dir_name: String,
     pub parent_id: Option<i64>,
 }
 
-pub async fn fetch_collections(pool: Pool<MySql>, get_root_only: bool) -> Result<HashMap<i64, Collection>> {
+async fn fetch_collections(
+    pool: Pool<MySql>,
+    get_root_only: bool,
+) -> Result<HashMap<i64, Collection>> {
     let mut query = sqlx::QueryBuilder::new(
         "
         SELECT `id`,
                CONVERT(`remoteId`, CHAR)    AS `remote_id`,
-               CONVERT(`remoteRevision`, CHAR) AS `remote_revision`,
-               CONVERT(`name`, CHAR)      AS `dir_name`,
                `parentId`    AS `parent_id`
         FROM `collectiontable`
         WHERE `resourceId` = 3
@@ -78,8 +76,7 @@ pub async fn get_root_paths(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<Opt
 // Recursively build the full path for a collection by traversing its parent collections.
 // The resulting paths are stored in the `paths` HashMap.
 // This auxiliary function is used to help construct full paths for collections.
-#[allow(dead_code)]
-pub fn set_parent_paths(
+fn set_parent_paths(
     id: i64,
     collections: HashMap<i64, Collection>,
     paths: &mut HashMap<i64, String>,

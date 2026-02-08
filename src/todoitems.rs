@@ -14,18 +14,14 @@
 
 use crate::cmdline::CliArgs;
 use anyhow::Result;
-use futures::future::join_all;
 use sqlx::QueryBuilder;
 use sqlx::{FromRow, MySql, Pool};
 
-pub(crate) mod maildirs;
-#[cfg(test)]
-pub(crate) mod mockup;
 pub(crate) mod new_mails;
-pub(crate) mod source_path;
-pub(crate) mod target_path;
 #[cfg(test)]
-pub(crate) mod test_todoitems;
+pub(crate) mod test_db_error;
+#[cfg(test)]
+pub(crate) mod test_num_items;
 
 #[derive(Debug, FromRow)]
 pub struct TodoPimItem {
@@ -34,11 +30,7 @@ pub struct TodoPimItem {
     pub collection_id: i64,
 }
 
-pub async fn fetch_todo_pim_items(
-    pool: Pool<MySql>,
-    mail_list: Vec<String>,
-    args: &CliArgs,
-) -> Result<Vec<TodoPimItem>> {
+pub async fn fetch_todo_pim_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<TodoPimItem>> {
     // Build the query starting with mails that have `Id >= args.min_id`
     // and are marked as dirty or new
     let mut query_builder = QueryBuilder::new(
@@ -67,6 +59,7 @@ pub async fn fetch_todo_pim_items(
     );
 
     // Add remote IDs from mail_list to the query
+    let mail_list = new_mails::find_new_mail_files(pool.clone(), args).await?;
     if !mail_list.is_empty() {
         query_builder.push(" OR `remoteId` IN (");
         let mut separated = query_builder.separated(", ");
@@ -96,87 +89,4 @@ pub async fn fetch_todo_pim_items(
 
     let query = query_builder.build_query_as::<_>().fetch_all(&pool).await?;
     Ok(query)
-}
-
-#[derive(Debug)]
-pub struct TodoItem {
-    pub id: i64,
-    pub source_path: String,
-    pub target_path: String,
-}
-
-pub async fn fetch_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<TodoItem>> {
-    let new_mail_list: Vec<String> = if args.ignore_new_dirs {
-        if args.verbose || args.dry_run {
-            println!("Ignoring new directories as per command line argument.");
-        }
-        vec![]
-    } else {
-        if args.verbose || args.dry_run {
-            println!("Finding new mail files...");
-        }
-        // Fetch mail root directories
-        let root_paths: Vec<Option<String>> = maildirs::get_root_paths(pool.clone(), args).await?;
-        // Find new mail files
-        new_mails::find_new_mail_files(root_paths).await
-    };
-    // Fetch full paths of all mail directories
-    let full_paths: std::collections::HashMap<i64, String> =
-        maildirs::fetch_full_paths(pool.clone(), args).await?;
-    // Fetch todo items corresponding to new mail files
-    let todo_pim_items: Vec<TodoPimItem> =
-        fetch_todo_pim_items(pool.clone(), new_mail_list, args).await?;
-
-    let async_todo_items = todo_pim_items
-        .into_iter()
-        .map(|item| {
-            let pool = pool.clone();
-            let full_path = full_paths
-                .get(&item.collection_id)
-                .cloned()
-                .unwrap_or("tbd/".to_string());
-            async move {
-                let item_source = source_path::get_source_file_name(
-                    full_path.clone(),
-                    item.remote_id.as_ref(),
-                    item.id,
-                    pool.clone(),
-                    args,
-                )
-                .await?;
-
-                // Skip items where source is None
-                let source = match item_source {
-                    Some(s) => s,
-                    None => return Ok(None),
-                };
-
-                let item_target = target_path::get_target_file_name(
-                    full_path,
-                    item.remote_id.as_ref(),
-                    source.clone(),
-                    item.id,
-                    pool.clone(),
-                    args,
-                )
-                .await?;
-
-                Ok(Some(TodoItem {
-                    id: item.id,
-                    source_path: source,
-                    target_path: item_target,
-                }))
-            }
-        })
-        .collect::<Vec<_>>();
-
-    let results = join_all(async_todo_items).await;
-    let todo_items: Vec<TodoItem> = results
-        .into_iter()
-        .collect::<Result<Vec<_>>>()?
-        .into_iter()
-        .flatten()
-        .collect();
-
-    Ok(todo_items)
 }

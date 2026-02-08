@@ -13,65 +13,40 @@
 // limitations under the License.
 
 use crate::connect::connect_to_database;
+use crate::process::execute::clean_up;
 use anyhow::Result;
 
 pub(crate) mod cmdline;
 pub(crate) mod connect;
-pub(crate) mod execute;
+#[cfg(test)]
+pub(crate) mod mockup;
+pub(crate) mod process;
 pub(crate) mod todoitems;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = cmdline::parse_args();
 
-    let dry_run = args.dry_run || &args.db_url != "auto";
-    if dry_run {
+    if args.dry_run {
         println!("Dry run mode enabled. No changes will be made.");
     }
     // Connect to the database
     let pool: sqlx::Pool<sqlx::MySql> = connect_to_database(&args).await?;
 
-    let todo_items: Vec<todoitems::TodoItem> =
-        todoitems::fetch_todo_items(pool.clone(), &args).await?;
-
-    // Handle fetched data
-    for item in todo_items {
-        if dry_run {
-            println!(
-                "Dry run item ID {}: would move {} to {}",
-                item.id, item.source_path, item.target_path
-            );
-        } else {
-            // Move files to their target locations if source and target are not the same
-            if item.source_path != item.target_path {
-                if args.verbose {
-                    println!(
-                        "Processing item ID {}: moving {} to {}",
-                        item.id, item.source_path, item.target_path
-                    );
-                }
-                execute::move_file(&item.source_path, &item.target_path)?;
-                execute::update_akonadi_db(pool.clone(), item.id).await?;
-            } else if args.verbose {
-                println!(
-                    "Item ID {}: source and target path {} are the same. No action taken.",
-                    item.id, item.source_path
-                );
-            }
-        }
-    }
+    // Fetch todo pim items and process them
+    process::process_todo_items(pool.clone(), &args).await?;
 
     // Explicit disconnect from the database
     pool.close().await;
 
     // Clean up operations
-    if dry_run {
+    if args.dry_run {
         println!("Dry run: would clean up Akonadi and KMail.");
     } else {
         if args.verbose {
             println!("Cleaning up Akonadi and KMail...");
         }
-        execute::clean_up(args.stop_akonadi, args.stop_kmail).await?;
+        clean_up(args.stop_akonadi, args.stop_kmail).await?;
     }
     Ok(())
 }

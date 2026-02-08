@@ -12,12 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use crate::cmdline::CliArgs;
+use crate::process::maildirs::get_root_paths;
+use anyhow::Result;
 use regex::Regex;
+use sqlx::{MySql, Pool};
 
-pub async fn find_new_mail_files(directories: Vec<Option<String>>) -> Vec<String> {
+pub async fn find_new_mail_files(pool: Pool<MySql>, args: &CliArgs) -> Result<Vec<String>> {
     let re = Regex::new(r"/new/(\d+.*\:2\,.*)$").unwrap();
     let mut matches = Vec::new();
 
+    if args.ignore_new_dirs {
+        if args.verbose || args.dry_run {
+            println!("Ignoring new directories as per command line argument.");
+        }
+        return Ok(vec![]);
+    }
+
+    if args.verbose || args.dry_run {
+        println!("Finding new mail files...");
+    }
+
+    let directories = get_root_paths(pool.clone(), args).await?;
     for dir in directories.into_iter().flatten() {
         for entry in walkdir::WalkDir::new(dir)
             .into_iter()
@@ -35,5 +51,5 @@ pub async fn find_new_mail_files(directories: Vec<Option<String>>) -> Vec<String
         }
     }
 
-    matches
+    Ok(matches)
 }

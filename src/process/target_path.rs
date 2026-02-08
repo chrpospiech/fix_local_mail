@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::todoitems::CliArgs;
+use crate::todoitems::TodoPimItem;
 use anyhow::Result;
 use chrono::DateTime;
 use std::collections::HashMap;
@@ -29,41 +29,52 @@ use regex::Regex;
 pub(crate) mod email_targets;
 
 pub async fn get_target_file_name(
-    path: String,
-    remote_id: Option<&String>,
-    source_path: String,
-    item_id: i64,
     pool: Pool<MySql>,
-    args: &CliArgs,
+    item: &TodoPimItem,
+    full_paths: &HashMap<i64, String>,
+    source: &String,
 ) -> Result<String> {
     let mail_name: String;
     let re = Regex::new(r"(\d+\.R\d+\.\w+)").unwrap();
-    if let Some(rid) = remote_id {
+    if let Some(rid) = item.remote_id.as_ref() {
         if let Some(caps) = re.captures(rid) {
             // Use existing mail name from remote ID
             mail_name = caps.get(1).unwrap().as_str().to_string();
         } else {
             // Generate mail name based on timestamp, R value, and hostname
-            mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
+            mail_name = create_new_mail_name(pool.clone(), source).await?;
         }
     } else {
         // Generate mail name based on timestamp, R value, and hostname
-        mail_name = create_new_mail_name(source_path, pool.clone(), args).await?;
+        mail_name = create_new_mail_name(pool.clone(), source).await?;
     }
     // Get mail info (flags) from database
-    let mail_info = get_mail_info(item_id, pool).await?;
+    let mail_info = get_mail_info(item.id, pool).await?;
     // Construct final target file name with path, cur/new prefix, mail name, and mail info
     let cur_new_name = if mail_info.is_empty() { "new" } else { "cur" };
-    Ok(format!("{}{}/{}{}", path, cur_new_name, mail_name, mail_info))
+    let directory_path = full_paths
+        .get(&item.collection_id)
+        .ok_or_else(|| {
+            anyhow::anyhow!(
+                "Collection ID {} not found in full paths mapping.",
+                item.collection_id
+            )
+        })?
+        .clone();
+    let path = if directory_path.ends_with('/') {
+        directory_path
+    } else {
+        format!("{}/", directory_path)
+    };
+    Ok(format!(
+        "{}{}/{}{}",
+        path, cur_new_name, mail_name, mail_info
+    ))
 }
 
-pub async fn create_new_mail_name(
-    source_path: String,
-    pool: Pool<MySql>,
-    args: &CliArgs,
-) -> Result<String> {
+pub async fn create_new_mail_name(pool: Pool<MySql>, source: &String) -> Result<String> {
     // Generate mail name based on timestamp, R value, and hostname
-    let mail_time_stamp = get_mail_time_stamp(&source_path, args)?;
+    let mail_time_stamp = get_mail_time_stamp(source)?;
     let hostname = gethostname::gethostname()
         .into_string()
         .unwrap_or("unknownhost".to_string());
@@ -73,22 +84,7 @@ pub async fn create_new_mail_name(
     Ok(format!("{}.R{}.{}", mail_time_stamp, r_value, hostname))
 }
 
-pub fn get_mail_time_stamp(mail_file: &str, args: &CliArgs) -> Result<u64> {
-    if args.db_url != "auto" || args.dry_run {
-        if args.verbose || args.dry_run {
-            println!(
-                "Custom DB URL or dry run: Not looking for mail timestamp from file {}.",
-                mail_file
-            );
-        }
-
-        /*
-        If args.db_url != "auto", return current time in seconds since UNIX_EPOCH minus
-        a random value between 1 and 1800 to avoid collisions - simulating mails received in the recent past
-        */
-        let random_offset: u64 = rand::rng().random_range(1..=1800);
-        return Ok(get_time_now_secs()?.saturating_sub(random_offset));
-    }
+pub fn get_mail_time_stamp(mail_file: &String) -> Result<u64> {
     // Open the mail file and read line by line to find the Date header
     let file = File::open(mail_file)
         .map_err(|e| anyhow::anyhow!("Cannot read mail file: {}: {}", mail_file, e))?;
@@ -121,7 +117,7 @@ pub fn get_time_now_secs() -> Result<u64> {
         .as_secs())
 }
 
-pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> Result<u64> {
+pub async fn get_r_value(pool: Pool<MySql>, mail_time_stamp: u64) -> Result<u64> {
     // Find the maximum R value for mails with similar timestamp prefix
     let query = format!(
         "SELECT MAX(CONVERT(SUBSTR(REGEXP_SUBSTR(`remoteId`,'R[0-9]+'),2),UNSIGNED)) AS `r_value` \
@@ -129,13 +125,11 @@ pub async fn get_r_value(pool: Pool<MySql>, time_stamp: u64) -> Result<u64> {
              WHERE `mimeTypeId` = 2 \
              AND `remoteId` LIKE '{}%' \
              AND `collectionId` IN (SELECT id FROM `collectiontable` WHERE `resourceId` = 3)",
-        time_stamp
+        mail_time_stamp
     );
 
     // Execute the query
-    let result: Option<(Option<u64>,)> = sqlx::query_as(&query)
-        .fetch_optional(&pool)
-        .await?;
+    let result: Option<(Option<u64>,)> = sqlx::query_as(&query).fetch_optional(&pool).await?;
 
     if let Some((Some(r_value),)) = result {
         // If an R value exists, increment it by a random number between 1 and 50
@@ -170,9 +164,7 @@ pub async fn get_mail_info(file_id: i64, pool: Pool<MySql>) -> Result<String> {
     ]);
 
     // Execute the query to get flags
-    let rows: Vec<(String,)> = sqlx::query_as(&query)
-        .fetch_all(&pool)
-        .await?;
+    let rows: Vec<(String,)> = sqlx::query_as(&query).fetch_all(&pool).await?;
 
     // Construct the mail info string based on the fetched flags
     if rows.is_empty() {

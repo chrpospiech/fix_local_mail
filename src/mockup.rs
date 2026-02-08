@@ -24,29 +24,20 @@ use anyhow::Result;
 ///
 /// Returns the path to the created temporary directory as a `String`.
 ///
-/// # Panics
+/// # Errors
 ///
-/// Panics if:
-/// - The temporary directory cannot be created
-/// - The test data directory cannot be copied
+/// Returns an `anyhow::Error` if any file system operation fails.
 ///
-/// # Note
-///
-/// The `#[allow(dead_code)]` attribute is needed because this is a test utility
-/// function that may not be called in all test configurations or modules. Without
-/// this attribute, the compiler would warn about unused code when the function
-/// isn't referenced in certain build configurations.
 pub fn setup_tmp_mail_dir() -> Result<String> {
     // Create a temporary mail directory structure for testing
     // Recursively copy src/todoitems/tests/data to this structure
     let temp_dir = std::env::temp_dir().join(format!("maildir_test_{}", uuid::Uuid::new_v4()));
     std::fs::create_dir_all(&temp_dir)?;
     let manifest_dir = env!("CARGO_MANIFEST_DIR"); // compile-time
-    let path = std::path::Path::new(manifest_dir).join("src/todoitems/tests/data");
+    let path = std::path::Path::new(manifest_dir).join("tests/data");
     let mut options = fs_extra::dir::CopyOptions::new();
     options.content_only = true;
-    fs_extra::dir::copy(&path, &temp_dir, &options)
-        .map_err(std::io::Error::other)?;
+    fs_extra::dir::copy(&path, &temp_dir, &options)?;
 
     Ok(temp_dir.to_string_lossy().to_string())
 }
@@ -57,15 +48,10 @@ pub fn setup_tmp_mail_dir() -> Result<String> {
 ///
 /// * `temp_dir` - Path to the temporary directory to remove
 ///
-/// # Panics
+/// # Errors
 ///
-/// Panics if the directory cannot be removed.
+/// Returns an `anyhow::Error` if the directory removal fails.
 ///
-/// # Note
-///
-/// The `#[allow(dead_code)]` attribute is needed because this cleanup function
-/// may not be explicitly called in all tests (some may rely on system cleanup
-/// or use different teardown patterns).
 pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
     std::fs::remove_dir_all(temp_dir)?;
     Ok(())
@@ -76,27 +62,18 @@ pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
 /// # Arguments
 ///
 /// * `temp_dir` - Base path for the temporary test directory
-/// * `db_url_auto` - If `true`, sets `db_url` to "auto"; otherwise sets it to "some_other_db_url"
+/// * `dry_run` - dry run flag to set in the arguments
 ///
 /// # Returns
 ///
 /// Returns a `CliArgs` instance with maildir and cache paths configured to use
 /// subdirectories within the provided `temp_dir`.
 ///
-/// # Note
-///
-/// The `#[allow(dead_code)]` attribute is needed because this test helper function
-/// might only be used in specific test modules or integration tests, and not in
-/// all compilation units where this module is included.
-pub fn create_test_cli_args(temp_dir: &str, db_url_auto: bool) -> CliArgs {
+pub fn create_test_cli_args(temp_dir: &str, dry_run: bool) -> CliArgs {
     CliArgs {
         maildir_path: format!("{}/local_mail/", temp_dir),
         mail_cache_path: format!("{}/file_db_data/", temp_dir),
-        db_url: if db_url_auto {
-            "auto".to_string()
-        } else {
-            "some_other_db_url".to_string()
-        },
+        dry_run,
         ..Default::default()
     }
 }

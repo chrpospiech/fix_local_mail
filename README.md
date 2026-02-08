@@ -24,6 +24,10 @@ This script deals with some cases where this concept goes wrong.
   stay in cache. If akonadi is re-indexed, the non existent mail dir
   and all mails therein may be erased from akonadi. In this case these
   mails are lost forever.
+- Also one case was observed where a database entry contained NULL
+  for any possible email location. Hence, no email can be associated to
+  this entry. This entry is an invalid database entry and should be
+  removed from the database.
 - Each maildir folder has sub-folders tmp, new and cur. Mails
   should be moved from new to cur and renamed by appending `:2,S`
   once they have been opened and read. Kmail as of 2025 does not
@@ -161,6 +165,8 @@ See LICENSE file for details.
      `parttable` table in the Akonadi database whether the email is kept
      on disk or in the database. In case of the letter, copy the email
      into a temporary file on disk in the cache directory.
+   - In case of an invalid parttable entry where the email is neither kept
+     on disk nor in the database, the database entry is simply cleared.
    - The root of the local mail directory and the location of the mail cache
      can be changed by command line options for debugging and unit testing.
 
@@ -207,13 +213,10 @@ To enable `pre-commit` using `uv`, please proceed as follows.
 ## Debugging and Unit Testing
 
 - To help with debugging and unit testing, the list of mails in "/new/"
-  directories can be ignored and an alternative URL to a database can
-  be provided via command line options. In case of an
-  alternative URL, no mail directories or mail caches are accessed
-  to avoid clashes of current mail directories or mail caches and different
-  data in the database.
-- For unit testing, command line options
+  directories can be ignored and the number of todo items can be restricted.
+- For debugging and unit testing, command line options
 
+   - `-u, --db-url <DB_URL>`
    - `-p, --maildir-path <MAILDIR_PATH>`
    - `-c, --mail-cache-path`
 

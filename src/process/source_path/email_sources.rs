@@ -34,45 +34,35 @@
 /// # Test Cases
 ///
 /// - `test_get_cached_email_from_file`: Verifies email retrieval when the email is cached
-///   in the filesystem (file_id 50638, no remote_id) with db_url set to "auto"
-/// - `test_get_cached_email_pattern`: Verifies that when db_url is not "auto", the cached
-///   email path contains a wildcard pattern instead of being resolved to an actual file
+///   in the filesystem (file_id 50638, no remote_id) with dry_run set to false.
+/// - `test_get_cached_email_from_file_dry_run`: Verifies email retrieval when the email is cached
+///   in the filesystem (file_id 50638, no remote_id) with dry_run set to true.
 /// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
-///   in the database (file_id 50645, has remote_id) and creates a temporary file with db_url="auto"
-/// - `test_not_caching_email`: Verifies that when db_url is not "auto", emails cached in the
-///   database return a path pattern without creating a temporary file
-/// - `test_get_source_file_name_with_auto_db`: Verifies source file name resolution for an
-///   email with a remote_id when db_url is "auto"
-/// - `test_get_pattern_for_source_file_name`: Verifies source file name returns a wildcard
-///   pattern when db_url is not "auto"
-///   in the filesystem (file_id 50638, no remote_id)
-/// - `test_get_cached_email_from_db`: Verifies email retrieval when the email is cached
-///   in the database (file_id 50645, has remote_id)
+///   in the database (file_id 50645, has remote_id) and creates a temporary file with dry-run false.
+/// - `test_get_cached_email_from_db_dry_run`: Verifies email retrieval when the email is cached
+///   in the database (file_id 50645, has remote_id) and creates a temporary file with dry-run true.
+/// - `test_get_source_file_name`: Verifies source file name resolution for an
+///   email with a remote_id if dry_run is false.
+/// - `test_get_source_file_name_dry_run`: Verifies source file name resolution for an
+///   email with a remote_id if dry_run is true.
 ///
-/// # Regarding the `.map_err(std::io::Error::other)` call
-///
-/// The `map` here is used because `fs_extra::dir::copy()` returns a custom error type
-/// (`fs_extra::error::Error`), but we need to convert it to `std::io::Error` for
-/// compatibility with the `.expect()` call and standard error handling. The `map_err()`
-/// function transforms the error type while preserving the error information.
 mod tests {
 
     use crate::{
-        todoitems::maildirs::fetch_full_paths,
-        todoitems::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
-        todoitems::source_path::{get_cached_email, get_source_file_name},
+        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
+        process::maildirs::fetch_full_paths,
+        process::source_path::{get_cached_email, get_source_file_name},
+        todoitems::TodoPimItem,
     };
+    use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_from_file(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_file(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
-
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, false);
 
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
@@ -92,19 +82,14 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_pattern(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_file_dry_run(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
-
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
-
+        let args = create_test_cli_args(&temp_dir, true);
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
-        // We simulate a non-auto db_url to test that no pattern matching occurs
         let file_id = 50638;
         let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
         assert!(result.is_some());
@@ -112,8 +97,8 @@ mod tests {
         assert!(!result.is_empty());
         assert!(result.contains(&args.mail_cache_path));
         assert!(!result.contains("//"));
-        assert!(result.contains("*"));
-        assert!(!std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;
@@ -121,10 +106,36 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_cached_email_from_db(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_db(pool: MySqlPool) -> Result<()> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir()?;
+
+        // Setup an argument struct
+        let args = create_test_cli_args(&temp_dir, false);
+
+        // Test: Retrieve the cached email path for file_id 50645
+        // The email with file_id 50645 has no remote_id and is cached in the database
+        // This should create a temporary file with the email contents
+        let file_id = 50645;
+        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
+        assert!(result.is_some());
+        let result = result.unwrap();
+        assert!(!result.is_empty());
+        assert!(!result.contains("//"));
+        assert!(result.contains(&args.mail_cache_path));
+        assert!(result.contains("tmp_db_"));
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir)?;
+
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_cached_email_from_db_dry_run(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -141,6 +152,7 @@ mod tests {
         assert!(!result.is_empty());
         assert!(!result.contains("//"));
         assert!(result.contains(&args.mail_cache_path));
+        assert!(result.contains("tmp_db_"));
         assert!(std::path::Path::new(&result).exists());
         assert!(std::path::Path::new(&result).is_file());
 
@@ -150,36 +162,8 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_not_caching_email(pool: MySqlPool) -> Result<(), Box<dyn std::error::Error>> {
-        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
-        let temp_dir: String = setup_tmp_mail_dir()?;
-
-        // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
-
-        // Test: Retrieve the cached email path for file_id 50645
-        // The email with file_id 50645 has no remote_id and is cached in the database
-        // However, for db_url != auto, this should not create a temporary file
-        let file_id = 50645;
-        let result: Option<String> = get_cached_email(file_id, pool.clone(), &args).await?;
-        assert!(result.is_some());
-        let result = result.unwrap();
-        assert!(!result.is_empty());
-        assert!(!result.contains("//"));
-        assert!(result.contains(&args.mail_cache_path));
-        assert!(!std::path::Path::new(&result).exists());
-
-        // Clean up: Remove the temporary directory
-        teardown_tmp_mail_dir(&temp_dir)?;
-
-        Ok(())
-    }
-
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_source_file_name_with_auto_db(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_source_file_name(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
@@ -192,15 +176,14 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: 206,
+            remote_id: Some(remote_id.clone()),
+            collection_id: 388,
+        };
         let result: Option<String> =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(result.is_some());
         let result = result.unwrap();
         assert!(!result.is_empty());
@@ -215,16 +198,13 @@ mod tests {
 
         Ok(())
     }
-
-    #[sqlx::test(fixtures("../tests/fixtures/akonadi.sql"))]
-    pub async fn test_get_pattern_for_source_file_name(
-        pool: MySqlPool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    #[sqlx::test(fixtures("../../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_get_source_file_name_dry_run(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, true);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -232,23 +212,22 @@ mod tests {
 
         // Test: Retrieve the source file name for a file_id
         // that is stored in tests/data and has a remote_id.
-        let file_id = 206;
-        let collection_id = 388;
-        let path = full_paths
-            .get(&collection_id)
-            .cloned()
-            .unwrap_or("tbd/".to_string());
         let remote_id = "1291727681.2020.4jNSG:2,S".to_string();
+        let item = TodoPimItem {
+            id: 206,
+            remote_id: Some(remote_id.clone()),
+            collection_id: 388,
+        };
         let result: Option<String> =
-            get_source_file_name(path, Some(&remote_id), file_id, pool.clone(), &args).await?;
+            get_source_file_name(pool.clone(), &item, &full_paths, &args).await?;
         assert!(result.is_some());
         let result = result.unwrap();
         assert!(!result.is_empty());
         assert!(result.contains(&args.maildir_path));
         assert!(result.contains(&remote_id));
         assert!(!result.contains("//"));
-        assert!(result.contains("*"));
-        assert!(!std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).exists());
+        assert!(std::path::Path::new(&result).is_file());
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;

@@ -45,26 +45,24 @@
 mod tests {
 
     use crate::cmdline::CliArgs;
-    use crate::todoitems::{
-        fetch_todo_items,
-        mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir},
-    };
+    use crate::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir};
+    use crate::todoitems::fetch_todo_pim_items;
     use anyhow::Result;
     use sqlx::mysql::MySqlPool;
 
-    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_default_number_of_todoitems(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, false);
 
         // Fetch todo items from the database
-        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
+        let todo_items = fetch_todo_pim_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
-        assert_eq!(todo_items.len(), 8);
+        assert_eq!(todo_items.len(), 9);
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;
@@ -72,7 +70,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_ignoring_new(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
@@ -87,10 +85,10 @@ mod tests {
         };
 
         // Fetch todo items from the database ignoring new directories
-        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
+        let todo_items = fetch_todo_pim_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
-        assert_eq!(todo_items.len(), 5);
+        assert_eq!(todo_items.len(), 6);
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;
@@ -98,7 +96,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_below_limit(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
@@ -113,7 +111,7 @@ mod tests {
         };
 
         // Fetch todo items from the database
-        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
+        let todo_items = fetch_todo_pim_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items is below the given limit
         assert_eq!(todo_items.len(), 5);
@@ -124,7 +122,7 @@ mod tests {
         Ok(())
     }
 
-    #[sqlx::test(fixtures("tests/fixtures/akonadi.sql"))]
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_number_of_todoitems_above_minimum_id(pool: MySqlPool) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
@@ -139,10 +137,10 @@ mod tests {
         };
 
         // Fetch todo items from the database ignoring new directories
-        let todo_items = fetch_todo_items(pool.clone(), &args).await?;
+        let todo_items = fetch_todo_pim_items(pool.clone(), &args).await?;
 
         // Verify the number of todo items fetched
-        assert_eq!(todo_items.len(), 3);
+        assert_eq!(todo_items.len(), 4);
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;

@@ -54,6 +54,11 @@ pub fn move_file(source: &str, target: &str) -> Result<()> {
     Ok(())
 }
 
+pub fn delete_file(path: &str) -> Result<()> {
+    std::fs::remove_file(path)?;
+    Ok(())
+}
+
 pub async fn update_akonadi_db(pool: sqlx::Pool<sqlx::MySql>, id: i64) -> Result<()> {
     sqlx::query("DELETE FROM pimitemtable WHERE id = ?")
         .bind(id)
