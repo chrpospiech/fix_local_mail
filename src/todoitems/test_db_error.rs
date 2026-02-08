@@ -21,8 +21,11 @@
 /// # Test setup
 ///
 /// 1. No temporary mail directory structure is created for testing.
-/// 2. A SQLite database is initialized in a temporary location.
-/// 3. The necessary tables are intentionally not created to simulate database errors.
+/// 2. A temporary MySQL database/schema is created for each test by `#[sqlx::test]`
+///    using `sqlx::mysql::MySqlPool`.
+/// 3. The `../../tests/fixtures/broken.sql` fixture is applied and intentionally
+///    leaves out or misconfigures the necessary tables to simulate database errors
+///    when `fetch_todo_pim_items` runs.
 ///
 mod tests {
     use crate::cmdline::CliArgs;
