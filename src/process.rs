@@ -70,7 +70,7 @@ pub async fn process_todo_items(pool: Pool<MySql>, args: &CliArgs) -> Result<()>
 ///
 /// Returns `Result<()>`
 ///
-async fn process_single_todo_item(
+pub(crate) async fn process_single_todo_item(
     pool: Pool<MySql>,
     item: &TodoPimItem,
     full_paths: &HashMap<i64, String>,
