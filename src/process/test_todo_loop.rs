@@ -19,6 +19,7 @@ mod test {
     use crate::todoitems::{fetch_todo_pim_items, TodoPimItem};
     use anyhow::Result;
     use sqlx::{MySql, Pool};
+    use walkdir::WalkDir;
 
     /// Test the process_todo_items function by setting up a temporary mail directory,
     /// creating test CLI arguments, and asserting that the function executes without errors.
@@ -51,13 +52,17 @@ mod test {
 
         // Assert that the temporary mail directory contains no files after processing
         // in any of the ".inbox.directory/*/new" subdirectories of temp_dir
+        let inbox_dir = std::path::Path::new(&temp_dir).join("local_mail").join(".inbox.directory");
         let mut file_count = 0;
-        for entry in std::fs::read_dir(&temp_dir)? {
-            let entry = entry?;
-            if entry.file_type()?.is_dir() {
-                let new_dir = entry.path().join("new");
-                if new_dir.exists() && new_dir.is_dir() {
-                    file_count += std::fs::read_dir(new_dir)?.count();
+        if inbox_dir.exists() {
+            for entry in WalkDir::new(&inbox_dir)
+                .min_depth(1)
+                .max_depth(2)
+                .into_iter()
+                .filter_map(|e| e.ok())
+            {
+                if entry.file_name() == "new" && entry.file_type().is_dir() {
+                    file_count += std::fs::read_dir(entry.path())?.count();
                 }
             }
         }
