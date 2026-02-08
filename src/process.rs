@@ -28,6 +28,8 @@ pub(crate) mod source_path;
 pub(crate) mod target_path;
 #[cfg(test)]
 pub(crate) mod test_single_todo;
+#[cfg(test)]
+pub(crate) mod test_todo_loop;
 
 /// Process todo pim items: move files and update akonadi db
 /// - Fetch mail directory tree with full paths
