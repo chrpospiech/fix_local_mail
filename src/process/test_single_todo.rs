@@ -61,7 +61,7 @@ mod tests {
         maildirs::fetch_full_paths, process_single_todo_item, source_path::get_single_matching_file,
     };
     use crate::todoitems::TodoPimItem;
-    use anyhow::{Ok, Result};
+    use anyhow::Result;
     use sqlx::{MySql, Pool};
     use std::collections::HashMap;
 
