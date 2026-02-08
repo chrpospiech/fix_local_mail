@@ -59,6 +59,7 @@ mod test {
             // - min_depth(1) skips .inbox.directory itself
             // - max_depth(2) reaches the "new" directories under each mailbox subfolder
             //   (depth 1 = mailbox folders like "nirwana", depth 2 = "new" directories)
+            let new_dirname = std::ffi::OsStr::new("new");
             for entry in WalkDir::new(&inbox_dir)
                 .min_depth(1)
                 .max_depth(2)
@@ -66,7 +67,7 @@ mod test {
                 .filter_entry(|e| e.file_type().is_dir())
             {
                 let entry = entry?; // Propagate any filesystem errors
-                if entry.file_name() == std::ffi::OsStr::new("new") {
+                if entry.file_name() == new_dirname {
                     file_count += std::fs::read_dir(entry.path())?.count();
                 }
             }
