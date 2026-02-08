@@ -57,10 +57,10 @@ mod test {
         if inbox_dir.exists() {
             // Walk the directory tree:
             // - min_depth(1) skips .inbox.directory itself
-            // - max_depth(2) reaches the "new" directories under each mailbox subfolder
+            // - max_depth(3) reaches the "new" directories under each mailbox subfolder
             for entry in WalkDir::new(&inbox_dir)
                 .min_depth(1)
-                .max_depth(2)
+                .max_depth(3)
                 .into_iter()
             {
                 let entry = entry?; // Propagate any filesystem errors
