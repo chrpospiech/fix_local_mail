@@ -136,8 +136,8 @@ mod tests {
             // with the expected timestamp.
             assert!(target_file_name.contains(&format!("{}.R", expected_timestamp)));
         }
-        // Verify that the "SEEN" flag is appended
-        assert!(target_file_name.contains("helios:2,S"));
+        // Verify that the "SEEN" flag is appended; this must be independent of hostname
+        assert!(target_file_name.ends_with(":2,S"));
 
         Ok(())
     }
