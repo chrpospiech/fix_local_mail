@@ -1,6 +1,7 @@
 [package]
 name = "fix_local_mail"
-version = "1.5.0"
+authors = ["C. Pospiech <pospiech-HD@t-online.de>"]
+version = "1.6.0"
 edition = "2021"
 license = "Apache-2.0"
 
