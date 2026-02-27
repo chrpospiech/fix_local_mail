@@ -52,7 +52,9 @@ mod test {
 
         // Assert that the temporary mail directory contains no files after processing
         // in any of the ".inbox.directory/*/new" subdirectories of temp_dir
-        let inbox_dir = std::path::Path::new(&temp_dir).join("local_mail").join(".inbox.directory");
+        let inbox_dir = std::path::Path::new(&temp_dir)
+            .join("local_mail")
+            .join(".inbox.directory");
         let mut file_count = 0;
         if inbox_dir.exists() {
             // Walk the directory tree:
