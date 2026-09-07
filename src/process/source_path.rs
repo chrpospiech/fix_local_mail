@@ -31,17 +31,14 @@ pub async fn get_source_file_name(
     args: &CliArgs,
 ) -> Result<Option<String>> {
     if let Some(rid) = item.remote_id.as_ref() {
-        let path = full_paths
-            .get(&item.collection_id)
-            .ok_or_else(|| {
-                anyhow::anyhow!(
-                    "Collection ID {} not found in full paths mapping.",
-                    item.collection_id
-                )
-            })?
-            .clone();
+        let path = full_paths.get(&item.collection_id).ok_or_else(|| {
+            anyhow::anyhow!(
+                "Collection ID {} not found in full paths mapping.",
+                item.collection_id
+            )
+        })?;
         let pattern = format!("{}*/{}", path, rid);
-        Ok(get_single_matching_file(&pattern).await?)
+        get_single_matching_file(&pattern).await
     } else {
         get_cached_email(item.id, pool, args).await
     }
