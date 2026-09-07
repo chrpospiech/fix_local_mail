@@ -40,7 +40,7 @@ pub async fn get_source_file_name(
                 )
             })?
             .clone();
-        let pattern = format!("{}*/{}", &path, rid);
+        let pattern = format!("{}*/{}", path, rid);
         Ok(Some(get_single_matching_file(&pattern).await?))
     } else {
         get_cached_email(item.id, pool, args).await
@@ -130,7 +130,7 @@ pub async fn get_cached_email(
         // Cached email is stored in database
         // Create a temporary file to store the cached email data
         // In case of dry-run, this file is later removed without further use
-        let unique_name = format!("{}tmp_db_{}", &cache_root_dir, Uuid::new_v4());
+        let unique_name = format!("{}tmp_db_{}", cache_root_dir, Uuid::new_v4());
         let mut file = std::fs::File::create(&unique_name)?;
         file.write_all(&data)?;
         Ok(Some(unique_name))
