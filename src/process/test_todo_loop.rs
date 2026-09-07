@@ -38,7 +38,7 @@ mod test {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Call the function to test
         let result = process_todo_items(pool.clone(), &args).await;

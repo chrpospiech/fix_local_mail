@@ -93,12 +93,19 @@ pub(crate) async fn process_single_todo_item(
     let source = get_source_file_name(pool.clone(), item, full_paths, args).await?;
     if source.is_none() {
         if args.verbose || args.dry_run {
-            println!(
-                "{} item ID {}: source path does not exist. Remove from database.",
-                dry_run_msg_start, item.id
-            );
+            if args.ignore_missing {
+                println!(
+                    "{} item ID {}: source path does not exist. Ignored.",
+                    dry_run_msg_start, item.id
+                );
+            } else {
+                println!(
+                    "{} item ID {}: source path does not exist. Remove from database.",
+                    dry_run_msg_start, item.id
+                );
+            }
         }
-        if !args.dry_run {
+        if !args.dry_run && !args.ignore_missing {
             update_akonadi_db(pool.clone(), item.id).await?;
         }
         return Ok(());

@@ -45,6 +45,10 @@ pub struct CliArgs {
     #[arg(short = 'i', long, default_value_t = false)]
     pub ignore_new_dirs: bool,
 
+    /// Ignore mails that cannot be found on disk
+    #[arg(short = 'I', long, default_value_t = false)]
+    pub ignore_missing: bool,
+
     /// Stop Kmail and Akonadi after processing
     #[arg(short = 'a', long, default_value_t = false)]
     pub stop_akonadi: bool,
