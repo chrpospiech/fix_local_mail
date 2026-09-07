@@ -54,6 +54,11 @@
 /// - `test_email_in_database()`: Tests that an email stored in the database is moved to the target
 ///   maildir and the item is removed from the database. It verifies that the email file exists
 ///   in the target maildir and that the item ID is cleared from the database.
+/// - `test_missing_email_file()`: Tests that when the email file is missing, the appropriate item
+///   is removed from the database. It verifies that the item ID is cleared from the database,
+///   unless the option `ignore_missing` is set to `true`.
+/// - `test_ignored_email_file()`: Tests that when the email file is missing and the option
+///   `ignore_missing` is set to `true`, the appropriate item is *not* removed from the database.
 ///
 mod tests {
     use crate::mockup::{create_test_cli_args, setup_tmp_mail_dir, teardown_tmp_mail_dir};
@@ -64,6 +69,23 @@ mod tests {
     use anyhow::Result;
     use sqlx::{MySql, Pool};
     use std::collections::HashMap;
+
+    /// Helper function to create a wrapper around get_single_matching_file()
+    /// that handles the Result<Option<String>> type by handling the `Ok(None)`
+    /// case appropriately.
+    ///
+    /// Arguments
+    /// - `pattern`: The glob pattern to match the email file against.
+    ///
+    /// # Returns
+    /// - `Result<String>`: Returns `Ok(file_path)` if a single matching file is found,
+    ///   or an error if either no matching files or multiple matching files are found.
+    async fn get_single_matching_file_wrapper(pattern: &str) -> Result<String> {
+        match get_single_matching_file(pattern).await? {
+            Some(file_path) => Ok(file_path),
+            None => anyhow::bail!("No matching files found for pattern: {}", pattern),
+        }
+    }
 
     /// Helper function to perform common assertions on the result of processing a todo item.
     /// This function can be used to verify that the email file has been moved to the correct
@@ -93,7 +115,7 @@ mod tests {
             .ok_or_else(|| anyhow::anyhow!("Collection ID not found in full paths"))?;
         // Verify that the email file has been moved to the correct target maildir
         let pattern = format!("{}/cur/{}*S", mail_directory, expected_timestamp);
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
         // Verify that the item.id has been cleared from the database.
         assert!(
@@ -127,15 +149,15 @@ mod tests {
         Ok(row.0 > 0)
     }
 
-    /// Test case to verify that an email with a odd remote ID is correctly moved to the target maildir
-    /// and that the corresponding item is removed from the database.
+    // Test case to verify that an email with a odd remote ID is correctly moved to the target maildir
+    // and that the corresponding item is removed from the database.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_moving_email_with_odd_name(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -167,15 +189,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is not moved and the item is not removed from the database
-    /// when the email is already in the right place.
+    // Test case to verify that an email is not moved and the item is not removed from the database
+    // when the email is already in the right place.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_already_in_right_place(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -204,7 +226,7 @@ mod tests {
             full_paths.get(&item.collection_id).unwrap(),
             expected_timestamp
         );
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
 
         // Verify that the item.id has NOT been cleared from the database.
@@ -220,15 +242,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is not moved and the item is not removed from the database
-    /// when the email file is missing.
+    // Test case to verify that an email is not moved and the item is not removed from the database
+    // when the email file is missing.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_file_missing(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -270,7 +292,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -298,7 +320,7 @@ mod tests {
             full_paths.get(&item.collection_id).unwrap(),
             remote_id
         );
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
 
         // Verify that the item.id has NOT been cleared from the database.
@@ -314,15 +336,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved from "new" to "cur" and the item is removed from the database
-    /// when the email is in the "new" directory and has a valid remote ID.
+    // Test case to verify that an email is moved from "new" to "cur" and the item is removed from the database
+    // when the email is in the "new" directory and has a valid remote ID.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_new_directory(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -353,17 +375,16 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved and the item is removed from the database
-    /// when the email is stored in the file_db cache directory (without a valid remote ID)
-    /// and has a valid timestamp in the email content.
-    ///
+    // Test case to verify that an email is moved and the item is removed from the database
+    // when the email is stored in the file_db cache directory (without a valid remote ID)
+    // and has a valid timestamp in the email content.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_file_db_cache(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -393,16 +414,16 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved and the item is removed from the database
-    /// when the email is stored in the database (without a valid remote ID)
-    /// and has a valid timestamp in the email content.
+    // Test case to verify that an email is moved and the item is removed from the database
+    // when the email is stored in the database (without a valid remote ID)
+    // and has a valid timestamp in the email content.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_database(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -425,6 +446,124 @@ mod tests {
 
         assert_email_moved_and_item_removed(pool.clone(), &item, &full_paths, expected_timestamp)
             .await?;
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir)?;
+
+        Ok(())
+    }
+
+    // Test case to verify that an email is not moved and the item is removed from the database
+    // if the email file is missing.
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_missing_email_file(pool: Pool<MySql>) -> Result<()> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir()?;
+
+        // Setup an argument struct with --dry-run, pointing to the temporary mail directory
+        let args = create_test_cli_args(&temp_dir, false, false);
+
+        // Fetch full paths of all mail directories
+        let full_paths: std::collections::HashMap<i64, String> =
+            fetch_full_paths(pool.clone(), &args).await?;
+
+        // Take a test email item known to be in the test data
+        let remote_id = "1491255228.R505.helios:2,PS".to_string();
+        let item = TodoPimItem {
+            id: 1207,
+            remote_id: Some(remote_id.clone()),
+            collection_id: 66,
+        };
+        // Simulate the email file being missing by deleting it
+        let pattern = format!(
+            "{}/new/{}",
+            full_paths.get(&item.collection_id).unwrap(),
+            remote_id
+        );
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
+        if std::path::Path::new(&matching_file).exists() {
+            std::fs::remove_file(&matching_file)?;
+        }
+
+        let result = process_single_todo_item(pool.clone(), &item, &full_paths, &args).await;
+
+        assert!(
+            result.is_ok(),
+            "Processing single todo item failed: {:?}",
+            result
+        );
+
+        // Verify that the email file has indeed been deleted
+        assert!(
+            !std::path::Path::new(&matching_file).exists(),
+            "Expected email file to be missing: {}",
+            matching_file
+        );
+        // Verify that the item.id has been cleared from the database.
+        assert!(
+            !assert_item_still_present_in_db(pool.clone(), &item).await?,
+            "Expected item with id {} to be removed from the database",
+            item.id
+        );
+
+        // Clean up: Remove the temporary directory
+        teardown_tmp_mail_dir(&temp_dir)?;
+
+        Ok(())
+    }
+
+    // Test case to verify that an email file is ignored when the `ignore_missing` option is set to `true`
+    // and the mail file is missing.
+    #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
+    pub async fn test_ignored_email_file(pool: Pool<MySql>) -> Result<()> {
+        // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
+        let temp_dir: String = setup_tmp_mail_dir()?;
+
+        // Setup an argument struct with --dry-run, pointing to the temporary mail directory
+        let args = create_test_cli_args(&temp_dir, false, true);
+
+        // Fetch full paths of all mail directories
+        let full_paths: std::collections::HashMap<i64, String> =
+            fetch_full_paths(pool.clone(), &args).await?;
+
+        // Take a test email item known to be in the test data
+        let remote_id = "1491255228.R505.helios:2,PS".to_string();
+        let item = TodoPimItem {
+            id: 1207,
+            remote_id: Some(remote_id.clone()),
+            collection_id: 66,
+        };
+        // Simulate the email file being missing by deleting it
+        let pattern = format!(
+            "{}/new/{}",
+            full_paths.get(&item.collection_id).unwrap(),
+            remote_id
+        );
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
+        if std::path::Path::new(&matching_file).exists() {
+            std::fs::remove_file(&matching_file)?;
+        }
+
+        let result = process_single_todo_item(pool.clone(), &item, &full_paths, &args).await;
+
+        assert!(
+            result.is_ok(),
+            "Processing single todo item failed: {:?}",
+            result
+        );
+
+        // Verify that the email file has indeed been deleted
+        assert!(
+            !std::path::Path::new(&matching_file).exists(),
+            "Expected email file to be missing: {}",
+            matching_file
+        );
+        // Verify that the item.id has NOT been cleared from the database.
+        assert!(
+            assert_item_still_present_in_db(pool.clone(), &item).await?,
+            "Expected item with id {} to still be present in the database",
+            item.id
+        );
 
         // Clean up: Remove the temporary directory
         teardown_tmp_mail_dir(&temp_dir)?;
