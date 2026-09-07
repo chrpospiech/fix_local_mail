@@ -65,6 +65,23 @@ mod tests {
     use sqlx::{MySql, Pool};
     use std::collections::HashMap;
 
+    /// Helper function to create a wrapper around get_single_matching_file()
+    /// that handles the Result<Option<String>> type by handling the `Ok(None)`
+    /// case appropriately.
+    ///
+    /// Arguments
+    /// - `pattern`: The glob pattern to match the email file against.
+    ///
+    /// # Returns
+    /// - `Result<String>`: Returns `Ok(file_path)` if a single matching file is found,
+    ///   or an error if either no matching files or multiple matching files are found.
+    async fn get_single_matching_file_wrapper(pattern: &str) -> Result<String> {
+        match get_single_matching_file(pattern).await? {
+            Some(file_path) => Ok(file_path),
+            None => anyhow::bail!("No matching files found for pattern: {}", pattern),
+        }
+    }
+
     /// Helper function to perform common assertions on the result of processing a todo item.
     /// This function can be used to verify that the email file has been moved to the correct
     /// target maildir and that the item has been removed from the database.
@@ -93,7 +110,7 @@ mod tests {
             .ok_or_else(|| anyhow::anyhow!("Collection ID not found in full paths"))?;
         // Verify that the email file has been moved to the correct target maildir
         let pattern = format!("{}/cur/{}*S", mail_directory, expected_timestamp);
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
         // Verify that the item.id has been cleared from the database.
         assert!(
@@ -204,7 +221,7 @@ mod tests {
             full_paths.get(&item.collection_id).unwrap(),
             expected_timestamp
         );
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
 
         // Verify that the item.id has NOT been cleared from the database.
@@ -298,7 +315,7 @@ mod tests {
             full_paths.get(&item.collection_id).unwrap(),
             remote_id
         );
-        let matching_file = get_single_matching_file(&pattern).await?;
+        let matching_file = get_single_matching_file_wrapper(&pattern).await?;
         println!("Matching file found at: {}", matching_file);
 
         // Verify that the item.id has NOT been cleared from the database.

@@ -31,34 +31,34 @@ pub async fn get_source_file_name(
     args: &CliArgs,
 ) -> Result<Option<String>> {
     if let Some(rid) = item.remote_id.as_ref() {
-        let path = full_paths
-            .get(&item.collection_id)
-            .ok_or_else(|| {
-                anyhow::anyhow!(
-                    "Collection ID {} not found in full paths mapping.",
-                    item.collection_id
-                )
-            })?
-            .clone();
-        let pattern = format!("{}*/{}", &path, rid);
-        Ok(Some(get_single_matching_file(&pattern).await?))
+        let path = full_paths.get(&item.collection_id).ok_or_else(|| {
+            anyhow::anyhow!(
+                "Collection ID {} not found in full paths mapping.",
+                item.collection_id
+            )
+        })?;
+        let pattern = format!("{}*/{}", path, rid);
+        get_single_matching_file(&pattern).await
     } else {
         get_cached_email(item.id, pool, args).await
     }
 }
 
-pub async fn get_single_matching_file(pattern: &str) -> Result<String> {
+pub async fn get_single_matching_file(pattern: &str) -> Result<Option<String>> {
     let mut paths = Vec::new();
 
     for entry in glob::glob(pattern)? {
         paths.push(entry?);
     }
 
+    if paths.is_empty() {
+        return Ok(None);
+    }
     if paths.len() != 1 {
-        anyhow::bail!("Expected exactly one file, found {}", paths.len());
+        anyhow::bail!("Expected exactly one file matching pattern '{}', found {}", pattern, paths.len());
     }
 
-    Ok(paths[0].to_string_lossy().to_string())
+    Ok(Some(paths[0].to_string_lossy().to_string()))
 }
 
 pub fn get_cache_root_path(args: &CliArgs) -> Result<String> {
@@ -125,12 +125,12 @@ pub async fn get_cached_email(
     if result.storage == 1 {
         // Cached email is stored in file system
         let pattern = format!("{}*/{}", cache_root_dir, data_string);
-        return Ok(Some(get_single_matching_file(&pattern).await?));
+        return get_single_matching_file(&pattern).await;
     } else {
         // Cached email is stored in database
         // Create a temporary file to store the cached email data
         // In case of dry-run, this file is later removed without further use
-        let unique_name = format!("{}tmp_db_{}", &cache_root_dir, Uuid::new_v4());
+        let unique_name = format!("{}tmp_db_{}", cache_root_dir, Uuid::new_v4());
         let mut file = std::fs::File::create(&unique_name)?;
         file.write_all(&data)?;
         Ok(Some(unique_name))
