@@ -64,6 +64,15 @@ we have the following.
 
 ## Installation
 
+### Installation of the Linux binary
+
+For a given release tag (e.g. `v1.7.0`), download the Linux binary
+from the GitHub release assets:
+<https://github.com/chrpospiech/fix_local_mail/releases/download/v1.7.0/fix_local_mail>.
+This was compiled with `Kubuntu 24.04`, but should work on any recent Linux distribution.
+
+### Compilation from source
+
 The tool is written in [Rust](https://rust-lang.org/),
 which is also required for installing the tool. The recommended
 way to install `Rust` is by using
