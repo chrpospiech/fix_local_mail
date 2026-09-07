@@ -63,6 +63,7 @@ pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
 ///
 /// * `temp_dir` - Base path for the temporary test directory
 /// * `dry_run` - dry run flag to set in the arguments
+/// * `ignore_missing` - ignore missing email files flag to set in the arguments
 ///
 /// # Returns
 ///
