@@ -66,9 +66,9 @@ we have the following.
 
 ### Installation of the Linux binary
 
-For the version (e.g.) `v1.7.0`, a Linux binary is available under
-[Releases->Assets](
-  https://github.com/chrpospiech/fix_local_mail/releases/download/v1.7.0/fix_local_mail).
+For a given release tag (e.g. `v1.7.0`), download the Linux binary
+from the GitHub release assets:
+<https://github.com/chrpospiech/fix_local_mail/releases/download/v1.7.0/fix_local_mail>.
 This was compiled with `Kubuntu 24.04`, but should work on any recent Linux distribution.
 
 ### Compilation from source
