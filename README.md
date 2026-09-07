@@ -175,7 +175,8 @@ See LICENSE file for details.
      on disk or in the database. In case of the letter, copy the email
      into a temporary file on disk in the cache directory.
    - In case the email is neither found on disk nor in the database,
-     the database entry is simply cleared.
+     the database entry is simply cleared or ignored, depending
+     on the setting of the option `--ignore-missing`.
    - The root of the local mail directory and the location of the mail cache
      can be changed by command line options for debugging and unit testing.
 
