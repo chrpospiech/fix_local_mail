@@ -147,7 +147,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -176,7 +176,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
             fetch_full_paths(pool.clone(), &args).await?;
@@ -205,7 +205,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -235,7 +235,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -264,7 +264,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -293,7 +293,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -323,7 +323,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -353,7 +353,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =

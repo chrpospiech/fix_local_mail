@@ -62,7 +62,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
@@ -87,7 +87,7 @@ mod tests {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
         // Test: Retrieve the cached email path for file_id 50638
         // The email with file_id 50638 has no remote_id and is cached in the file system
         let file_id = 50638;
@@ -112,7 +112,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Test: Retrieve the cached email path for file_id 50645
         // The email with file_id 50645 has no remote_id and is cached in the database
@@ -140,7 +140,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Test: Retrieve the cached email path for file_id 50645
         // The email with file_id 50645 has no remote_id and is cached in the database
@@ -168,7 +168,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -204,7 +204,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with db_url = "auto"
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =

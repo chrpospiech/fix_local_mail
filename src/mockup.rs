@@ -69,11 +69,12 @@ pub fn teardown_tmp_mail_dir(temp_dir: &str) -> Result<()> {
 /// Returns a `CliArgs` instance with maildir and cache paths configured to use
 /// subdirectories within the provided `temp_dir`.
 ///
-pub fn create_test_cli_args(temp_dir: &str, dry_run: bool) -> CliArgs {
+pub fn create_test_cli_args(temp_dir: &str, dry_run: bool, ignore_missing: bool) -> CliArgs {
     CliArgs {
         maildir_path: format!("{}/local_mail/", temp_dir),
         mail_cache_path: format!("{}/file_db_data/", temp_dir),
         dry_run,
+        ignore_missing,
         ..Default::default()
     }
 }

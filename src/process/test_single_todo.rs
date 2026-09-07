@@ -144,15 +144,15 @@ mod tests {
         Ok(row.0 > 0)
     }
 
-    /// Test case to verify that an email with a odd remote ID is correctly moved to the target maildir
-    /// and that the corresponding item is removed from the database.
+    // Test case to verify that an email with a odd remote ID is correctly moved to the target maildir
+    // and that the corresponding item is removed from the database.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_moving_email_with_odd_name(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -184,15 +184,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is not moved and the item is not removed from the database
-    /// when the email is already in the right place.
+    // Test case to verify that an email is not moved and the item is not removed from the database
+    // when the email is already in the right place.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_already_in_right_place(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -237,15 +237,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is not moved and the item is not removed from the database
-    /// when the email file is missing.
+    // Test case to verify that an email is not moved and the item is not removed from the database
+    // when the email file is missing.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_file_missing(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -287,7 +287,7 @@ mod tests {
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct with --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, true);
+        let args = create_test_cli_args(&temp_dir, true, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -331,15 +331,15 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved from "new" to "cur" and the item is removed from the database
-    /// when the email is in the "new" directory and has a valid remote ID.
+    // Test case to verify that an email is moved from "new" to "cur" and the item is removed from the database
+    // when the email is in the "new" directory and has a valid remote ID.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_new_directory(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -370,17 +370,16 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved and the item is removed from the database
-    /// when the email is stored in the file_db cache directory (without a valid remote ID)
-    /// and has a valid timestamp in the email content.
-    ///
+    // Test case to verify that an email is moved and the item is removed from the database
+    // when the email is stored in the file_db cache directory (without a valid remote ID)
+    // and has a valid timestamp in the email content.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_file_db_cache(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
@@ -410,16 +409,16 @@ mod tests {
         Ok(())
     }
 
-    /// Test case to verify that an email is moved and the item is removed from the database
-    /// when the email is stored in the database (without a valid remote ID)
-    /// and has a valid timestamp in the email content.
+    // Test case to verify that an email is moved and the item is removed from the database
+    // when the email is stored in the database (without a valid remote ID)
+    // and has a valid timestamp in the email content.
     #[sqlx::test(fixtures("../../tests/fixtures/akonadi.sql"))]
     pub async fn test_email_in_database(pool: Pool<MySql>) -> Result<()> {
         // Recursively copy src/todoitems/tests/data to a unique subdirectory in /tmp
         let temp_dir: String = setup_tmp_mail_dir()?;
 
         // Setup an argument struct without --dry-run, pointing to the temporary mail directory
-        let args = create_test_cli_args(&temp_dir, false);
+        let args = create_test_cli_args(&temp_dir, false, false);
 
         // Fetch full paths of all mail directories
         let full_paths: std::collections::HashMap<i64, String> =
