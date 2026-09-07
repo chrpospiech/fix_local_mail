@@ -58,7 +58,7 @@ pub async fn get_single_matching_file(pattern: &str) -> Result<Option<String>> {
         return Ok(None);
     }
     if paths.len() != 1 {
-        anyhow::bail!("Expected exactly one file, found {}", paths.len());
+        anyhow::bail!("Expected exactly one file matching pattern '{}', found {}", pattern, paths.len());
     }
 
     Ok(Some(paths[0].to_string_lossy().to_string()))
